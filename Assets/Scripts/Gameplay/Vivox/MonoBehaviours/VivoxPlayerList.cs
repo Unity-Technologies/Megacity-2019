@@ -65,14 +65,20 @@ namespace Unity.MegaCity.Gameplay
 
         private void Start()
         {
-            VivoxManager.Instance.Channel.OnParticipantAddedEvent += OnParticipantAdded;
-            VivoxManager.Instance.Channel.OnParticipantRemovedEvent += OnParticipantRemoved;
+            if (VivoxManager.Instance != null && VivoxManager.Instance.Channel != null)
+            {
+                VivoxManager.Instance.Channel.OnParticipantAddedEvent += OnParticipantAdded;
+                VivoxManager.Instance.Channel.OnParticipantRemovedEvent += OnParticipantRemoved;    
+            }
         }
 
         private void OnDestroy()
         {
-            VivoxManager.Instance.Channel.OnParticipantAddedEvent -= OnParticipantAdded;
-            VivoxManager.Instance.Channel.OnParticipantRemovedEvent -= OnParticipantRemoved;
+            if (VivoxManager.Instance != null && VivoxManager.Instance.Channel != null)
+            {
+                VivoxManager.Instance.Channel.OnParticipantAddedEvent -= OnParticipantAdded;
+                VivoxManager.Instance.Channel.OnParticipantRemovedEvent -= OnParticipantRemoved;    
+            }
         }
         
         private void OnParticipantAdded(string username, ChannelId channel, IParticipant participant)

@@ -34,6 +34,7 @@ namespace Unity.MegaCity.UI
         public MatchMakingConnector(MultiplayerServerSettings ServerSettings)
         {
             m_ServerSettings = ServerSettings;
+            m_DefaultName = Environment.UserName.ToUpper();
         }
 
         public async Task Init()
@@ -43,8 +44,6 @@ namespace Unity.MegaCity.UI
 #if UNITY_SERVER && !UNITY_EDITOR
             return;
 #endif
-            m_DefaultName = Environment.UserName.ToUpper();
-
             #region ServiceSignin
 
             m_ProfileService = new PlayerAuthentication();
@@ -58,6 +57,17 @@ namespace Unity.MegaCity.UI
         {
             Debug.Log("Beginning Matchmaking.");
             m_ConnectionStatusLabel.text = "Beginning Matchmaking.";
+
+            if (string.IsNullOrEmpty(Application.cloudProjectId))
+            {
+                Debug.LogWarning($"To use Unity's dashboard services, " +
+                                 "you need to link your Unity project to a project ID. " +
+                                 "To do this, go to Project Settings to select your organization, " +
+                                 "select your project and then link a project ID. " +
+                                 "You also need to make sure your organization has access to the required products. " +
+                                 "Visit https://dashboard.unity3d.com to sign up.");
+                return;
+            }
 
             try
             {

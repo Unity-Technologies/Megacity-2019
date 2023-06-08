@@ -23,6 +23,9 @@ namespace Unity.MegaCity.Gameplay
 
         private void Start()
         {
+            if(VivoxManager.Instance == null || VivoxSession == null)
+                return;
+            
             VivoxSession.OnUserLoggedInEvent += ShowPanel;
             VivoxSession.OnUserLoggedInEvent += OnUserLoggedIn;
             VivoxSession.OnUserLoggedOutEvent += OnUserLoggedOut;
@@ -40,6 +43,8 @@ namespace Unity.MegaCity.Gameplay
 
         private void OnDestroy()
         {
+            if (VivoxManager.Instance == null || VivoxSession == null)
+                return;
             VivoxSession.OnUserLoggedInEvent -= OnUserLoggedIn;
             VivoxSession.OnUserLoggedOutEvent -= OnUserLoggedOut;
             VivoxSession.OnUserLoggedOutEvent -= HidePanel;

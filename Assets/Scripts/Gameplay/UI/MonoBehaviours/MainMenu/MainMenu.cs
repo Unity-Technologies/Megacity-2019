@@ -72,9 +72,20 @@ namespace Unity.MegaCity.UI
                 Destroy(gameObject);
                 return;
             }
-
             MatchMakingConnector = new MatchMakingConnector(m_ServerSettings);
-            await MatchMakingConnector.Init();
+            if (string.IsNullOrEmpty(Application.cloudProjectId))
+            {
+                Debug.LogWarning($"To use Unity's dashboard services, " +
+                                 "you need to link your Unity project to a project ID. " +
+                                 "To do this, go to Project Settings to select your organization, " +
+                                 "select your project and then link a project ID. " +
+                                 "You also need to make sure your organization has access to the required products. " +
+                                 "Visit https://dashboard.unity3d.com to sign up.");
+            }
+            else
+            {
+                await MatchMakingConnector.Init();    
+            }
         }
 
         private void OnDestroy()

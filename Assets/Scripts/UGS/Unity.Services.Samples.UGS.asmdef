@@ -1,0 +1,20 @@
+{
+    "name": "Unity.Services.Samples.UGS",
+    "rootNamespace": "",
+    "references": [
+        "GUID:fe25561d224ed4743af4c60938a59d0b",
+        "GUID:5540e30183c82e84b954c033c388e06c",
+        "GUID:f58f1954bf2a1be49af6016003b22699",
+        "GUID:a92d208582c4d6445ad4140259a5eb94",
+        "GUID:496cf55643e21a645a4504c751f1e0a9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

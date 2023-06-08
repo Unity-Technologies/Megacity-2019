@@ -1,0 +1,302 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!4 &4432073928344116724 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+    type: 3}
+  m_PrefabInstance: {fileID: 4624056821020215408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &61534766417537355 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+    type: 3}
+  m_PrefabInstance: {fileID: 9038879929390742735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1067414642951753029 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2021317204857902701, guid: d7d1b0e32a4de624187f746be9d77b44,
+    type: 3}
+  m_PrefabInstance: {fileID: 1359276470517652264}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7528305109758860484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7466518607271875451}
+  m_Layer: 0
+  m_Name: Pagoda_Roof_Tile_2500_A
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7466518607271875451
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7528305109758860484}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4432073928344116724}
+  - {fileID: 61534766417537355}
+  - {fileID: 1067414642951753029}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1359276470517652264
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  m_Modification:
+    m_TransformParent: {fileID: 7466518607271875451}
+    m_Modifications:
+    - target: {fileID: 2021317204857902701, guid: d7d1b0e32a4de624187f746be9d77b44,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.26001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021317204857902701, guid: d7d1b0e32a4de624187f746be9d77b44,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021317204857902701, guid: d7d1b0e32a4de624187f746be9d77b44,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.250008
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021317204857902701, guid: d7d1b0e32a4de624187f746be9d77b44,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000119209275
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021317204857902701, guid: d7d1b0e32a4de624187f746be9d77b44,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.00000009755966
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021317204857902701, guid: d7d1b0e32a4de624187f746be9d77b44,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.00000024507366
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021317204857902701, guid: d7d1b0e32a4de624187f746be9d77b44,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021317204857902701, guid: d7d1b0e32a4de624187f746be9d77b44,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021317204857902701, guid: d7d1b0e32a4de624187f746be9d77b44,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021317204857902701, guid: d7d1b0e32a4de624187f746be9d77b44,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021317204857902701, guid: d7d1b0e32a4de624187f746be9d77b44,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021317204858325581, guid: d7d1b0e32a4de624187f746be9d77b44,
+        type: 3}
+      propertyPath: m_Name
+      value: Pagoda_Tile_Roof_5000x5000_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021317204857902701, guid: d7d1b0e32a4de624187f746be9d77b44,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25000027
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021317204857902701, guid: d7d1b0e32a4de624187f746be9d77b44,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021317204857902701, guid: d7d1b0e32a4de624187f746be9d77b44,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2500002
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d7d1b0e32a4de624187f746be9d77b44, type: 3}
+--- !u!1001 &4624056821020215408
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  m_Modification:
+    m_TransformParent: {fileID: 7466518607271875451}
+    m_Modifications:
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00000008940696
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.0000002980232
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.707107
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182615972, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_Name
+      value: Pagoda_Tile_Roof_Corner_5000x5000_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 223e9af9d27a9d54e81bfff1eb31ab02, type: 3}
+--- !u!1001 &9038879929390742735
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  m_Modification:
+    m_TransformParent: {fileID: 7466518607271875451}
+    m_Modifications:
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.000034332
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0000004768371
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.000000093787314
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.000000032653208
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182615972, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_Name
+      value: Pagoda_Tile_Roof_Corner_5000x5000_A (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25000027
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055068609182258564, guid: 223e9af9d27a9d54e81bfff1eb31ab02,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2500002
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 223e9af9d27a9d54e81bfff1eb31ab02, type: 3}

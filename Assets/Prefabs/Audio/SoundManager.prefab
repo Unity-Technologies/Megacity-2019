@@ -1,0 +1,148 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4300666027389183561
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4300666027389183567}
+  - component: {fileID: 4300666027389183566}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4300666027389183567
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4300666027389183561}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4300666027389183566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4300666027389183561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d820dd56a434d7bbb9825bea40d3d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SoundDefinitions:
+  - {fileID: 11400000, guid: 8bf71efc49e70f140adc3e90d18cf094, type: 2}
+  - {fileID: 11400000, guid: 8667aced30bb0c846a18dbee6eab4ecb, type: 2}
+  - {fileID: 11400000, guid: 3becdcee651464d47aae899e47ab1f56, type: 2}
+  - {fileID: 11400000, guid: 303b49181d5c04740aab72463da67f72, type: 2}
+  - {fileID: 11400000, guid: 5b261ba0a247c664a8d909a699e3b9d8, type: 2}
+  - {fileID: 11400000, guid: 1a69044545433e747a71cedfbd6a66bf, type: 2}
+  - {fileID: 11400000, guid: 018ebc7cd4f2c0147b75eee080fddc75, type: 2}
+  - {fileID: 11400000, guid: 3db15d477a3ee2c49bcd8b7b2e334d35, type: 2}
+  - {fileID: 11400000, guid: 02409dabed7648d47abf7a6b1f8814b8, type: 2}
+  - {fileID: 11400000, guid: c355243d6bd290e4badd383f9eba4689, type: 2}
+  - {fileID: 11400000, guid: a290a4bb9dcddbc44b551344d7178784, type: 2}
+  - {fileID: 11400000, guid: 27ccc1af8ca4d114eb0cb47a66c11389, type: 2}
+  - {fileID: 11400000, guid: a2d21786f70cd944cb69023099aebb7d, type: 2}
+  - {fileID: 11400000, guid: 081a643080bbf3e4a89f318ba67edf36, type: 2}
+  m_Clips:
+  - {fileID: 8300000, guid: 0ad8a78ef8b41364d91c3ae6e3dfc406, type: 3}
+  - {fileID: 8300000, guid: d61fada9f2432ce439951c46d4e597ab, type: 3}
+  - {fileID: 8300000, guid: 3c611d4fc8fd2d04e94c1376d22bfbc6, type: 3}
+  - {fileID: 8300000, guid: 03016fb2621d8834181ea2e09e4d74d8, type: 3}
+  - {fileID: 8300000, guid: 141569d0694c96540b2818ed163c0f06, type: 3}
+  - {fileID: 8300000, guid: 7243acfaeea1ca3489688411d82ef871, type: 3}
+  - {fileID: 8300000, guid: 1a97e83a3f9803b42b498c9b83dab2b8, type: 3}
+  - {fileID: 8300000, guid: 56faaf2ecae401148aa703a35b6a0c47, type: 3}
+  - {fileID: 8300000, guid: 4a451b89368c48c4080ffb7345eb51a9, type: 3}
+  - {fileID: 8300000, guid: 10ddc3de95b44a243b16c3977aa57172, type: 3}
+  - {fileID: 8300000, guid: 07b7691201a3e68478ad6115fe8064e0, type: 3}
+  - {fileID: 8300000, guid: 1d15f9de40827d449a77ade2f04c7685, type: 3}
+  - {fileID: 8300000, guid: d07fca6ee8e4c1d4890c1e5ca4aad54e, type: 3}
+  - {fileID: 8300000, guid: 09da43bae7ff3b641b91e05be9e010c1, type: 3}
+  - {fileID: 8300000, guid: fca0f2c3c0dbb574ba92b9b425ecbd9e, type: 3}
+  - {fileID: 8300000, guid: 4dd09979f9d676746a654b775603b0fc, type: 3}
+  - {fileID: 8300000, guid: 59470dfdd2f9fc0428aaf2f63f8a4556, type: 3}
+  - {fileID: 8300000, guid: d3358a29560d7574d8b2ba6bd59a8bac, type: 3}
+  - {fileID: 8300000, guid: 57af0f23d86544b40b89d1913fe135fd, type: 3}
+  - {fileID: 8300000, guid: 60edd3f69e33e4049b37881e13a2e321, type: 3}
+  - {fileID: 8300000, guid: 9d664912cfab7ac4ab7d7153f385f60c, type: 3}
+  m_Probabilities:
+  - 0.03
+  - 0.09
+  - 0.07
+  - 0.6
+  - 0.46
+  - 0.55
+  - 0.39
+  - 0.6
+  - 0.6
+  - 0.6
+  - 1
+  - 0.7
+  - 0.7
+  - 0.6
+  - 0.58
+  - 0.35
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  m_Volumes:
+  - x: 0.03
+    y: 0.07
+  - x: 0.04
+    y: 0.06
+  - x: 0.02
+    y: 0.08
+  - x: 0.3
+    y: 0.44
+  - x: 0.3
+    y: 0.44
+  - x: 0.3
+    y: 0.44
+  - x: 0.3
+    y: 0.44
+  - x: 0.3
+    y: 0.44
+  - x: 0.3
+    y: 0.44
+  - x: 0.3
+    y: 0.44
+  - x: 0.3
+    y: 0.44
+  - x: 0.3
+    y: 0.44
+  - x: 0.3
+    y: 0.44
+  - x: 0.3
+    y: 0.44
+  - x: 0.3
+    y: 0.44
+  - x: 0.3
+    y: 0.44
+  - x: 0.3
+    y: 0.44
+  - x: 0.1
+    y: 0.15
+  - x: 0.1
+    y: 0.15
+  - x: 0.1
+    y: 0.15
+  - x: 0.36
+    y: 0.65

@@ -1,0 +1,2337 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &408314113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 408314114}
+  - component: {fileID: 408314115}
+  m_Layer: 0
+  m_Name: Density_Volume_1_Pagoda_A (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &408314114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408314113}
+  m_LocalRotation: {x: -0, y: 0.3925754, z: -0, w: 0.9197198}
+  m_LocalPosition: {x: -1081.32, y: 586.3, z: 919.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3447170067929768011}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 46.230003, z: 0}
+--- !u!114 &408314115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408314113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1fbb15bf92b84f40a1eb030765b5afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters:
+    albedo: {r: 0.4528302, g: 0.4290314, b: 0.3823425, a: 1}
+    meanFreePath: 100
+    blendingMode: 1
+    priority: 0
+    anisotropy: 0
+    volumeMask: {fileID: 11700000, guid: d2d9ae421193bf141ac4195d9bd82837, type: 2}
+    textureScrollingSpeed: {x: 0, y: 0, z: 0}
+    textureTiling: {x: 0.75, y: 0.75, z: 0.75}
+    positiveFade: {x: 0.2, y: 0, z: 0.2}
+    negativeFade: {x: 0.2, y: 0.5, z: 0.2}
+    m_EditorUniformFade: 0
+    m_EditorPositiveFade: {x: 0.2, y: 0, z: 0.2}
+    m_EditorNegativeFade: {x: 0.2, y: 0.5, z: 0.2}
+    m_EditorAdvancedFade: 1
+    size: {x: 75.06409, y: 76.88935, z: 75.84589}
+    invertFade: 0
+    distanceFadeStart: 10000
+    distanceFadeEnd: 10000
+    textureOffset: {x: 0, y: 0, z: 0}
+    falloffMode: 0
+    maskMode: 0
+    materialMask: {fileID: 0}
+  m_Version: 2
+--- !u!1 &418976270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 418976271}
+  - component: {fileID: 418976272}
+  m_Layer: 0
+  m_Name: Density_Volume_1_Maze_A (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &418976271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418976270}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 164.1, y: 313.6, z: 1183.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3447170067929768011}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &418976272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418976270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1fbb15bf92b84f40a1eb030765b5afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters:
+    albedo: {r: 0.47076362, g: 0.6698113, b: 0.66302556, a: 1}
+    meanFreePath: 30
+    blendingMode: 1
+    priority: 0
+    anisotropy: 0
+    volumeMask: {fileID: 0}
+    textureScrollingSpeed: {x: 0, y: 0, z: 0}
+    textureTiling: {x: 10, y: 10, z: 10}
+    positiveFade: {x: 1, y: 1, z: 1}
+    negativeFade: {x: 1, y: 1, z: 1}
+    m_EditorUniformFade: 0
+    m_EditorPositiveFade: {x: 1, y: 1, z: 1}
+    m_EditorNegativeFade: {x: 1, y: 1, z: 1}
+    m_EditorAdvancedFade: 1
+    size: {x: 177.07462, y: 286.07468, z: 309.55292}
+    invertFade: 0
+    distanceFadeStart: 10000
+    distanceFadeEnd: 10000
+    textureOffset: {x: 0, y: 0, z: 0}
+    falloffMode: 0
+    maskMode: 0
+    materialMask: {fileID: 0}
+  m_Version: 2
+--- !u!1 &478310261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 478310262}
+  - component: {fileID: 478310263}
+  m_Layer: 0
+  m_Name: Density_Volume_1_Maze_A (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &478310262
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478310261}
+  m_LocalRotation: {x: -0, y: 0.7071067, z: -0, w: 0.7071069}
+  m_LocalPosition: {x: 160.7, y: 112.1, z: 1448.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3447170067929768011}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
+--- !u!114 &478310263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478310261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1fbb15bf92b84f40a1eb030765b5afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters:
+    albedo: {r: 0.47076362, g: 0.6698113, b: 0.66302556, a: 1}
+    meanFreePath: 23.23
+    blendingMode: 1
+    priority: 0
+    anisotropy: 0
+    volumeMask: {fileID: 11700000, guid: d2d9ae421193bf141ac4195d9bd82837, type: 2}
+    textureScrollingSpeed: {x: 0, y: 0, z: 0}
+    textureTiling: {x: 10, y: 10, z: 10}
+    positiveFade: {x: 0.62, y: 1, z: 0}
+    negativeFade: {x: 0, y: 0, z: 0}
+    m_EditorUniformFade: 0
+    m_EditorPositiveFade: {x: 0.62, y: 1, z: 0}
+    m_EditorNegativeFade: {x: 0, y: 0, z: 0}
+    m_EditorAdvancedFade: 1
+    size: {x: 192.92406, y: 280.86868, z: 309.55292}
+    invertFade: 0
+    distanceFadeStart: 10000
+    distanceFadeEnd: 10000
+    textureOffset: {x: 0, y: 0, z: 0}
+    falloffMode: 0
+    maskMode: 0
+    materialMask: {fileID: 0}
+  m_Version: 2
+--- !u!1 &550127403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 550127404}
+  - component: {fileID: 550127405}
+  m_Layer: 0
+  m_Name: Density_Volume_1_Pagoda_A (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &550127404
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550127403}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1184, y: 586.4, z: 1049.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3447170067929768011}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &550127405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550127403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1fbb15bf92b84f40a1eb030765b5afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters:
+    albedo: {r: 0.4528302, g: 0.4290314, b: 0.3823425, a: 1}
+    meanFreePath: 100
+    blendingMode: 1
+    priority: 0
+    anisotropy: 0
+    volumeMask: {fileID: 11700000, guid: d2d9ae421193bf141ac4195d9bd82837, type: 2}
+    textureScrollingSpeed: {x: 0, y: 0, z: 0}
+    textureTiling: {x: 1.3, y: 0.23, z: 0.75}
+    positiveFade: {x: 0.2, y: 0, z: 0.2}
+    negativeFade: {x: 0.2, y: 0.5, z: 0.2}
+    m_EditorUniformFade: 0
+    m_EditorPositiveFade: {x: 0.2, y: 0, z: 0.2}
+    m_EditorNegativeFade: {x: 0.2, y: 0.5, z: 0.2}
+    m_EditorAdvancedFade: 1
+    size: {x: 126.69042, y: 23.704037, z: 75.84589}
+    invertFade: 0
+    distanceFadeStart: 10000
+    distanceFadeEnd: 10000
+    textureOffset: {x: 0, y: 0, z: 0}
+    falloffMode: 0
+    maskMode: 0
+    materialMask: {fileID: 0}
+  m_Version: 2
+--- !u!1 &742072051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 742072052}
+  - component: {fileID: 742072053}
+  m_Layer: 0
+  m_Name: Density_Volume_1_Maze_A (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &742072052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742072051}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 68.94, y: 211.1, z: 1303.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3447170067929768011}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &742072053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742072051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1fbb15bf92b84f40a1eb030765b5afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters:
+    albedo: {r: 0.47076362, g: 0.6698113, b: 0.66302556, a: 1}
+    meanFreePath: 25
+    blendingMode: 1
+    priority: 0
+    anisotropy: 0
+    volumeMask: {fileID: 0}
+    textureScrollingSpeed: {x: 0, y: 0, z: 0}
+    textureTiling: {x: 10, y: 10, z: 10}
+    positiveFade: {x: 1, y: 1, z: 1}
+    negativeFade: {x: 1, y: 1, z: 1}
+    m_EditorUniformFade: 0
+    m_EditorPositiveFade: {x: 1, y: 1, z: 1}
+    m_EditorNegativeFade: {x: 1, y: 1, z: 1}
+    m_EditorAdvancedFade: 1
+    size: {x: 109.23115, y: 253.95, z: 309.55292}
+    invertFade: 0
+    distanceFadeStart: 10000
+    distanceFadeEnd: 10000
+    textureOffset: {x: 0, y: 0, z: 0}
+    falloffMode: 0
+    maskMode: 0
+    materialMask: {fileID: 0}
+  m_Version: 2
+--- !u!1 &960222741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 960222742}
+  - component: {fileID: 960222743}
+  m_Layer: 0
+  m_Name: Density_Volume_1_Pagoda_A (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &960222742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960222741}
+  m_LocalRotation: {x: -0, y: 0.3925754, z: -0, w: 0.9197198}
+  m_LocalPosition: {x: -1284.5, y: 580.53, z: 919.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3447170067929768011}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 46.230003, z: 0}
+--- !u!114 &960222743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960222741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1fbb15bf92b84f40a1eb030765b5afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters:
+    albedo: {r: 0.4528302, g: 0.4290314, b: 0.3823425, a: 1}
+    meanFreePath: 100
+    blendingMode: 1
+    priority: 0
+    anisotropy: 0
+    volumeMask: {fileID: 11700000, guid: d2d9ae421193bf141ac4195d9bd82837, type: 2}
+    textureScrollingSpeed: {x: 0, y: 0, z: 0}
+    textureTiling: {x: 0.75, y: 0.676, z: 0.75}
+    positiveFade: {x: 0.2, y: 0, z: 0.2}
+    negativeFade: {x: 0.2, y: 0.5, z: 0.2}
+    m_EditorUniformFade: 0
+    m_EditorPositiveFade: {x: 0.2, y: 0, z: 0.2}
+    m_EditorNegativeFade: {x: 0.2, y: 0.5, z: 0.2}
+    m_EditorAdvancedFade: 1
+    size: {x: 75.06411, y: 76.88936, z: 75.84589}
+    invertFade: 0
+    distanceFadeStart: 10000
+    distanceFadeEnd: 10000
+    textureOffset: {x: 0, y: 0, z: 0}
+    falloffMode: 0
+    maskMode: 0
+    materialMask: {fileID: 0}
+  m_Version: 2
+--- !u!1 &1241138379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1241138380}
+  - component: {fileID: 1241138381}
+  m_Layer: 0
+  m_Name: Density_Volume_1_Maze_A (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1241138380
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241138379}
+  m_LocalRotation: {x: -0, y: 0.7071067, z: -0, w: 0.7071069}
+  m_LocalPosition: {x: 160.7, y: 226.9, z: 1500.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3447170067929768011}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
+--- !u!114 &1241138381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241138379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1fbb15bf92b84f40a1eb030765b5afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters:
+    albedo: {r: 0.47076362, g: 0.6698113, b: 0.66302556, a: 1}
+    meanFreePath: 16
+    blendingMode: 1
+    priority: 0
+    anisotropy: 0
+    volumeMask: {fileID: 11700000, guid: d2d9ae421193bf141ac4195d9bd82837, type: 2}
+    textureScrollingSpeed: {x: 0, y: 0, z: 0}
+    textureTiling: {x: 10, y: 10, z: 10}
+    positiveFade: {x: 0.62, y: 1, z: 0}
+    negativeFade: {x: 0, y: 0, z: 0}
+    m_EditorUniformFade: 0
+    m_EditorPositiveFade: {x: 0.62, y: 1, z: 0}
+    m_EditorNegativeFade: {x: 0, y: 0, z: 0}
+    m_EditorAdvancedFade: 1
+    size: {x: 109.231155, y: 253.95, z: 309.55292}
+    invertFade: 0
+    distanceFadeStart: 10000
+    distanceFadeEnd: 10000
+    textureOffset: {x: 0, y: 0, z: 0}
+    falloffMode: 0
+    maskMode: 0
+    materialMask: {fileID: 0}
+  m_Version: 2
+--- !u!1 &1359504735
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1359504736}
+  - component: {fileID: 1359504737}
+  m_Layer: 0
+  m_Name: Density_Volume_1_Pagoda_A
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1359504736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359504735}
+  m_LocalRotation: {x: -0, y: 0.7071067, z: -0, w: 0.7071069}
+  m_LocalPosition: {x: -1184, y: 563.8, z: 912.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3447170067929768011}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
+--- !u!114 &1359504737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359504735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1fbb15bf92b84f40a1eb030765b5afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters:
+    albedo: {r: 0.26726595, g: 0.4531547, b: 0.6226415, a: 1}
+    meanFreePath: 1450
+    blendingMode: 1
+    priority: 0
+    anisotropy: 0
+    volumeMask: {fileID: 0}
+    textureScrollingSpeed: {x: 0, y: 0, z: 0}
+    textureTiling: {x: 3.5, y: 3.8, z: 2.7}
+    positiveFade: {x: 0.2, y: 0.05, z: 0.2}
+    negativeFade: {x: 0.2, y: 1, z: 0.2}
+    m_EditorUniformFade: 0
+    m_EditorPositiveFade: {x: 0.2, y: 0.05, z: 0.2}
+    m_EditorNegativeFade: {x: 0.2, y: 1, z: 0.2}
+    m_EditorAdvancedFade: 1
+    size: {x: 3000, y: 330.5, z: 3000}
+    invertFade: 0
+    distanceFadeStart: 10000
+    distanceFadeEnd: 10000
+    textureOffset: {x: 0, y: 0, z: 0}
+    falloffMode: 0
+    maskMode: 0
+    materialMask: {fileID: 0}
+  m_Version: 2
+--- !u!1 &1461481871
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1461481872}
+  - component: {fileID: 1461481873}
+  m_Layer: 0
+  m_Name: Density_Volume_1_Pagoda_A (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1461481872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461481871}
+  m_LocalRotation: {x: -0, y: 0.3925754, z: -0, w: 0.9197198}
+  m_LocalPosition: {x: -1188, y: 593.57, z: 780.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3447170067929768011}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 46.230003, z: 0}
+--- !u!114 &1461481873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461481871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1fbb15bf92b84f40a1eb030765b5afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters:
+    albedo: {r: 0.4528302, g: 0.4290314, b: 0.3823425, a: 1}
+    meanFreePath: 100
+    blendingMode: 1
+    priority: 0
+    anisotropy: 0
+    volumeMask: {fileID: 11700000, guid: d2d9ae421193bf141ac4195d9bd82837, type: 2}
+    textureScrollingSpeed: {x: 0, y: 0, z: 0}
+    textureTiling: {x: 0.75, y: 0.6, z: 0.7}
+    positiveFade: {x: 0.2, y: 0, z: 0.2}
+    negativeFade: {x: 0.2, y: 0.5, z: 0.2}
+    m_EditorUniformFade: 0
+    m_EditorPositiveFade: {x: 0.2, y: 0, z: 0.2}
+    m_EditorNegativeFade: {x: 0.2, y: 0.5, z: 0.2}
+    m_EditorAdvancedFade: 1
+    size: {x: 75.06413, y: 64.12957, z: 75.84589}
+    invertFade: 0
+    distanceFadeStart: 10000
+    distanceFadeEnd: 10000
+    textureOffset: {x: 0, y: 0, z: 0}
+    falloffMode: 0
+    maskMode: 0
+    materialMask: {fileID: 0}
+  m_Version: 2
+--- !u!1 &1765029302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1765029303}
+  - component: {fileID: 1765029304}
+  m_Layer: 0
+  m_Name: Density_Volume_1_Pagoda_A (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1765029303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765029302}
+  m_LocalRotation: {x: -0, y: 0.7071067, z: -0, w: 0.7071069}
+  m_LocalPosition: {x: -1172.5, y: 849, z: 917.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3447170067929768011}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
+--- !u!114 &1765029304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765029302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1fbb15bf92b84f40a1eb030765b5afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters:
+    albedo: {r: 0.4528302, g: 0.4290314, b: 0.3823425, a: 1}
+    meanFreePath: 100
+    blendingMode: 1
+    priority: 0
+    anisotropy: 0
+    volumeMask: {fileID: 11700000, guid: d2d9ae421193bf141ac4195d9bd82837, type: 2}
+    textureScrollingSpeed: {x: 0, y: 0, z: 0}
+    textureTiling: {x: 2, y: 1, z: 1}
+    positiveFade: {x: 0.2, y: 0.2, z: 0.2}
+    negativeFade: {x: 0.2, y: 0.2, z: 0.2}
+    m_EditorUniformFade: 0
+    m_EditorPositiveFade: {x: 0.2, y: 0.2, z: 0.2}
+    m_EditorNegativeFade: {x: 0.2, y: 0.2, z: 0.2}
+    m_EditorAdvancedFade: 1
+    size: {x: 187.67657, y: 81.81833, z: 81.95772}
+    invertFade: 0
+    distanceFadeStart: 10000
+    distanceFadeEnd: 10000
+    textureOffset: {x: 0, y: 0, z: 0}
+    falloffMode: 0
+    maskMode: 0
+    materialMask: {fileID: 0}
+  m_Version: 2
+--- !u!1 &1865127922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1865127923}
+  - component: {fileID: 1865127924}
+  m_Layer: 0
+  m_Name: Density_Volume_1_Pagoda_A (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1865127923
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865127922}
+  m_LocalRotation: {x: -0, y: 0.7071067, z: -0, w: 0.7071069}
+  m_LocalPosition: {x: -1172.5, y: 743.7, z: 912.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3447170067929768011}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
+--- !u!114 &1865127924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865127922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1fbb15bf92b84f40a1eb030765b5afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters:
+    albedo: {r: 0.4528302, g: 0.4290314, b: 0.3823425, a: 1}
+    meanFreePath: 100
+    blendingMode: 1
+    priority: 0
+    anisotropy: 0
+    volumeMask: {fileID: 11700000, guid: d2d9ae421193bf141ac4195d9bd82837, type: 2}
+    textureScrollingSpeed: {x: 0, y: 0, z: 0}
+    textureTiling: {x: 3, y: 1.5, z: 1.5}
+    positiveFade: {x: 0.2, y: 0.05, z: 0.2}
+    negativeFade: {x: 0.2, y: 1, z: 0.2}
+    m_EditorUniformFade: 0
+    m_EditorPositiveFade: {x: 0.2, y: 0.05, z: 0.2}
+    m_EditorNegativeFade: {x: 0.2, y: 1, z: 0.2}
+    m_EditorAdvancedFade: 1
+    size: {x: 268.83426, y: 140.31372, z: 139.71448}
+    invertFade: 0
+    distanceFadeStart: 10000
+    distanceFadeEnd: 10000
+    textureOffset: {x: 0, y: 0, z: 0}
+    falloffMode: 0
+    maskMode: 0
+    materialMask: {fileID: 0}
+  m_Version: 2
+--- !u!1 &2026612838
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2026612839}
+  - component: {fileID: 2026612841}
+  m_Layer: 8
+  m_Name: PostProcessing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2026612839
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026612838}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16.73706, y: 344.35486, z: 98.82967}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5511486067029401824}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2026612841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026612838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 0625f286265312840ac80a83aa47fe05, type: 2}
+--- !u!1 &1451503496807911273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5200653538749197193}
+  - component: {fileID: 7756622678454323040}
+  m_Layer: 0
+  m_Name: Density_Volume_1_Maze_A (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5200653538749197193
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451503496807911273}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 220, y: 62.84834, z: 1180}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3447170067929768011}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7756622678454323040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451503496807911273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1fbb15bf92b84f40a1eb030765b5afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters:
+    albedo: {r: 0.47076362, g: 0.6698113, b: 0.66302556, a: 1}
+    meanFreePath: 50
+    blendingMode: 1
+    priority: 0
+    anisotropy: 0
+    volumeMask: {fileID: 11700000, guid: d2d9ae421193bf141ac4195d9bd82837, type: 2}
+    textureScrollingSpeed: {x: 0, y: 0, z: 0}
+    textureTiling: {x: 60, y: 25, z: 63}
+    positiveFade: {x: 0, y: 1, z: 0}
+    negativeFade: {x: 0.039615013, y: 0, z: 0}
+    m_EditorUniformFade: 0
+    m_EditorPositiveFade: {x: 0, y: 1, z: 0}
+    m_EditorNegativeFade: {x: 0.039615013, y: 0, z: 0}
+    m_EditorAdvancedFade: 1
+    size: {x: 630, y: 100.696686, z: 630}
+    invertFade: 0
+    distanceFadeStart: 10000
+    distanceFadeEnd: 10000
+    textureOffset: {x: 0, y: 0, z: 0}
+    falloffMode: 0
+    maskMode: 0
+    materialMask: {fileID: 0}
+  m_Version: 2
+--- !u!1 &2743119579746615978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1043055529633991747}
+  - component: {fileID: 9135901680398631245}
+  m_Layer: 8
+  m_Name: ShadowsAndSSR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1043055529633991747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2743119579746615978}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16.73706, y: 344.35486, z: 98.82967}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5511486067029401824}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9135901680398631245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2743119579746615978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 52aee542bb94f12439288ec135df6087, type: 2}
+--- !u!1 &5511486067029401825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5511486067029401824}
+  m_Layer: 0
+  m_Name: 000_Scene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5511486067029401824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5511486067029401825}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.8093333, y: 5.145388, z: -6.0972514}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3447170067929768011}
+  - {fileID: 1043055529633991747}
+  - {fileID: 2026612839}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &5511486066286876963
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5511486067029401824}
+    m_Modifications:
+    - target: {fileID: 209752029501654794, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_Version
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029501654794, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.advancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029501654794, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.meanFreePath
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029501654794, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.positiveFade.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029501654794, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029501654794, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029501654794, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029501654794, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorAdvancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029501654794, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029501654794, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029501654794, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029501654794, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029501654794, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029501654795, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029501654795, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029501654795, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029501654795, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029601010682, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_Version
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029601010682, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.advancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029601010682, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029601010682, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029601010682, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029601010682, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorAdvancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029601010682, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029601010682, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029601010682, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029601010682, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029601010682, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.y
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029601010682, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029601010683, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029601010683, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029601010683, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029601010683, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029742707286, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_Version
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029742707286, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.albedo.b
+      value: 0.66302556
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029742707286, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.albedo.g
+      value: 0.6698113
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029742707286, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.albedo.r
+      value: 0.47076362
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029742707286, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.advancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029742707286, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.negativeFade.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029742707286, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.negativeFade.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029742707286, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.negativeFade.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029742707286, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.positiveFade.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029742707286, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029742707286, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029742707286, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029742707286, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorAdvancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029742707286, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.x
+      value: 0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029742707286, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029742707287, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029742707287, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029742707287, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752029742707287, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030173651304, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030173651304, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030173651304, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030173651304, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030173651311, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_Version
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030173651311, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.advancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030173651311, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.meanFreePath
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030173651311, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030173651311, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030173651311, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030173651311, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorAdvancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030173651311, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030173651311, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030173651311, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030173651311, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030173651311, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.y
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030173651311, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030274994979, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_Version
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030274994979, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.advancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030274994979, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.meanFreePath
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030274994979, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030274994979, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030274994979, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030274994979, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorAdvancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030274994979, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030274994979, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030274994979, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030274994979, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030274994979, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030274994979, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030274994988, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030274994988, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030274994988, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030274994988, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030464645612, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_Version
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030464645612, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.albedo.b
+      value: 0.66302556
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030464645612, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.albedo.g
+      value: 0.6698113
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030464645612, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.albedo.r
+      value: 0.47076362
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030464645612, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.advancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030464645612, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.negativeFade.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030464645612, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.negativeFade.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030464645612, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.negativeFade.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030464645612, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.positiveFade.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030464645612, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030464645612, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030464645612, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030464645612, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorAdvancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030464645612, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.x
+      value: 0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030464645612, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030464645613, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030464645613, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030464645613, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030464645613, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030520481688, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_Version
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030520481688, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.advancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030520481688, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.meanFreePath
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030520481688, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.positiveFade.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030520481688, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030520481688, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030520481688, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030520481688, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorAdvancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030520481688, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030520481688, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030520481688, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030520481688, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030520481688, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030520481689, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030520481689, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030520481689, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030520481689, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078838, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_Version
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078838, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.size.x
+      value: 2164.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078838, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.size.y
+      value: 265
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078838, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.albedo.b
+      value: 0.41745284
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078838, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.albedo.g
+      value: 0.49313143
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078838, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.albedo.r
+      value: 0.5566038
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078838, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.volumeMask
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078838, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.advancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078838, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.meanFreePath
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078838, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078838, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorAdvancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078838, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078838, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078838, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078838, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078838, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078838, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078839, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078839, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078839, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078839, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078839, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1639
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752030847078839, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 176.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031080652940, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_Version
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031080652940, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.advancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031080652940, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.meanFreePath
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031080652940, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.positiveFade.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031080652940, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031080652940, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031080652940, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031080652940, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorAdvancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031080652940, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031080652940, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031080652940, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031080652940, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031080652940, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031080652941, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031080652941, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031080652941, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031080652941, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031265187950, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_Version
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031265187950, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.albedo.b
+      value: 0.66302556
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031265187950, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.albedo.g
+      value: 0.6698113
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031265187950, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.albedo.r
+      value: 0.47076362
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031265187950, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.advancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031265187950, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.negativeFade.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031265187950, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.negativeFade.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031265187950, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.negativeFade.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031265187950, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.positiveFade.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031265187950, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031265187950, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031265187950, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031265187950, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorAdvancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031265187950, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.x
+      value: 0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031265187950, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031265187951, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031265187951, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031265187951, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031265187951, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031467614646, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_Version
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031467614646, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.advancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031467614646, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.meanFreePath
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031467614646, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.positiveFade.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031467614646, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031467614646, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031467614646, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureOffset.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031467614646, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorAdvancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031467614646, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031467614646, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031467614646, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorNegativeFade.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031467614646, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031467614646, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031467614647, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031467614647, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031467614647, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 209752031467614647, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743608252808145, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743608252808145, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743608252808145, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743608252808145, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -339.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743608252808146, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_Version
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743608252808146, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.size.y
+      value: 750
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743608252808146, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.albedo.b
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743608252808146, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.albedo.g
+      value: 0.8251696
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743608252808146, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.albedo.r
+      value: 0.8027768
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743608252808146, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.volumeMask
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743608252808146, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.advancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743608252808146, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.meanFreePath
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743608252808146, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.textureIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743608252808146, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.negativeFade.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743608252808146, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.negativeFade.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743608252808146, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.negativeFade.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743608252808146, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.positiveFade.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743608252808146, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.positiveFade.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743608252808146, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorAdvancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743608252808146, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743609635759212, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743609635759212, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743609635759212, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743609635759212, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 189.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743609635759213, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_Version
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743609635759213, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.albedo.b
+      value: 0.44935924
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743609635759213, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.albedo.g
+      value: 0.48940906
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743609635759213, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.albedo.r
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743609635759213, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.advancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743609635759213, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.meanFreePath
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743609635759213, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.negativeFade.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743609635759213, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.negativeFade.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743609635759213, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.negativeFade.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743609635759213, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.positiveFade.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743609635759213, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.positiveFade.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743609635759213, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorAdvancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667743609635759213, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 683045486465698802, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_Version
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 683045486465698802, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.size.x
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 683045486465698802, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.size.y
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 683045486465698802, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.size.z
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 683045486465698802, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.albedo.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 683045486465698802, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.albedo.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 683045486465698802, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.albedo.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 683045486465698802, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.advancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 683045486465698802, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.meanFreePath
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 683045486465698802, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorAdvancedFade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 683045486465698802, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: parameters.m_EditorPositiveFade.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918266811666784828, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_Name
+      value: Density_Volumes
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825430081654361125, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825430081654361125, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825430081654361125, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825430081654361125, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825430081654361125, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825430081654361125, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 742072052}
+    - targetCorrespondingSourceObject: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1241138380}
+    - targetCorrespondingSourceObject: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 478310262}
+    - targetCorrespondingSourceObject: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1359504736}
+    - targetCorrespondingSourceObject: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 550127404}
+    - targetCorrespondingSourceObject: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 408314114}
+    - targetCorrespondingSourceObject: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 960222742}
+    - targetCorrespondingSourceObject: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1461481872}
+    - targetCorrespondingSourceObject: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1865127923}
+    - targetCorrespondingSourceObject: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1765029303}
+    - targetCorrespondingSourceObject: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 418976271}
+    - targetCorrespondingSourceObject: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5200653538749197193}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: da05246f3c3f8524ca42195eed28ee5f, type: 3}
+--- !u!4 &3447170067929768011 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7181681791342442856, guid: da05246f3c3f8524ca42195eed28ee5f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5511486066286876963}
+  m_PrefabAsset: {fileID: 0}

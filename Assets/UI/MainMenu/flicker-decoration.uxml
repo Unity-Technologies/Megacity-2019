@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:VisualElement name="container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; transform-origin: left top; scale: 0.5 0.5;">
+        <ui:VisualElement style="background-color: rgba(0, 0, 0, 0); width: 36px; height: 16px; background-image: url(&apos;project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=7545798831788784584&amp;guid=31e77ef23200a8842b3829370f52c886&amp;type=3#decoration-8&apos;);" />
+        <ui:VisualElement style="background-color: rgba(0, 0, 0, 0); width: 36px; height: 16px; background-image: url(&apos;project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=7545798831788784584&amp;guid=31e77ef23200a8842b3829370f52c886&amp;type=3#decoration-8&apos;);" />
+        <ui:VisualElement style="background-color: rgba(0, 0, 0, 0); width: 36px; height: 16px; background-image: url(&apos;project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=7545798831788784584&amp;guid=31e77ef23200a8842b3829370f52c886&amp;type=3#decoration-8&apos;);" />
+        <ui:VisualElement style="background-color: rgba(0, 0, 0, 0); width: 36px; height: 16px; background-image: url(&apos;project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=7545798831788784584&amp;guid=31e77ef23200a8842b3829370f52c886&amp;type=3#decoration-8&apos;);" />
+    </ui:VisualElement>
+</ui:UXML>

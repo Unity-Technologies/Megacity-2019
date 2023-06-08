@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Custom/radial-progress/radial-progress.uss?fileID=7433441132597879392&amp;guid=e8303b202c1f8b449928c170556b69f8&amp;type=3#radial-progress" />
+    <ui:VisualElement name="container" style="align-items: center; opacity: 1;">
+        <MyUILibrary.RadialProgress name="radial-progress" style="opacity: 1;" />
+    </ui:VisualElement>
+</ui:UXML>

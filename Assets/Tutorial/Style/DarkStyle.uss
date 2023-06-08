@@ -1,0 +1,42 @@
+.container--tutorial {
+    border-top-color: rgba(255, 255, 255, 0.05);
+    background-color: #2E2E2E;
+}
+
+.container {
+    background-color: #353535;
+}
+
+.container--tutorial-actions {
+    border-color: rgba(0,0,0,0.3);
+}
+
+.container--header-large {
+    border-color: rgba(255,255,255,0.1);
+}
+
+.card {
+    background-color: #414141;
+    border-color: #212421;
+}
+
+.card:hover {
+    background-color: #4A4A4A;
+}
+
+.container--instruction {
+    background-color: #414141;
+    border-bottom-color: rgba(0, 0, 0, 0.4);
+}
+
+.container--welcome-dialog-content {
+    background-color: #2E2E2E;
+}
+
+.container--welcome-dialog-actions {
+    border-color: rgba(0,0,0,0.5);
+}
+
+.icon--tutorial-error-checkmark {
+    background-image: url('Images/Icons/ErrorDark.png');
+}

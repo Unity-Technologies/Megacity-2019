@@ -1,0 +1,31 @@
+{
+    "name": "Unity.MegaCity.Editor",
+    "rootNamespace": "",
+    "references": [
+        "Unity.Mathematics",
+        "Unity.MegaCity.Authoring",
+        "Unity.MegaCity.Gameplay",
+        "Unity.Transforms",
+        "Unity.Entities",
+        "Unity.Entities.Graphics",
+        "Unity.Entities.HLOD",
+        "Unity.Collections",
+        "UnityEditor.UI",
+        "UnityEngine.UI",
+        "UnityEditor.TestRunner",
+        "UnityEngine.TestRunner",
+        "Unity.Scenes",
+        "Unity.Scenes.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

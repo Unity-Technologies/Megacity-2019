@@ -1,0 +1,71 @@
+.item-label {
+    -unity-font: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium.ttf?fileID=12800000&guid=25f588e56b0a32d4ca3779fef2ecb271&type=3#ChakraPetch-Medium');
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium%20SDF.asset?fileID=11400000&guid=f3103ff426df8704595bd7db20530273&type=2#ChakraPetch-Medium SDF');
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+}
+
+.bold .item-label {
+    -unity-font: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium.ttf?fileID=12800000&guid=25f588e56b0a32d4ca3779fef2ecb271&type=3#ChakraPetch-Medium');
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium%20SDF.asset?fileID=11400000&guid=f3103ff426df8704595bd7db20530273&type=2#ChakraPetch-Medium SDF');
+    -unity-font-style: bold;
+}
+
+.highlight.item-label, .highlight{
+    color: rgb(6, 175, 255);
+}
+
+.item-label.highlight {
+    color: rgb(6, 175, 255);
+}
+
+.item-label.magenta {
+    color: rgb(180, 0, 78);
+}
+
+.highlight.magenta {
+    color: rgb(180, 0, 78);
+}
+
+.back-button {
+    width: 100px;
+    height: 45px;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    color: rgb(83, 71, 94);
+    top: 0;
+    right: auto;
+    align-self: center;
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgba(188, 180, 180, 0);
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out;
+    transition-property: all;
+    border-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.back-button:hover {
+    -unity-background-image-tint-color: rgba(120, 114, 125, 0);
+    background-color: rgba(34, 33, 44, 0.08);
+}
+
+.back-button:hover .back-icon {
+}
+
+.back-icon {
+    background-color: rgba(0, 0, 0, 0);
+    -unity-background-image-tint-color: rgb(180, 0, 78);
+    -unity-background-scale-mode: scale-to-fit;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out;
+    transition-property: all;
+    height: 100px;
+    width: 120px;
+    rotate: 0;
+}

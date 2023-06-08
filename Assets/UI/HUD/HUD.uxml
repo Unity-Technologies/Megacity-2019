@@ -1,0 +1,27 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:Template name="radial-bar" src="project://database/Assets/UI/Custom/radial-progress/radial-bar.uxml?fileID=9197481963319205126&amp;guid=71e880dc0ab01c44a8ffc84aaff6e6d9&amp;type=3#radial-bar" />
+    <Style src="project://database/Assets/UI/Custom/radial-progress/radial-progress.uss?fileID=7433441132597879392&amp;guid=e8303b202c1f8b449928c170556b69f8&amp;type=3#radial-progress" />
+    <Style src="project://database/Assets/UI/HUD/hud.uss?fileID=7433441132597879392&amp;guid=7f81da09252d05e408e91deddc00fc2e&amp;type=3#hud" />
+    <Style src="project://database/Assets/UI/MainMenu/Styles.uss?fileID=7433441132597879392&amp;guid=dfb32b1fdf2bfae48bbadfa74165273b&amp;type=3#Styles" />
+    <ui:VisualElement name="hud-container" picking-mode="Ignore" style="background-color: rgba(0, 0, 0, 0); width: 100%; height: 100%; position: absolute; display: flex;">
+        <ui:VisualElement name="player-name-info-container" picking-mode="Ignore" style="background-color: rgba(0, 0, 0, 0); position: absolute; left: 0; top: 0; right: 0; bottom: 0; align-self: center;" />
+        <ui:VisualElement name="message-screen" picking-mode="Ignore" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.8); display: none; position: absolute; left: 0; top: 0; right: 0; bottom: 0; align-items: center; justify-content: space-around; opacity: 0; transition-property: opacity;">
+            <ui:Label tabindex="-1" text="The engine broke down" display-tooltip-when-elided="true" name="message-label" class="big-label-centered" style="-unity-font-style: normal;" />
+            <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="bottom-message-label" class="small-label-bottom-center" style="-unity-font-style: normal;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="radar-container" picking-mode="Ignore" style="flex-direction: column-reverse; flex-grow: 1;">
+            <ui:VisualElement picking-mode="Ignore" name="crosshair" usage-hints="DynamicTransform" class="crosshair">
+                <ui:Label tabindex="-1" text="You killed someone" display-tooltip-when-elided="true" name="notification-label" class="label-notification" style="display: none;" />
+                <ui:Instance template="radial-bar" name="laser-bar" picking-mode="Ignore" style="position: absolute; top: -30px; scale: 0.65 0.65;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="lifebar-container" picking-mode="Ignore" style="background-color: rgba(0, 0, 0, 0); position: absolute; bottom: 0; right: 0; flex-direction: row; align-items: center; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;">
+            <ui:VisualElement name="heart-icon" style="background-color: rgba(0, 0, 0, 0); width: 60px; height: 50px; background-image: url(&apos;project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=3611791804078478545&amp;guid=31e77ef23200a8842b3829370f52c886&amp;type=3#life&apos;); -unity-background-image-tint-color: rgb(255, 255, 255); -unity-background-scale-mode: scale-to-fit;" />
+            <ui:ProgressBar name="life-bar" class="progress-bar min" style="width: 300px; flex-direction: column; margin-left: 7px; margin-right: 7px; margin-top: 7px; margin-bottom: 7px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="settings-buttons" picking-mode="Ignore" style="position: absolute; flex-direction: column; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 25px; padding-right: 25px; padding-top: 25px; padding-bottom: 25px;">
+            <ui:Button name="settings-icon" class="icon-button" style="width: 60px; height: 60px;" />
+            <ui:Label tabindex="-1" text="Tab" display-tooltip-when-elided="true" name="Label" style="-unity-text-align: upper-center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; text-shadow: 0 0 1px rgb(255, 255, 255); font-size: 18px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

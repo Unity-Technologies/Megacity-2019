@@ -1,0 +1,75 @@
+.fullscreen-container {
+    width: 100%;
+    height: 100%;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.vivox-container {
+    flex-direction: row-reverse;
+    align-items: center;
+    right: 360px;
+}
+
+.vivox-signal {
+    width: 30px;
+    height: 30px;
+    align-self: center;
+    -unity-background-image-tint-color: rgba(6, 175, 255, 0);
+    background-image: none;
+    -unity-background-scale-mode: scale-to-fit;
+    position: absolute;
+    border-radius: 50px;
+    background-color: rgba(6, 175, 255, 0);
+}
+
+.icon {
+    -unity-background-image-tint-color: rgb(6, 175, 255);
+}
+
+.vivox-label {
+    -unity-font: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium.ttf?fileID=12800000&guid=25f588e56b0a32d4ca3779fef2ecb271&type=3#ChakraPetch-Medium');
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium%20SDF.asset?fileID=11400000&guid=f3103ff426df8704595bd7db20530273&type=2#ChakraPetch-Medium SDF');
+    color: rgb(6, 175, 255);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.28);
+    -unity-text-outline-color: rgb(0, 0, 0);
+    -unity-text-align: middle-center;
+    white-space: nowrap;
+    font-size: 24px;
+}
+
+.vivox-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+    border-color: rgb(6, 175, 255);
+}
+
+.vivox-button:hover {
+    border-color: rgb(6, 175, 255);
+}
+
+.vivox-button:hover > .icon {
+    -unity-background-image-tint-color: rgb(6, 175, 255);
+}
+
+.unity-button {
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+}
+
+.unity-text-element {
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+}
+
+.icon-magenta {
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}
+
+.vivox-button-magenta {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+    border-color: rgb(255, 255, 255);
+}

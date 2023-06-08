@@ -1,254 +1,298 @@
-# UPM Dynamic Template Starter Kit
+![Megacity Multiplayer](Readme/header.jpg)
 
-The purpose of this dynamic template starter kit is to provide the data structure and development guidelines for new dynamic templates meant for **Unity**.
+## Contents and Quick Links
 
-We hope you enjoy your experience. You can use **#devs-templates** on Slack to provide feedback or ask questions regarding your dynamic template development efforts.
+- [Contents and Quick Links](#contents-and-quick-links)
+- [Megacity Multiplayer Overview](#megacity-multiplayer-overview)
+- [Megacity Multiplayer Prerequisites](#megacity-multiplayer-prerequisites)
+  - [Mac](#recommended-specs-for-mac)
+  - [Windows 10](#recommended-specs-for-windows-10)
+- [Important Note Before You Begin](#important-note-before-you-begin)
+- [Get Megacity Multiplayer](#get-megacity-multiplayer)
+  - [Direct Download](#direct-download)
+  - [Clone the Project](#clone-the-project)
+- [Get Started](#get-started)
+- [Add Unity Gaming Services (UGS)](#add-unity-gaming-services-ugs)
+  - [Vivox](#vivox)
+  - [Game Server Hosting (Multiplay)](#game-server-hosting-multiplay)
+  - [Matchmaker](#matchmaker)
+- [Test Your Multiplayer Setup](#test-your-multiplayer-setup)
+  - [Editor Local Multiplayer Setup](#editor-local-multiplayer-setup)
+  - [Build Local Multiplayer Setup](#build-local-multiplayer-setup)
+  - [Game Server Hosting Multiplayer Setup](#game-server-hosting-multiplayer-setup)
+- [Gameplay Controls](#gameplay-controls)
+  - [Mouse and Keyboard](#mouse-and-keyboard)
+  - [Gamepad](#gamepad)
+- [Index of Resources in this Project](#index-of-resources-in-this-project)
+  - [Gameplay](#gameplay)
+  - [Audio](#audio)
+  - [Connectivity](#connectivity)
+  - [Services (Vivox, Matchmaker, etc.)](#services-vivox-matchmaker-etc)
+  - [UI](#ui)
+  - [Tools and Utilities](#tools-and-utilities)
+- [Troubleshooting](#troubleshooting)
+  - [Bugs](#bugs)
+- [Disclaimer](#disclaimer)
+- [License](#license)
 
-Unity Standards were introduced at the start of 2021.1 with sets of standards for packages. With 2021.2, Unity Standards now include [standards for project templates]([https://github.cds.internal.unity3d.com/unity/standards/blob/master/sets/USS-0009.md](https://standards-viewer.ds.unity3d.com/Sets/USS-0009/)). Compliance with these standards is **mandatory** before you can release a new template. For more information, see:
 
-* [Working with Unity Standards](https://confluence.unity3d.com/x/03q5Bw)
-* [Validating against Unity Standards](https://docs.google.com/document/d/1Elo3F2UvTVJb4Ufm67Zzeojr-rfre5I7dhqsBl3e9X4/edit#bookmark=id.sumwrumji87z)
+## Megacity Multiplayer Overview
 
-## Are you ready to add a dynamic template?
-The Dynamic Templates are a work-in-progress for the Unity Package Manager and, in that sense, there are a few criteria that must be met for your template to be considered on the template list at this time:
-- **Your code accesses public Unity C# APIs only.** If you have a native code component, it will need to ship with an official editor release. Internal API access might eventually be possible for Unity made packages, but not at this time.
-- **Your code doesn't require security, obfuscation, or conditional access control.**  Anyone should be able to download your dynamic template and access the source code.
-- **You are willing to bleed with us a little!** Dynamic templates creation and editing as well as Packman is still in development, and therefore has a few rough edges that will require patience and workarounds.
+Megacity Multiplayer is an action-packed, shooter game based on the original Megacity sample. It leverages the power of Netcode for Entities for an immersive, multiplayer experience that can simultaneously support up to 64 players. The latest DOTS packages and Unity Gaming Services (UGS) enhances the Megacity Multiplayer user experience. Megacity Multiplayer showcases how to create engaging and immersive multiplayer experiences with a suite of netcode and multiplayer tools, tech, and services. 
 
-## Share your plans (Register)
+Some important points of this demo are:
+- Large-scale streaming and rendering with the Entity Component System (ECS for Unity)
+- Up to 64 players per game session
+- Server-authoritative gameplay with feature prediction, interpolation, and lag compensation using Netcode for Entities
+- Unity Gaming Services (UGS) integration for Game Server Hosting, Matchmaking, and Vivox voice chat
+- High Definition Render Pipeline (HDRP)
+- Cross-platform support for Windows and Mac
 
-Dynamic templates will be available to our users through the Hub, and organized by categories _(2d, 3d, xv, ...)_. The purpose, name, category, and content of your template should first be discussed with the Production Management team, so that this information can be properly curated to match Unity's strategy.  Please contact **@tim.hong** on _slack_ to start this conversation.
+## Megacity Multiplayer Prerequisites
 
-This will help inform Product, Project, Release and Documentation Teams to coordinate between dependencies. It also allows shared awareness for the whole organization.
-We then can also track it in our directory listing.
+Megacity Multiplayer is compatible with Unity **2022.3.0f1 LTS** and above and is currently tested on Windows and Mac. You can download the editor using the following links:
+- Unity Downloader: [Download Unity](https://beta.unity3d.com/download/fb119bb0b476/download.html)
+- Unity Hub URL: `unityhub://2022.3.0f1/fb119bb0b476`
 
-## Dynamic template Development Structure
+### Recommended Specs for Mac
+- Operating System: Mac OS X 10.15.7
+- CPU: Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
+- RAM: 32GB
+- GPU: AMD Radeon Pro Vega 20
+- Storage: 20GB
 
-The dynamic template is a project itself, so it should be very straightforward to develop with.
+### Recommended Specs for Windows 10
+- Operating System: Windows 10 64bit
+- CPU: Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
+- RAM: 32GB
+- GPU: NVIDIA GeForce GTX 1650 with Max-Q Design
+- Storage: 20GB
 
-```none
-<Project Root>
- │
- ├── README.md
- ├── Assets
- │       ├─ Scenes
- │       │     └── SampleScene.unity
- ├── ProjectSettings
- └── Packages
-         ├─ manifest.json
-         └─ com.unity.template.mytemplate
-                   ├── package.json
-                   ├── CHANGELOG
-                   ├── LICENSE
-                   ├── Documentation~
-                   ├── README.md
-                   ├── Third Party Notices.md
-                   ├── QAReport.md
-                   └── Tests
-                        ├── Editor
-                                 └── EditorExampleTest.cs
-                        └── Runtime
-                                  ├── RuntimeTests.asmdef
-                                  └── RuntimeExampleTest.cs
+## Important Note Before You Begin
+
+The Megacity Multiplayer sample is large, so the **first time** downloading and playing the sample may take more time than expected. Subsequent plays should load much quicker because of caching.
+
+First time download and load time estimates:
+- Downloading the Megacity Multiplayer repo: Up to 20 min
+- Opening the project with library build: Up tp 20 min
+- When going into the main scene, all the subscenes need to import: Up to 20 min
+- When going into the playmode, the server world is created: Up to 30 min
+
+## Get Megacity Multiplayer
+
+You can get the Megacity Multiplayer sample by direct download or cloning the project.
+
+### Direct Download
+
+Either:
+- Download the latest version of Megacity Multiplayer from our [Releases](xxxx) page.
+- Or click the green **Code** button and select the **Download Zip** option. This downloads the branch you are currently viewing on GitHub.
+
+**Note for Windows users**: Using Windows' built-in extraction tool may generate an "Error 0x80010135: Path too long" error window, which can interrupt the extraction process. A workaround for this is to shorten the zip file to a single character (e.g., "c.zip") and move it to the shortest path on your computer (usually right at C:\\) and retry. If that solution fails, try to extract the downloaded zip file using [7-Zip](https://www.7-zip.org/).
+
+### Clone the Project
+
+Before you can clone the project, you must install Git Large File Support (LFS). Megacity Multiplayer uses Git LFS to handle all large assets required locally. Refer to [Git LFS installation options](https://github.com/git-lfs/git-lfs/wiki/Installation) for instructions on Windows and Mac. 
+
+**Note**: This step is only necessary if you're cloning the project locally instead of direct download.
+
+Megacity Multiplayer uses git submodules (https://git-scm.com/book/en/v2/Git-Tools-Submodules).
+
+To clone the project, use the following commands:
+
+Fresh clone:
+```
+git clone git@github.cds.internal.unity3d.com:unity/MegacityMultiplayer.git --recurse-submodules
 ```
 
-## Develop your dynamic template
+If you have a clone before submodules were added or you didn't use `--recurse-submodules` when cloning, run the following commands in the repository folder:
 
-The dynamic template is a Unity Editor project. As such, developing with it should be straightforward. There are two ways to set it up:
+```
+git submodule init
+git submodule update
+```
 
-#### Using the `Template Authoring Toolkit` package
-You can install the `Template Authoring Toolkit` package in a pre-existing Unity project to convert it to a Dynamic Template. Template Authoring Toolkit helps automate most of the steps described under the [Using the Template Starter Kit repository](#using-the-template-starter-kit-repository) section.
+## Get Started
 
-Follow the installation instructions here to set up your template project: https://github.cds.internal.unity3d.com/unity/com.unity.template-authoring/blob/dev/README.md
+After you download the project, follow these steps to start playing:
+1. Install a compatible [Unity Editor version](https://beta.unity3d.com/download/7df22ca33211/download.html). During install make sure to include Standalone Support and Dedicated Server Support for Windows/Mac.
+2. To add the project to the **Unity Hub**, click the **Add** button and select the root folder of the downloaded project.
+	- **Note**: The first time you open the project may take longer than usual because Unity is importing all the assets.
+3. Open the Megacity scene located in `Scenes/Megacity`. The first time you open the scene, tt may take longer to load the Subscenes.
+4. Click the **Play** button to start.
 
-> Note: Template Authoring Toolkit package is in the early stages of development, please reach out on #devs-templates if you spot any issues or would like to suggest improvements.
->
+## Add Unity Gaming Services (UGS)
 
-#### Using the `Template Starter Kit` repository
+Megacity Multiplayer uses several services from UGS to facilitate connectivity between players. To use these services inside your project, you need a [Unity Account](https://docs.unity.com/ugs-overview/en/manual/creating-unity-ids) and [create an organization](https://support.unity.com/hc/en-us/articles/208592876-How-do-I-create-a-new-Organization-) within the Unity Dashboard.
 
-1. ##### Clone the `Template Starter Kit` repository locally
+You can still use Megacity Multiplayer without UGS, but for a better multiplayer experience, it is recommended to use the following services:
 
-	In a console (or terminal) application, choose a place to clone the repository and perform the following :
-	```git clone git@github.cds.internal.unity3d.com:unity/com.unity.template-starter-kit.git```
+### Vivox
 
-1. ##### Create a new repository for your package and clone to your desktop
+**Vivox** is a voice chat service that enables players to communicate with each other in-game. To use [Vivox](https://unity.com/products/vivox), you need to connect your project to Vivox from the Unity Editor and enable Vivox in the [Unity Dashboard](https://dashboard.unity3d.com/vivox.).
 
-	On Github.cds create a new repository with the name of your package (Example: "com.unity.template.platformer")
-	In a console (or terminal) application, choose a place to clone the repository and perform the following :
-	```git clone git@github.cds.internal.unity3d.com:unity/com.unity.template.[your-package-name]```
+For more information about Vivox, and how to use it you can read the [Vivox quickstart guide](https://docs.vivox.com/v5/general/unity/15_1_200000/en-us/Default.htm#Unity/vivox-unity-first-steps.htm).
 
-1. ##### Copy the contents of the `Template Starter Kit` folder to your new package. 
-    Be careful not to copy the Template Starter Kit `.git` folder over.
+### Game Server Hosting (Multiplay)
 
-1. ##### Rename the template package
+**Game Server Hosting**, formerly known as Multiplay, is a robust and flexible infrastructure for hosting multiplayer games. It ensures a smooth operation of your game by delivering proven performance and scalability. With Game Server Hosting, you can launch your multiplayer titles with confidence, knowing that you have the support of a reliable global platform. The enables you to spend less time troubleshooting and more time building your game with the help of comprehensive documentation, samples, and software development kits (SDKs) designed for interoperability. To get started with Game Server Hosting, refer to the official [documentation](https://docs.unity.com/game-server-hosting/en/manual/guides/get-started).
 
-    Rename the folder `Package/com.unity.template.mytemplate` by replacing `mytemplate` with your own dynamic template's name.
-    This will be the package used to define your dynamic template when publishing and should match the name of your repository on github.cds.
+**Warning**: Game Server Hosting is a pay-as-you-go service with a free tier. You must sign up for UGS services with a credit card to start using Game Server Hosting. If you exceed the [free tier usage allowance](https://unity.com/solutions/gaming-services/pricing), you will be charged. See our [Billing FAQ](https://support.unity.com/hc/en-us/articles/6821475035412-Billing-FAQ) to learn more.
 
-    You may be wondering why we include `com.unity.template.mytemplate` in the project's packages. This package will describe your dynamic template to our users, and will be the package when publishing your template. It will not be included in projects our users create from your template, but will be referenced so users can access template information such as documentation or license information.
+To use Game Server Hosting in your project, you need to [Integrate the Game Server Hosting](https://docs.unity.com/game-server-hosting/manual/guides/get-started#Integrat) service from the [Unity Dashboard](https://dashboard.unity3d.com/multiplay).
 
-1. ##### Fill in your dynamic template's package information
+**Note**: You must be an Owner or Manager of your organization to enable Game Server Hosting.
 
-	Update the following required fields in `Packages/com.unity.template.mytemplate/package.json`:
-	- `name`: Dynamic template's package name, it should follow this naming convention: `com.unity.template.[your-template-name]`
-    (Example: `com.unity.template.3d`)
-	- `displayName`: Package user friendly display name. (Example: `First person shooter`). <br>__Note:__ Use a display name that will help users understand what your dynamic template is intended for.
-	- `version`: Package version `X.Y.Z`, your project **must** adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
-	- `unity`: Minimum Unity Version your dynamic template is compatible with. (Example: `2018.3`)
-	- `unityRelease`: Optional, specify a patch release your package is compatible with (Example: `0a8`)
-	- `description`: This is the description for your template which will be displayed to the user to let them know what this template is for. This description shouldn't include anything version-specific and should stay pretty consistent across template versions.
-	- `dependencies`: Specify the dependencies the template requires. If you add a package to your project, you should also add it here. We try to keep this list as lean as possible to avoid conflicts as much as possible.
+After you integrate Game Server Hosting, you must create a [build](https://docs.unity.com/game-server-hosting/manual/guides/get-started#Create), a [build configuration](https://docs.unity.com/game-server-hosting/manual/guides/get-started#Create2), a [fleet](https://docs.unity.com/game-server-hosting/manual/guides/get-started#Create3), and a [test allocation](https://docs.unity.com/game-server-hosting/manual/guides/get-started#Create4).
 
-1. ##### Update **README.md**
+**Tip**: Check out our YouTube video [How to set up Game Server Hosting](https://www.youtube.com/watch?v=oN2c9teXi7M).
 
-    The README.md file should contain all pertinent information for template developers, such as:
-	* Prerequisites
-	* External tools or development libraries
-	* Required installed Software
+For Megacity Multiplayer, we use the following Game Server Hosting configuration:
 
-    `Note`: The Readme file at the root of the project should be the same as the one found in the template package folder. 
+- **Launch parameters**: `-ip $$ip$$ -port $$port$$ -queryport $$query_port$$ -logFile $$log_dir$$/$$timestamp$$-Engine.log`
+- **CPU Speed**: 1500 MHz
+- **Memory**: 1600 MB
 
-1. ##### Prepare your documentation
+### Matchmaker
 
-    Rename and update `Packages/com.unity.template.mytemplate/Documentation~/your-package-name.md` documentation file.
+**Matchmaker** is a versatile tool that enables you to customize matches in your game. It offers fast and efficient matches, multi-region orchestration, and backfill options. With its flexible configuration, dynamic scalability, and robust rule engine, Matchmaker simplifies matchmaking while supporting complex game loops. For more information, consult the [Matchmaker Quick Start Guide](https://docs.unity.com/matchmaker/en/manual/matchmaker-quick-start).
 
-    Use this documentation template to create preliminary, high-level documentation for the _development_ of your template's package. This document is meant to introduce other developers to the features and sample files included in your dynamic template.
+To use Matchmaker in your project, you must **Enable** and **Integrate** the Matchmaker service from the [Unity Dashboard](https://dashboard.unity3d.com/matchmaker).
 
-    Your template's documentation will be made available online and in the editor during publishing to guide our users.
+For Megacity Multiplayer, we use the following Matchmaker configuration:
 
-1. ##### Update the changelog   
+Creating the [queue](https://docs.unity.com/matchmaker/en/manual/advanced-topics-queues-pools#Queues):
+- **Maximum players on a ticket**: 12
 
-    Update the changelog at `Packages/com.unity.template.mytemplate/CHANGELOG.md`
+Creating a default [pool](https://docs.unity.com/matchmaker/en/manual/advanced-topics-queues-pools#Pools):
+- **Timeout**: 60 seconds
 
-	Every new feature or bug fix should have a trace in this file. For more details on the chosen changelog format, see [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
+For Matchmaker [rules](https://docs.unity.com/matchmaker/manual/matchmaking-rules-rules), we use the following configuration:
+- **Backfill enabled**: true 
+- **Team count min**: 1
+- **Team count max**: 1
+- **Player count min**: 64
+- **Player count max**: 256
+- **Relaxation 1**: Replace min, Replacement value: 32, at seconds: 5
+- **Relaxation 2**: Replace min, Replacement value: 1, at seconds: 10
+  
+## Test Your Multiplayer Setup
 
-	Changelogs will be made available online to inform users about the changes they can expect when downloading a dynamic template. As a consequence, the changelog content should be customer friendly and present clear, meaningful information.
+Megacity Multiplayer is server-authoritative, which means the server has ultimate authority and control over the game's state and rules. To test the game, a server needs to be running, and clients need to connect to the server. This can be done in the Editor, locally, or through Game Server Hosting (Multiplay).
 
-1. ##### Open your cloned project and develop!
+---------------
 
-    Start **Unity**, open your template project folder. Once opened, you can modify the project settings, the project assets and even the packages dependencies to suit your needs. Your dynamic template will contain all the content of your project.
+### Editor Local Multiplayer Setup
 
-## Create an Experimental version
+For testing purposes, you can run the Client and Server in the Editor. This enables inspection of entities, systems, components, etc. while running on both the Server and Client.
 
-Initial versions of templates **can** go through an experimental phase to gather feedback from users. Experimental indicates to users that this is a work in progress and it is expected to change in the future. Once the template has been in use for a while by users, and vetted by Unity's Release QA team, its `exp` tag can then be removed, and the template can join the ranks of official Unity templates.
+To set up the Editor for local multiplayer:
+1. Go to **Project Settings** > **Entities**. 
+2. Set the **NetCode Client Target** to `ClientAndServer`.
+3. Open Multiplayer PlayMode Tools from **Multiplayer** > **Window: PlayMode Tools**. 
+4. Set the **PlayMode Type** to `Client & Server`.
 
-**Experimental**  -  ex: `"version" : "0.1.0"` or `"version": "1.2.0-exp"`
+Now, when you play the game from the Editor, the Server and Client run together on your local machine. To inspect Client or Server entities, systems, etc., you can use the Entities window (**Window** > **Entities**). For example, if you open **Entities Hierarchy**, you can select the desired **World** to inspect from the dropdown. See the following image:
 
-Expectations of an experimental template:
-- Expected Package structure respected
-- Template loads in Unity Editor without errors
-- License file present in template package folder - With third party notices file if necessary
+![Entities Hierarchy](Readme/entities-hierarchy.gif)
 
-## Make sure your dynamic template meets all legal requirements
+---------------
 
-All templates are *required* to COMPLETE AND SUBMIT [THIS FORM](https://docs.google.com/forms/d/e/1FAIpQLSe3H6PARLPIkWVjdB_zMvuIuIVtrqNiGlEt1yshkMCmCMirvA/viewform) to receive approval. It is a simple, streamlined form that tells legal if there are any potential issues that need to be addressed prior to publication.
+### Build Local Multiplayer Setup
 
-##### Update **Third Party Notices.md**
+To build your game and test it locally, you need to build the Client and Server separately.
 
-1. If your template includes third-party elements and its licenses are approved, then all the licenses must be added to the `Third Party Notices.md` file in the template package folder. Simply duplicate the `Component Name/License Type/Provide License Details` section if you have more than one license.
+To make a Client Build:
+1. In the Editor, go to **Project Settings** > **Entities** to change the **NetCode Client Target** to `Client`.
+2. Like any other Unity game, make the build by going to **File** > **Build Settings**.
+3. Enable the `Megacity` scene and set the target platform is `Windows, Mac, Linux`.
+4. Press the **Build** button.
 
-    a. Concerning `[Provide License Details]` in the `Third Party Notices.md`, a URL can work as long as it actually points to the reproduced license and the copyright information _(if applicable)_.
+![Build Settings - Client](Readme/build-settings-client.jpg)
 
-1. If your package does not have third party elements, you can remove the `Third Party Notices.md` file from your template package folder.
+To make a Server Build:
+1. Set the target platform to **Dedicated Server**.
+2. Like the Client build, go to **File** > **Build Settings** and press the **Build** button.
 
-## Adding tests to your template
+![Build Settings - Server](Readme/build-settings-server.jpg)
 
-Tests you add to your template package will be automatically run in Yamato through CI to ensure your template continues to work as expected as the editor's codebase evolves, it is therefore important to invest in a good set of test
+---------------
 
-You can add tests for your template in the project's `Assets/Tests` folder as you would any normal Unity project. It is advisable to also test your template's integrity so that frequent developers use doesn't change desirable static properties.
+### Game Server Hosting Multiplayer Setup
 
-You can manually run the tests in the Unity test runner.
+To test your game with other players, you need to host a game server. For that, you can use [Game Server Hosting (Multiplay)](https://unity.com/products/game-server-hosting). Game Server Hosting enables you to host a game server in the cloud and connect to it from your game client. You can find more information on how to get started with Game Server Hosting [here](https://docs.unity.com/game-server-hosting/en/manual/guides/get-started).
 
-## Template CI
-Yamato job definitions can be found [here](https://github.cds.internal.unity3d.com/unity/upm-ci-yamato-templates).
+## Gameplay Controls
 
-There are 3 yml files & jobs that are required to publish a template to candidates:
- - template-pack.yml
- - template-test.yml
- - template-publish.yml
+### Mouse and Keyboard
 
-Unique to templates, `template-pack.yml` contains a pre-pack job called "Primed Artifacts". If configured correctly, this job will lauch the template in the specified editor version, and ensure the generated artifacts (`Library/Artifacts/**`, `Library/ArtifactDB`, `Library/SourceAssetDB`) are passed into the pack job. Ensure the `-projectPath` and artifact paths point to the template's root directory.
+| Input        | Action       |
+|--------------|--------------|
+| Mouse Movement / Arrow Keys | Steering |
+| Left Click / Space | Shoot |
+| W/S | Thrust / Reverse |
+| A/D | Steering |
+| E/Q | Roll |
+| Tab | Settings |
+| V | Toggle Vivox |
+| P | Netcode Panel Stats |
+| No Key Press | Auto-Level |
 
-CI will test your template on every commit on `Yamato`.   
-This will validate that the template package as well as embedded packages (if any) have the right structure, have tests and do not create console logs when opened with Unity.   
-The CI will also automatically test the template as it would be used by a user on multiple editor versions and OS.  
-You might need to tweak the list of editors and OS you want to test the template on. For more information, please [go here](https://confluence.hq.unity3d.com/pages/viewpage.action?spaceKey=PAK&title=Setting+up+your+package+CI)
+### Gamepad
 
-`Note`: To make use of the CI, your repository must be added to Yamato.  
-Log in to [Yamato](https://yamato.cds.internal.unity3d.com/) and click on the Project + button on the top right.  This will open a dialog asking for you to specify a git url and project name.
+| Input | Action |
+|-------|--------|
+| Right Joystick | Steering |
+| Left Trigger | Thrust / Reverse |
+| Main Action (X / A) | Shoot |
+| Right Shoulder Pad (RB) | Manual Roll Right |
+| Left Shoulder Pad (LB) | Manual Roll Left |
+| No Key Press | Auto-Level |
 
-## Trying out your template locally.
+## Index of Resources in this Project
 
-If you want to test your template locally from a user's perspective, you will need to make it available to a Unity Editor. This can be accomplished by following these steps:
+### Gameplay
+- [Vehicle Input System](Assets/Scripts/Gameplay/Player/PlayerVehicleInputSystem.cs)
+- [PlayerVehicleJobs](Assets/Scripts/Gameplay/Player/Jobs/PlayerVehicleJobs.cs)
+- [SetupPlayerInfoSystem](Assets/Scripts/Gameplay/Player/SetupPlayerInfoSystem.cs)
+- [ShootingSystem](Assets/Scripts/Gameplay/Shooting/ShootingSystem.cs)
+- [BoundSystem](Assets/Scripts/Gameplay/Misc/BoundsSystem.cs)
+- [SpawnPoint](Assets/Scripts/Gameplay/Misc/MonoBehaviours/SpawnPoint.cs)
+- [UpdatePlayerRankSystem](Assets/Scripts/Gameplay/Player/UpdatePlayerRankSystem.cs)
 
-1. Use upm-ci tools to test your template
+### Audio
+- [SoundPoolSystem](Assets/Scripts/Gameplay/Audio/SoundPoolSystem.cs)
+- [AudioMaster](Assets/Scripts/Gameplay/Audio/MonoBehaviours/AudioMaster.cs)
 
-	[How to Install UPM-CI](https://github.cds.internal.unity3d.com/unity/upm-ci-utils/blob/dev/README.md#installation)
-	
-	1. **To run all your template tests** 
-	    1. Open a console (or terminal) window and cd your way inside your template project folder
+### Connectivity
+- [NetcodeBootstrap](Assets/Scripts/Gameplay/Netcode/NetcodeBootstrap.cs)
 
-	        ```upm-ci template test -u 2020.3``` 
+### Services (Vivox, Matchmaker, etc.)
+- [VivoxManager](Assets/Scripts/Gameplay/Vivox/MonoBehaviours/VivoxManager.cs)
+- [ClientMatchmaker](Assets/Scripts/UGS/Client/ClientMatchmaker.cs)
+- [GameServerManager](Assets/Scripts/UGS/Server/GameServerManager.cs)
 
-	        You can test against many versions of Unity with the -u parameter: 
- 
-	        - Testing on a specific version: use `-u 2019.1.0a13`
-	        - Testing on a latest release of a version: use `-u 2019.1`
-	        - Testing on the latest available trunk build: use `-u trunk`
-	        - Testing on a specific branch: use `-u team-name/my-branch`
-	        - Testing on a specific revision: use `-u 3de2277bb0e6`
-	        - Testing with an editor installed on your machine: use `-u /absolute/path/to/the/folder/containing/Unity.app/or/Unity.exe`
-	
-	        By default, this will download the desired version of the editor in a .Editor folder created in the current working directory.
+### UI
+- [HUD](Assets/Scripts/Gameplay/UI/MonoBehaviours/HUD/HUD.cs)
+- [MainMenu](Assets/Scripts/Gameplay/UI/MonoBehaviours/MainMenu/MainMenu.cs)
+- [UIGameSettings](Assets/Scripts/Gameplay/UI/MonoBehaviours/Settings/UIGameSettings.cs)
 
-	1. **To test what a user would see**
-	    1. Open a console (or terminal) window and cd your way inside your template project folder
+### Tools and Utilities
+- [NetcodeExtensions](Assets/Scripts/Utils/NetcodeExtensions)
+- [NetcodePanelStats](Assets/Scripts/Utils/NetcodeExtensions/UI/NetcodePanelStats.cs)
+- [KDTree](Assets/Scripts/Utils/KDTree)
+- [Pooling](Assets/Scripts/Utils/Pooling)
 
-	        ```upm-ci template pack``` 
-	        This will generate a folder /upm-ci~/templates/ containing a .tgz file of your converted template.
+## Troubleshooting
 
-	    1. Include the tarballed template package in Unity editor
+### Bugs
 
-    	    You can then copy the template's `tgz` package file in Unity in one of these paths to make it available in the editor when creating new projects:
+Report bugs in Megacity Multiplayer using GitHub [issues](https://github.com/Unity-Technologies/MegacityMultiplayer/issues). If the bugs are related to the Entities packages, use the Entities GitHub issues.
 
-    	    1. Mac: `<Unity Editor Root>/Contents/Resources/PackageManager/ProjectTemplates`
+## Disclaimer
 
-		    1. Windows: `<Unity Editor Root>/Data/Resources/PackageManager/ProjectTemplates`
+This repository does not accept pull requests, GitHub review requests, or any other GitHub-hosted issue management requests.
 
-	    1. Preview your dynamic template
+## License
 
-    	    Open Unity Hub. Locate the editor to which you added your template to.
-	        When creating a new project, you should see your template in the templates list:
-
-            ![Template in new project](Packages/com.unity.template.mytemplate/Documentation~/images/template_in_new_project.png)
-
-            Note: f you are launching the Unity editor without the hub, you will not see additional templates in the list.
-
-## Publishing your template for use in the Editor
-
-The first step to get your package published to production for public consumption is to send it to the candidates repository, where it can be evaluated by QA and Release Management.  You can publish your template to the candidates repository through the added CI, which is the **recommended** approach.
-
-1. Once you are ready to publish a new version, say version `1.0.0`, you can add a git tag `rc-1.0.0` to the commit you want to publish. The CI will validate and then publish your template to `candidates`.
-
-1. Request that your template package be published to production by [filling out the following form](https://docs.google.com/forms/d/e/1FAIpQLSeEOeWszG7F5mx_VEYm8SrjcIajxa5WoLXh-yhLvw8odsEnaQ/viewform)
-
-1. Once your template is published to production, the last step is to create the Ono PR to include your template with a Unity Release, and have it be discovered in the Hub. To do so, create a branch that includes your template in `External/PackageManager/Editor/editor_installer.json`
-
-`Note`: You can retrieve a version of your template package as an artifact from CI pipelines following any commit made to your repository.  This will allow you to easily test a change at any point during your development.
-
-## [USS-0009: Project template standards](https://standards-viewer.ds.unity3d.com/Sets/USS-0009/)
-
-Set of standards for project templates (typically available on the Unity Hub).
-
-For validation details, see [Validating against Unity Standards](https://docs.google.com/document/d/1Elo3F2UvTVJb4Ufm67Zzeojr-rfre5I7dhqsBl3e9X4/edit#bookmark=id.sumwrumji87z)).
-
-## FAQ
-
-#### Can I inherit another package template?
-
-You cannot inherit from another package template. You can however use another package template as a starting point to create a new one.
-
-
-# Converting to public repository
-Any and all Unity software of any description (including components) (1) whose source is to be made available other than under a Unity source code license or (2) in respect of which a public announcement is to be made concerning its inner workings, may be licensed and released only upon the prior approval of Legal.
-The process for that is to access, complete, and submit this [FORM](https://docs.google.com/forms/d/e/1FAIpQLSe3H6PARLPIkWVjdB_zMvuIuIVtrqNiGlEt1yshkMCmCMirvA/viewform).
+Megacity Multiplayer is licensed under the Unity Companion License. See [LICENSE](LICENSE.md) for more legal information.

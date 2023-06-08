@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/UI/Vivox/Vivox.uss?fileID=7433441132597879392&amp;guid=5b68c48bea323e9439368e4a6742e8ed&amp;type=3#Vivox" />
+    <ui:VisualElement name="chat-voice-panel" picking-mode="Ignore" class="fullscreen-container" style="display: flex;">
+        <ui:VisualElement name="vivox-container" class="vivox-container" style="right: 390px; align-items: flex-end;">
+            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: center;">
+                <ui:Label tabindex="-1" text="V" display-tooltip-when-elided="true" style="color: rgb(255, 255, 255); -unity-font: url(&apos;project://database/Assets/UI/Fonts/ChakraPetch-Medium.ttf?fileID=12800000&amp;guid=25f588e56b0a32d4ca3779fef2ecb271&amp;type=3#ChakraPetch-Medium&apos;); -unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/ChakraPetch-Medium%20SDF.asset?fileID=11400000&amp;guid=f3103ff426df8704595bd7db20530273&amp;type=2#ChakraPetch-Medium SDF&apos;); font-size: 18px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; text-shadow: 0 0 2px rgb(255, 255, 255);" />
+                <ui:Button display-tooltip-when-elided="true" name="vivox-button" picking-mode="Ignore" class="vivox-button vivox-button-magenta" style="background-color: rgba(188, 188, 188, 0); margin-bottom: 10px; margin-top: 4px;">
+                    <ui:VisualElement name="vivox-signal" class="vivox-signal" />
+                    <ui:VisualElement name="vivox-icon" class="vivox-signal icon icon-magenta" style="background-image: url(&apos;project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=628131424439506141&amp;guid=31e77ef23200a8842b3829370f52c886&amp;type=3#microphone-muted&apos;);" />
+                </ui:Button>
+            </ui:VisualElement>
+            <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="vivox-name" class="vivox-label" style="margin-bottom: 15px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

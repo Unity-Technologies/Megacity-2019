@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <Style src="project://database/Assets/UI/HUD/leaderboard.uss?fileID=7433441132597879392&amp;guid=ee2798c08f09e514bad944d7db47ded4&amp;type=3#leaderboard" />
+    <ui:VisualElement name="container" style="background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: space-between;">
+        <ui:Label text="Player Name" name="player-name" class="item-label" />
+        <ui:Label tabindex="-1" text="0" name="player-score" class="item-label" />
+        <ui:VisualElement name="highlight" style="background-color: rgba(0, 0, 0, 0); position: absolute; background-image: url(&apos;project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=-8261515001337422382&amp;guid=31e77ef23200a8842b3829370f52c886&amp;type=3#decoration&apos;); width: 120%; display: none; left: -15px; height: 22px; bottom: 5px; opacity: 0.75;" />
+    </ui:VisualElement>
+</ui:UXML>

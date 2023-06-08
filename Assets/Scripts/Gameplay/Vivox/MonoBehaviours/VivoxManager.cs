@@ -29,6 +29,13 @@ namespace Unity.MegaCity.Gameplay
                 Destroy(this);
                 return;
             }
+            
+            if (string.IsNullOrEmpty(Application.cloudProjectId))
+            {
+                Debug.LogWarning(VivoxEvents.k_SetupProjectInTheCloud);
+                Destroy(this);
+                return;
+            }
 
             Instance = this;
             m_IsReady = false;
@@ -39,7 +46,8 @@ namespace Unity.MegaCity.Gameplay
 
         private async void Start()
         {
-            // if the Unity project is not linked to a Unity services project. 
+            // if the Unity project is not linked to a Unity services project.
+            Debug.Log($"vivox applciation project {Application.cloudProjectId}");
             if (string.IsNullOrEmpty(Application.cloudProjectId))
             {
                 Debug.LogWarning(VivoxEvents.k_SetupProjectInTheCloud);

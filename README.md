@@ -153,7 +153,20 @@ For Matchmaker [rules](https://docs.unity.com/matchmaker/manual/matchmaking-rule
 - **Player count max**: 256
 - **Relaxation 1**: Replace min, Replacement value: 32, at seconds: 5
 - **Relaxation 2**: Replace min, Replacement value: 1, at seconds: 10
-  
+
+After configuring the services on the dashboard website, navigate to **Edit > Project Settings > Service** and choose your organization and project ID.
+
+![Project ID](Readme/setting-project-id.png)
+
+Next, click on the play button to initiate the game. To access the Matchmaking services, navigate to the main menu and select **"Matchmake"** from the radio button menu, followed by clicking the **"Find Match"** button.
+
+![Selecting Matchmaking](Readme/selecting-matchmaking.png)
+
+Once the "Find Match" button is clicked, the Matchmaking services will initiate the connection process with the server. During this time, a circular loading indicator will be presented to signify that the system is in the process of establishing the connection. Once the connection is established, you will be able to start gameplay.
+
+![Selecting Matchmaking](Readme/establishing-connection.png)
+
+
 ### Vivox
 
 **Vivox** is a voice chat service that enables players to communicate with each other in-game. To use [Vivox](https://unity.com/products/vivox), you need to connect your project to Vivox from the Unity Editor and enable Vivox in the [Unity Dashboard](https://dashboard.unity3d.com/vivox.).
@@ -175,6 +188,18 @@ To set up the Editor for local multiplayer:
 2. Set the **NetCode Client Target** to `ClientAndServer`.
 3. Open Multiplayer PlayMode Tools from **Multiplayer** > **Window: PlayMode Tools**. 
 4. Set the **PlayMode Type** to `Client & Server`.
+
+In the **Assets > Settings > Gameplay > MultiplayerServerSettings**, you have the ability to configure a server list that will be presented in the play mode Main menu window. This functionality allows for the establishment of multiple connections and facilitates the use of the Default IP connection.
+
+![Setting IP](Readme/setting-ip.png)
+
+To begin, click the play button in the Unity Editor to launch the game. Once the game is running and you are in the Main Menu, navigate to the **Connect** option in the radio button menu. From the **drop-down box**, select the desired IP address to establish a connection. If the desired IP address is not available in the list, you have the option to create a new entry and re-enter play mode. Alternatively, you can manually enter your own IP address using the provided text field.
+
+![Selecting Connect](Readme/selecting-connect.png)
+
+By default, the project is configured to use the **Local** IP address. If you are testing the game in the Editor, selecting the Local IP option will allow you to run both the server and client within the Editor, enabling you to play the game.
+
+Once you have selected the appropriate IP address, click the **Connect** button to initiate the connection process.
 
 Now, when you play the game from the Editor, the Server and Client run together on your local machine. To inspect Client or Server entities, systems, etc., you can use the Entities window (**Window** > **Entities**). For example, if you open **Entities Hierarchy**, you can select the desired **World** to inspect from the dropdown. See the following image:
 

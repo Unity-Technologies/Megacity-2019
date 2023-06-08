@@ -62,6 +62,10 @@ HyperlinkLabel {
     border-color: rgba(0,0,0,0.1);
 }
 
+.icon--tutorial-error-checkmark {
+    background-image: url('Images/Icons/ErrorLight.png');
+}
+
 .image--instruction-arrow {
     background-color: #0089E4;
 }

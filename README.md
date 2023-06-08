@@ -5,8 +5,8 @@
 - [Contents and Quick Links](#contents-and-quick-links)
 - [Megacity Multiplayer Overview](#megacity-multiplayer-overview)
 - [Megacity Multiplayer Prerequisites](#megacity-multiplayer-prerequisites)
-  - [Mac](#recommended-specs-for-mac)
-  - [Windows 10](#recommended-specs-for-windows-10)
+  - [Recommended Specs for Mac](#recommended-specs-for-mac)
+  - [Recommended Specs for Windows 10](#recommended-specs-for-windows-10)
 - [Important Note Before You Begin](#important-note-before-you-begin)
 - [Get Megacity Multiplayer](#get-megacity-multiplayer)
   - [Direct Download](#direct-download)
@@ -17,12 +17,10 @@
   - [Game Server Hosting (Multiplay)](#game-server-hosting-multiplay)
   - [Matchmaker](#matchmaker)
 - [Test Your Multiplayer Setup](#test-your-multiplayer-setup)
-  - [Editor Local Multiplayer Setup](#editor-local-multiplayer-setup)
-  - [Build Local Multiplayer Setup](#build-local-multiplayer-setup)
-  - [Game Server Hosting Multiplayer Setup](#game-server-hosting-multiplayer-setup)
+  - [Editor Local Multiplayer Setup (Without UGS)](#editor-local-multiplayer-setup-without-ugs)
+  - [Build Local Multiplayer Setup (Without UGS)](#build-local-multiplayer-setup-without-ugs)
 - [Gameplay Controls](#gameplay-controls)
   - [Mouse and Keyboard](#mouse-and-keyboard)
-  - [Gamepad](#gamepad)
 - [Index of Resources in this Project](#index-of-resources-in-this-project)
   - [Gameplay](#gameplay)
   - [Audio](#audio)
@@ -51,7 +49,7 @@ Some important points of this demo are:
 ## Megacity Multiplayer Prerequisites
 
 Megacity Multiplayer is compatible with Unity **2022.3.0f1 LTS** and above and is currently tested on Windows and Mac. You can download the editor using the following links:
-- Unity Downloader: [Download Unity](https://beta.unity3d.com/download/fb119bb0b476/download.html)
+- Unity Downloader: [Download Unity](https://unity.com/releases/editor/whats-new/2022.3.0)
 - Unity Hub URL: `unityhub://2022.3.0f1/fb119bb0b476`
 
 ### Recommended Specs for Mac
@@ -74,9 +72,9 @@ The Megacity Multiplayer sample is large, so the **first time** downloading and 
 
 First time download and load time estimates:
 - Downloading the Megacity Multiplayer repo: Up to 20 min
-- Opening the project with library build: Up tp 20 min
-- When going into the main scene, all the subscenes need to import: Up to 20 min
-- When going into the playmode, the server world is created: Up to 30 min
+- Opening the project with library build: Up to 20 min
+- When going into the main scene, subscenes need to import: Up to 20 min
+- When going into the playmode, server world is created: Up to 30 min
 
 ## Get Megacity Multiplayer
 
@@ -96,22 +94,6 @@ Before you can clone the project, you must install Git Large File Support (LFS).
 
 **Note**: This step is only necessary if you're cloning the project locally instead of direct download.
 
-Megacity Multiplayer uses git submodules (https://git-scm.com/book/en/v2/Git-Tools-Submodules).
-
-To clone the project, use the following commands:
-
-Fresh clone:
-```
-git clone git@github.cds.internal.unity3d.com:unity/MegacityMultiplayer.git --recurse-submodules
-```
-
-If you have a clone before submodules were added or you didn't use `--recurse-submodules` when cloning, run the following commands in the repository folder:
-
-```
-git submodule init
-git submodule update
-```
-
 ## Get Started
 
 After you download the project, follow these steps to start playing:
@@ -127,11 +109,7 @@ Megacity Multiplayer uses several services from UGS to facilitate connectivity b
 
 You can still use Megacity Multiplayer without UGS, but for a better multiplayer experience, it is recommended to use the following services:
 
-### Vivox
 
-**Vivox** is a voice chat service that enables players to communicate with each other in-game. To use [Vivox](https://unity.com/products/vivox), you need to connect your project to Vivox from the Unity Editor and enable Vivox in the [Unity Dashboard](https://dashboard.unity3d.com/vivox.).
-
-For more information about Vivox, and how to use it you can read the [Vivox quickstart guide](https://docs.vivox.com/v5/general/unity/15_1_200000/en-us/Default.htm#Unity/vivox-unity-first-steps.htm).
 
 ### Game Server Hosting (Multiplay)
 
@@ -176,13 +154,19 @@ For Matchmaker [rules](https://docs.unity.com/matchmaker/manual/matchmaking-rule
 - **Relaxation 1**: Replace min, Replacement value: 32, at seconds: 5
 - **Relaxation 2**: Replace min, Replacement value: 1, at seconds: 10
   
+### Vivox
+
+**Vivox** is a voice chat service that enables players to communicate with each other in-game. To use [Vivox](https://unity.com/products/vivox), you need to connect your project to Vivox from the Unity Editor and enable Vivox in the [Unity Dashboard](https://dashboard.unity3d.com/vivox.).
+
+For more information about Vivox, and how to use it you can read the [Vivox quickstart guide](https://docs.vivox.com/v5/general/unity/15_1_200000/en-us/Default.htm#Unity/vivox-unity-first-steps.htm).
+  
 ## Test Your Multiplayer Setup
 
 Megacity Multiplayer is server-authoritative, which means the server has ultimate authority and control over the game's state and rules. To test the game, a server needs to be running, and clients need to connect to the server. This can be done in the Editor, locally, or through Game Server Hosting (Multiplay).
 
 ---------------
 
-### Editor Local Multiplayer Setup
+### Editor Local Multiplayer Setup (Without UGS)
 
 For testing purposes, you can run the Client and Server in the Editor. This enables inspection of entities, systems, components, etc. while running on both the Server and Client.
 
@@ -198,7 +182,7 @@ Now, when you play the game from the Editor, the Server and Client run together 
 
 ---------------
 
-### Build Local Multiplayer Setup
+### Build Local Multiplayer Setup (Without UGS)
 
 To build your game and test it locally, you need to build the Client and Server separately.
 
@@ -218,10 +202,6 @@ To make a Server Build:
 
 ---------------
 
-### Game Server Hosting Multiplayer Setup
-
-To test your game with other players, you need to host a game server. For that, you can use [Game Server Hosting (Multiplay)](https://unity.com/products/game-server-hosting). Game Server Hosting enables you to host a game server in the cloud and connect to it from your game client. You can find more information on how to get started with Game Server Hosting [here](https://docs.unity.com/game-server-hosting/en/manual/guides/get-started).
-
 ## Gameplay Controls
 
 ### Mouse and Keyboard
@@ -236,17 +216,6 @@ To test your game with other players, you need to host a game server. For that, 
 | Tab | Settings |
 | V | Toggle Vivox |
 | P | Netcode Panel Stats |
-| No Key Press | Auto-Level |
-
-### Gamepad
-
-| Input | Action |
-|-------|--------|
-| Right Joystick | Steering |
-| Left Trigger | Thrust / Reverse |
-| Main Action (X / A) | Shoot |
-| Right Shoulder Pad (RB) | Manual Roll Right |
-| Left Shoulder Pad (LB) | Manual Roll Left |
 | No Key Press | Auto-Level |
 
 ## Index of Resources in this Project
@@ -295,4 +264,4 @@ This repository does not accept pull requests, GitHub review requests, or any ot
 
 ## License
 
-Megacity Multiplayer is licensed under the Unity Companion License. See [LICENSE](LICENSE.md) for more legal information.
+Megacity Multiplayer is licensed under the Unity Companion License. See [LICENCE](LICENCE.md) for more legal information.

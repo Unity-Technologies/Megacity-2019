@@ -45,6 +45,6 @@ namespace Unity.Services.Samples
         }
 
         public static bool IsSignedIn => UnityServices.State != ServicesInitializationState.Uninitialized && AuthenticationService.Instance.IsSignedIn;
-        public static string PlayerId => IsSignedIn ? AuthenticationService.Instance.PlayerId : null;
+        public static string PlayerId => IsSignedIn ? AuthenticationService.Instance.PlayerId : "";
     }
 }

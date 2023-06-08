@@ -36,3 +36,7 @@
 .container--welcome-dialog-actions {
     border-color: rgba(0,0,0,0.5);
 }
+
+.icon--tutorial-error-checkmark {
+    background-image: url('Images/Icons/ErrorDark.png');
+}

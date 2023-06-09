@@ -20,7 +20,7 @@
     "com.unity.netcode": "1.0.11",
     "com.unity.performance.profile-analyzer": "1.2.2",
     "com.unity.physics": "1.0.10",
-    "com.unity.render-pipelines.high-definition": "14.0.7",
+    "com.unity.render-pipelines.high-definition": "14.0.8",
     "com.unity.scriptablebuildpipeline": "1.21.5",
     "com.unity.serialization": "3.0.0-pre.3",
     "com.unity.services.authentication": "2.6.1",
@@ -75,6 +75,6 @@
       "scopes": [
         "jp.keijiro"
       ]
-    }  
+    }
   ]
 }

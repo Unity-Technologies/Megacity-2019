@@ -83,7 +83,7 @@ You can get the Megacity Multiplayer sample by direct download or cloning the pr
 ### Direct Download
 
 Either:
-- Download the latest version of Megacity Multiplayer from our [Releases](xxxx) page.
+- Download the latest version of Megacity Multiplayer from our **master** branch.
 - Or click the green **Code** button and select the **Download Zip** option. This downloads the branch you are currently viewing on GitHub.
 
 **Note for Windows users**: Using Windows' built-in extraction tool may generate an "Error 0x80010135: Path too long" error window, which can interrupt the extraction process. A workaround for this is to shorten the zip file to a single character (e.g., "c.zip") and move it to the shortest path on your computer (usually right at C:\\) and retry. If that solution fails, try to extract the downloaded zip file using [7-Zip](https://www.7-zip.org/).

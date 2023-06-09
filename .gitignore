@@ -47,3 +47,4 @@ MegacityMultiplayer/Logs/*
 MegacityMultiplayer/Build/*
 Logs/*
 UserSettings/*
+ProjectSettings/Packages/com.unity.learn.iet-framework/Settings.json

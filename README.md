@@ -36,11 +36,11 @@
 
 ## Megacity Multiplayer Overview
 
-Megacity Multiplayer is an action-packed, shooter game based on the original Megacity sample. It leverages the power of Netcode for Entities for an immersive, multiplayer experience that can simultaneously support up to 64 players. The latest DOTS packages and Unity Gaming Services (UGS) enhances the Megacity Multiplayer user experience. Megacity Multiplayer showcases how to create engaging and immersive multiplayer experiences with a suite of netcode and multiplayer tools, tech, and services. 
+Megacity Multiplayer is an action-packed, shooter game based on the original Megacity sample. It leverages the power of Netcode for Entities for an immersive, multiplayer experience that can support 64+ players simultaneously. The latest DOTS packages and Unity Gaming Services (UGS) enhances the Megacity Multiplayer user experience. Megacity Multiplayer showcases how to create engaging and immersive multiplayer experiences with a suite of netcode and multiplayer tools, tech, and services. 
 
 Some important points of this demo are:
 - Large-scale streaming and rendering with the Entity Component System (ECS for Unity)
-- Up to 64 players per game session
+- 64+ players per game session
 - Server-authoritative gameplay with feature prediction, interpolation, and lag compensation using Netcode for Entities
 - Unity Gaming Services (UGS) integration for Game Server Hosting, Matchmaking, and Vivox voice chat
 - High Definition Render Pipeline (HDRP)

@@ -9,13 +9,12 @@
   - [Recommended Specs for Windows 10](#recommended-specs-for-windows-10)
 - [Important Note Before You Begin](#important-note-before-you-begin)
 - [Get Megacity Multiplayer](#get-megacity-multiplayer)
-  - [Direct Download](#direct-download)
   - [Clone the Project](#clone-the-project)
 - [Get Started](#get-started)
 - [Add Unity Gaming Services (UGS)](#add-unity-gaming-services-ugs)
-  - [Vivox](#vivox)
   - [Game Server Hosting (Multiplay)](#game-server-hosting-multiplay)
   - [Matchmaker](#matchmaker)
+  - [Vivox](#vivox)
 - [Test Your Multiplayer Setup](#test-your-multiplayer-setup)
   - [Editor Local Multiplayer Setup (Without UGS)](#editor-local-multiplayer-setup-without-ugs)
   - [Build Local Multiplayer Setup (Without UGS)](#build-local-multiplayer-setup-without-ugs)
@@ -68,35 +67,25 @@ Megacity Multiplayer is compatible with Unity **2022.3.1f1 LTS** and above and i
 
 ## Important Note Before You Begin
 
-The Megacity Multiplayer sample is large, so the **first time** downloading and playing the sample may take more time than expected. Subsequent plays should load much quicker because of caching.
+The Megacity Multiplayer sample is large, so the **first time** cloning and playing the sample may take more time than expected. Subsequent plays should load much quicker because of caching.
 
-First time download and load time estimates:
-- Downloading the Megacity Multiplayer repo: Up to 20 min
+First time clone and load time estimates:
+- Cloning the Megacity Multiplayer repo: Up to 20 min
 - Opening the project with library build: Up to 20 min
 - When going into the main scene, subscenes need to import: Up to 20 min
 - When going into the playmode, server world is created: Up to 30 min
 
 ## Get Megacity Multiplayer
 
-You can get the Megacity Multiplayer sample by direct download or cloning the project.
-
-### Direct Download
-
-Either:
-- Download the latest version of Megacity Multiplayer from our **master** branch.
-- Or click the green **Code** button and select the **Download Zip** option. This downloads the branch you are currently viewing on GitHub.
-
-**Note for Windows users**: Using Windows' built-in extraction tool may generate an "Error 0x80010135: Path too long" error window, which can interrupt the extraction process. A workaround for this is to shorten the zip file to a single character (e.g., "c.zip") and move it to the shortest path on your computer (usually right at C:\\) and retry. If that solution fails, try to extract the downloaded zip file using [7-Zip](https://www.7-zip.org/).
+To get the Megacity Multiplayer sample, you can clone the project using Git. Please note that direct download of the project is not currently supported for this repository.
 
 ### Clone the Project
 
 Before you can clone the project, you must install Git Large File Support (LFS). Megacity Multiplayer uses Git LFS to handle all large assets required locally. Refer to [Git LFS installation options](https://github.com/git-lfs/git-lfs/wiki/Installation) for instructions on Windows and Mac. 
 
-**Note**: This step is only necessary if you're cloning the project locally instead of direct download.
-
 ## Get Started
 
-After you download the project, follow these steps to start playing:
+After you clone the project, follow these steps to start playing:
 1. Install a compatible Unity Editor version. During install make sure to include Standalone Support and Dedicated Server Support for Windows/Mac.
 2. To add the project to the **Unity Hub**, click the **Add** button and select the root folder of the downloaded project.
 	- **Note**: The first time you open the project may take longer than usual because Unity is importing all the assets.

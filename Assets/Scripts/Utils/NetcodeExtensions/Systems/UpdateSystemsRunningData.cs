@@ -19,9 +19,6 @@ namespace Unity.NetCode.Extensions
         public void OnUpdate(ref SystemState state)
         {
             var playerStats = SystemAPI.GetSingletonRW<PlayerStats>().ValueRW;
-            if (!playerStats.ShouldUpdate)
-                return; 
-            
             m_CurrentFrameVersion = state.EntityManager.GlobalSystemVersion - m_PreviousFrameVersion;
             m_PreviousFrameVersion = state.EntityManager.GlobalSystemVersion;
             playerStats.NumberOfSystems = m_CurrentFrameVersion;

@@ -98,8 +98,6 @@ Megacity Multiplayer uses several services from UGS to facilitate connectivity b
 
 You can still use Megacity Multiplayer without UGS, but for a better multiplayer experience, it is recommended to use the following services:
 
-
-
 ### Game Server Hosting (Multiplay)
 
 **Game Server Hosting**, formerly known as Multiplay, is a robust and flexible infrastructure for hosting multiplayer games. It ensures a smooth operation of your game by delivering proven performance and scalability. With Game Server Hosting, you can launch your multiplayer titles with confidence, knowing that you have the support of a reliable global platform. The enables you to spend less time troubleshooting and more time building your game with the help of comprehensive documentation, samples, and software development kits (SDKs) designed for interoperability. To get started with Game Server Hosting, refer to the official [documentation](https://docs.unity.com/game-server-hosting/en/manual/guides/get-started).
@@ -153,8 +151,7 @@ Next, click on the play button to initiate the game. To access the Matchmaking s
 
 Once the "Find Match" button is clicked, the Matchmaking services will initiate the connection process with the server. During this time, a circular loading indicator will be presented to signify that the system is in the process of establishing the connection. Once the connection is established, you will be able to start gameplay.
 
-![Selecting Matchmaking](Readme/establishing-connection.png)
-
+![Selecting Matchmaking](Readme/establishing-connection.gif)
 
 ### Vivox
 

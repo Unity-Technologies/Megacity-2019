@@ -42,11 +42,11 @@ namespace Unity.MegaCity.Gameplay
                          .WithNone<VivoxConnectionStatus>()
                          .WithEntityAccess())
             {
-                var vivoxPlayerName = PlayerInfoController.Instance.Name;
-                if (string.IsNullOrEmpty(playerName.ValueRO.Name.ToString()))
-                    vivoxPlayerName = playerName.ValueRO.Name.ToString();
-                cmdBuffer.AddComponent<VivoxConnectionStatus>(entity);
-                VivoxManager.Instance.Session.Login(vivoxPlayerName);
+                if (!string.IsNullOrEmpty(playerName.ValueRO.Name.ToString()))
+                {
+                    VivoxManager.Instance.Session.Login(playerName.ValueRO.Name.ToString());
+                    cmdBuffer.AddComponent<VivoxConnectionStatus>(entity);
+                }
             }
 
             cmdBuffer.Playback(state.EntityManager);

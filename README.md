@@ -87,7 +87,7 @@ Before you can clone the project, you must install Git Large File Support (LFS).
 
 After you clone the project, follow these steps to start playing:
 1. Install a compatible Unity Editor version. During install make sure to include Standalone Support and Dedicated Server Support for Windows/Mac.
-2. To add the project to the **Unity Hub**, click the **Add** button and select the root folder of the downloaded project.
+2. To add the project to the **Unity Hub**, click the **Add** button and select the root folder of the cloned project.
 	- **Note**: The first time you open the project may take longer than usual because Unity is importing all the assets.
 3. Open the Megacity scene located in `Scenes/Megacity`. The first time you open the scene, tt may take longer to load the Subscenes.
 4. Click the **Play** button to start.

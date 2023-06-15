@@ -47,9 +47,9 @@ Some important points of this demo are:
 
 ## Megacity Multiplayer Prerequisites
 
-Megacity Multiplayer is compatible with Unity **2022.3.1f1 LTS** and above and is currently tested on Windows and Mac. You can download the editor using the following links:
-- Unity Downloader: [Download Unity](https://unity.com/releases/editor/whats-new/2022.3.1)
-- Unity Hub URL: `unityhub://2022.3.1f1/f18e0c1b5784`
+Megacity Multiplayer is compatible with Unity **2022 LTS** and is currently tested on Windows and Mac. 
+You can download the editor using the following link:
+- Unity Website: [Download Unity LTS](https://unity.com/releases/lts)
 
 ### Recommended Specs for Mac
 - Operating System: Mac OS X 10.15.7

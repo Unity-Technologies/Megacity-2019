@@ -77,7 +77,7 @@ First time clone and load time estimates:
 
 ## Get Megacity Multiplayer
 
-To get the Megacity Multiplayer sample, you can clone the project using Git. Please note that direct download of the project is not currently supported for this repository.
+To get the Megacity Multiplayer sample, you can clone the project using Git. **Please note that direct download of the project is not currently supported for this repository**.
 
 ### Clone the Project
 

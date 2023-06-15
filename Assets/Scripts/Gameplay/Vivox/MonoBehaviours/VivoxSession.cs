@@ -26,14 +26,14 @@ namespace Unity.MegaCity.Gameplay
 
         private Account m_Account;
 
-        public void Login(string displayName = null)
+        public void Login(string displayName)
         {
             if (IsConnecting)
                 return;
 
             if (string.IsNullOrEmpty(displayName))
             {
-                Debug.LogWarning("DisplayName is null or empty, using default value");
+                Debug.LogWarning("[VIVOX] The user's DisplayName is missing or invalid. Vivox will utilize the default value as a fallback.");
                 displayName = "Player";
             }
 

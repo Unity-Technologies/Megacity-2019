@@ -14,7 +14,6 @@ namespace Unity.MegaCity.UI
     ///  - Texture Detail
     ///  - Shadow Quality
     ///  - Level of Detail
-    ///  - Motion Blur
     ///  - Reflections
     ///  - Fog
     ///  - VSync
@@ -34,7 +33,6 @@ namespace Unity.MegaCity.UI
         private Toggle m_PostprocesingValue;
         private Toggle m_VolumetricFogValue;
         private Toggle m_ReflectionsValue;
-        private Toggle m_MotionBlurValue;
         private Toggle m_VerticalSyncValue;
 
         private DropdownField m_QualityValue;
@@ -44,7 +42,6 @@ namespace Unity.MegaCity.UI
         private DropdownField m_ShadowQualityValue;
         private DropdownField m_LevelOfDetailValue;
 
-        private MotionBlur m_MotionBlur;
         private VisualElement m_MainRoot;
 
         public override string TabName => "graphics";
@@ -57,7 +54,6 @@ namespace Unity.MegaCity.UI
             m_PostprocesingValue = root.Q<GroupBox>().Q<Toggle>("postprocessing");
             m_VolumetricFogValue = root.Q<GroupBox>().Q<Toggle>("volumetric-fog");
             m_ReflectionsValue = root.Q<GroupBox>().Q<Toggle>("reflections");
-            m_MotionBlurValue = root.Q<GroupBox>().Q<Toggle>("motion-blur");
             m_VerticalSyncValue = root.Q<GroupBox>().Q<Toggle>("vertical-sync");
 
             m_QualityValue = root.Q<DropdownField>("quality-settings");
@@ -74,7 +70,6 @@ namespace Unity.MegaCity.UI
             m_PostprocesingValue.RegisterValueChangedCallback(OnPostprocessingChanged);
             m_VolumetricFogValue.RegisterValueChangedCallback(OnVolumetricFogChanged);
             m_ReflectionsValue.RegisterValueChangedCallback(OnReflectionsChanged);
-            m_MotionBlurValue.RegisterValueChangedCallback(OnMotionBlurChanged);
             m_VerticalSyncValue.RegisterValueChangedCallback(OnVsyncChanged);
 
             m_QualityValue.RegisterValueChangedCallback(OnGraphicsQualityChanged);
@@ -82,7 +77,6 @@ namespace Unity.MegaCity.UI
             m_TextureDetailsValue.RegisterValueChangedCallback(OnTextureDetailsChanged);
             m_ShadowQualityValue.RegisterValueChangedCallback(OnShadowQualityChanged);
             m_LevelOfDetailValue.RegisterValueChangedCallback(LevelOfDetailChanged);
-            m_PostProcessing.profile.TryGet(out m_MotionBlur);
 
             switch (QualitySettings.GetQualityLevel())
             {
@@ -120,7 +114,6 @@ namespace Unity.MegaCity.UI
             UpdateCurrentToggleState(m_PostprocesingValue);
             UpdateCurrentToggleState(m_VolumetricFogValue);
             UpdateCurrentToggleState(m_ReflectionsValue);
-            UpdateCurrentToggleState(m_MotionBlurValue);
             UpdateCurrentToggleState(m_VerticalSyncValue);
 
             UpdateCurrentDropdownFieldState(m_ScreenmodeValue);
@@ -137,7 +130,6 @@ namespace Unity.MegaCity.UI
             ResetCurrentToggleState(m_PostprocesingValue);
             ResetCurrentToggleState(m_VolumetricFogValue);
             ResetCurrentToggleState(m_ReflectionsValue);
-            ResetCurrentToggleState(m_MotionBlurValue);
             ResetCurrentToggleState(m_VerticalSyncValue);
 
             ResetCurrentDropdownFieldState(m_ScreenmodeValue);
@@ -151,7 +143,6 @@ namespace Unity.MegaCity.UI
             m_CanSetAsCustom = false;
             QualitySettings.SetQualityLevel(2);
             m_VerticalSyncValue.value = true;
-            m_MotionBlurValue.value = true;
             m_VolumetricFogValue.value = true;
             m_PostprocesingValue.value = true;
             m_ReflectionsValue.value = true;
@@ -167,7 +158,6 @@ namespace Unity.MegaCity.UI
             m_CanSetAsCustom = false;
             QualitySettings.SetQualityLevel(1);
             m_VerticalSyncValue.value = false;
-            m_MotionBlurValue.value = false;
             m_VolumetricFogValue.value = true;
             m_PostprocesingValue.value = true;
             m_ReflectionsValue.value = true;
@@ -183,7 +173,6 @@ namespace Unity.MegaCity.UI
             m_CanSetAsCustom = false;
             QualitySettings.SetQualityLevel(0);
             m_VerticalSyncValue.value = false;
-            m_MotionBlurValue.value = false;
             m_VolumetricFogValue.value = false;
             m_PostprocesingValue.value = false;
             m_ReflectionsValue.value = false;
@@ -201,7 +190,6 @@ namespace Unity.MegaCity.UI
                 m_PostprocesingValue.UnregisterValueChangedCallback(OnPostprocessingChanged);
                 m_VolumetricFogValue.UnregisterValueChangedCallback(OnVolumetricFogChanged);
                 m_ReflectionsValue.UnregisterValueChangedCallback(OnReflectionsChanged);
-                m_MotionBlurValue.UnregisterValueChangedCallback(OnMotionBlurChanged);
                 m_VerticalSyncValue.UnregisterValueChangedCallback(OnVsyncChanged);
 
                 m_ScreenmodeValue.UnregisterValueChangedCallback(OnScreenModeChanged);
@@ -239,12 +227,6 @@ namespace Unity.MegaCity.UI
         private void OnVsyncChanged(ChangeEvent<bool> value)
         {
             QualitySettings.vSyncCount = value.newValue ? 1 : 0;
-            SetCustom();
-        }
-
-        private void OnMotionBlurChanged(ChangeEvent<bool> value)
-        {
-            m_MotionBlur.active = value.newValue;
             SetCustom();
         }
 

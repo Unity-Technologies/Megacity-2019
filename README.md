@@ -47,9 +47,9 @@ Some important points of this demo are:
 
 ## Megacity Multiplayer Prerequisites
 
-Megacity Multiplayer is compatible with Unity **2022.3.1f1 LTS** and above and is currently tested on Windows and Mac. You can download the editor using the following links:
-- Unity Downloader: [Download Unity](https://unity.com/releases/editor/whats-new/2022.3.1)
-- Unity Hub URL: `unityhub://2022.3.1f1/f18e0c1b5784`
+Megacity Multiplayer is compatible with Unity **2022 LTS** and is currently tested on Windows and Mac. 
+You can download the editor using the following link:
+- Unity Website: [Download Unity LTS](https://unity.com/releases/lts)
 
 ### Recommended Specs for Mac
 - Operating System: Mac OS X 10.15.7
@@ -87,7 +87,7 @@ Before you can clone the project, you must install Git Large File Support (LFS).
 
 After you clone the project, follow these steps to start playing:
 1. Install a compatible Unity Editor version. During install make sure to include Standalone Support and Dedicated Server Support for Windows/Mac.
-2. To add the project to the **Unity Hub**, click the **Add** button and select the root folder of the downloaded project.
+2. To add the project to the **Unity Hub**, click the **Add** button and select the root folder of the cloned project.
 	- **Note**: The first time you open the project may take longer than usual because Unity is importing all the assets.
 3. Open the Megacity scene located in `Scenes/Megacity`. The first time you open the scene, tt may take longer to load the Subscenes.
 4. Click the **Play** button to start.

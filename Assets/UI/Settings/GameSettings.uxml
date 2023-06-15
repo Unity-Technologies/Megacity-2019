@@ -110,9 +110,6 @@
                                 <AttributeOverrides element-name="Label" text="Reflections" />
                             </ui:Instance>
                             <ui:Instance template="Label">
-                                <AttributeOverrides element-name="Label" text="Motion Blur" />
-                            </ui:Instance>
-                            <ui:Instance template="Label">
                                 <AttributeOverrides element-name="Label" text="Vertical Sync " />
                             </ui:Instance>
                         </ui:VisualElement>
@@ -127,7 +124,6 @@
                                 <ui:Toggle label="Postprocessing" name="postprocessing" class="checkbox" style="-unity-background-scale-mode: scale-and-crop;" />
                                 <ui:Toggle label="Volumetric Fog" name="volumetric-fog" class="checkbox" />
                                 <ui:Toggle label="Reflections" name="reflections" class="checkbox" style="display: flex;" />
-                                <ui:Toggle label="Motion Blur" name="motion-blur" class="checkbox" />
                                 <ui:Toggle label="Vsync" name="vertical-sync" class="checkbox" />
                             </ui:GroupBox>
                         </ui:VisualElement>

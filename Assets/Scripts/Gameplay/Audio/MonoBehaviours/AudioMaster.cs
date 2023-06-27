@@ -14,6 +14,7 @@ namespace Unity.MegaCity.Audio
         public int closestEmitterPerClipCount = 3;
         public AudioMixerGroup soundFX;
         public AudioMixerGroup volume;
+        public AudioMixerGroup music;
 
         public static AudioMaster Instance
         {

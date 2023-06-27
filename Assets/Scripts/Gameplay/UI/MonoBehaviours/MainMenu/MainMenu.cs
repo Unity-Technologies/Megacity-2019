@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using Unity.MegaCity.Audio;
 using UnityEngine;
 using Unity.MegaCity.CameraManagement;
@@ -9,6 +10,7 @@ using Unity.MegaCity.Gameplay;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using UnityEngine.UIElements.Experimental;
+using Random = UnityEngine.Random;
 
 namespace Unity.MegaCity.UI
 {
@@ -31,14 +33,14 @@ namespace Unity.MegaCity.UI
         [SerializeField] private AudioMaster m_AudioMaster;
         [SerializeField] private UIGameSettings m_GameSettings;
         [SerializeField] private MultiplayerServerSettings m_ServerSettings;
+
         [field: SerializeField]
         public MultiplayerMode SelectedMultiplayerMode { get; private set; } = MultiplayerMode.Matchmaker;
 
-        [SerializeField] 
-        private MatchMakingConnector m_MatchMakingConnector;
+        [SerializeField] private MatchMakingConnector m_MatchMakingConnector;
         public AudioMaster AudioMaster => m_AudioMaster;
-        private int m_CurrentMenuItem = 0;
-        private int m_PrevMenuItem = 0;
+        private int m_CurrentMenuItem;
+        private int m_PrevMenuItem;
 
         private TextField m_NameTextField;
         private RadioButtonGroup m_MultiplayerModeGroup;
@@ -50,11 +52,11 @@ namespace Unity.MegaCity.UI
         private VisualElement m_OverlayMenu;
         private VisualElement m_MainMenuContainer;
         private List<Button> m_Options;
-        
+
         public MatchMakingConnector MatchMakingConnector
         {
-            get { return m_MatchMakingConnector; }
-            private set { m_MatchMakingConnector = value; }
+            get => m_MatchMakingConnector;
+            private set => m_MatchMakingConnector = value;
         }
 
         public static MainMenu Instance { get; private set; }
@@ -72,6 +74,7 @@ namespace Unity.MegaCity.UI
                 Destroy(gameObject);
                 return;
             }
+
             MatchMakingConnector = new MatchMakingConnector(m_ServerSettings);
             if (string.IsNullOrEmpty(Application.cloudProjectId))
             {
@@ -84,7 +87,7 @@ namespace Unity.MegaCity.UI
             }
             else
             {
-                await MatchMakingConnector.Init();    
+                await MatchMakingConnector.Init();
             }
         }
 
@@ -107,7 +110,7 @@ namespace Unity.MegaCity.UI
 #endif
         }
 
-        void InitUI()
+        private void InitUI()
         {
             m_Options = new List<Button>();
             m_MainMenuContainer = GetComponent<UIDocument>().rootVisualElement;
@@ -123,7 +126,7 @@ namespace Unity.MegaCity.UI
 
             m_VisualMenu.style.display = DisplayStyle.Flex;
 
-            m_MultiplayerModeGroup.RegisterValueChangedCallback((selectedGroup) =>
+            m_MultiplayerModeGroup.RegisterValueChangedCallback(selectedGroup =>
             {
                 SetConnectionMode((MultiplayerMode) selectedGroup.newValue);
             });
@@ -136,11 +139,18 @@ namespace Unity.MegaCity.UI
                 PlayerInfoController.Instance.Name = userName;
             }
 
-            m_NameTextField.RegisterValueChangedCallback(s =>
+            m_NameTextField.RegisterValueChangedCallback(evt =>
             {
+                var filteredText = FilterNonAlphanumeric(evt.newValue);
+                if (filteredText != evt.newValue)
+                {
+                    m_NameTextField.SetValueWithoutNotify(filteredText);
+                }
+
                 if (PlayerInfoController.Instance != null)
-                    PlayerInfoController.Instance.Name = s.newValue;
-                MatchMakingConnector.SetProfileServeName(s.newValue); 
+                    PlayerInfoController.Instance.Name = filteredText;
+
+                MatchMakingConnector.SetProfileServeName(filteredText);
             });
 
             m_PlayerControllerButton.clicked += () =>
@@ -170,13 +180,20 @@ namespace Unity.MegaCity.UI
             m_Options.Add(m_QuitButton);
             SetMenuOptionUIElements(m_CurrentMenuItem);
             SetConnectionMode(SelectedMultiplayerMode);
+            SetupCosmeticFlickering(m_MainMenuContainer);
         }
 
+        private string FilterNonAlphanumeric(string input)
+        {
+            return Regex.Replace(input, @"[^a-zA-Z0-9-_]", string.Empty);
+        }
 
         private void SetConnectionMode(MultiplayerMode mode)
         {
             SelectedMultiplayerMode = mode;
-            var connectButtonText = SelectedMultiplayerMode == MultiplayerMode.Matchmaker ? "Find Match" : SelectedMultiplayerMode.ToString();
+            var connectButtonText = SelectedMultiplayerMode == MultiplayerMode.Matchmaker
+                ? "Find Match"
+                : SelectedMultiplayerMode.ToString();
             m_PlayerControllerButton.text = connectButtonText;
             var isMatchMaking = mode == MultiplayerMode.Matchmaker;
             MatchMakingConnector.SetConnectionMode(isMatchMaking);
@@ -240,7 +257,7 @@ namespace Unity.MegaCity.UI
                         .Start(new StyleValues {opacity = 0f}, 2000)
                         .Ease(Easing.Linear)
                         .OnCompleted(() => { m_OverlayMenu.style.display = DisplayStyle.None; });
-                    
+
                     // Show HUD
                     TutorialScreen.Instance.ShowTutorial();
                 });
@@ -324,6 +341,19 @@ namespace Unity.MegaCity.UI
         {
             m_GameSettings.Show(m_VisualMenu);
             m_VisualMenu.style.display = DisplayStyle.None;
+        }
+
+        private void SetupCosmeticFlickering(VisualElement root)
+        {
+            var flickeringElements = root.Query(className: "flicker").ToList();
+            foreach (var flickeringElement in flickeringElements)
+            {
+                var randomDelay = Random.Range(1, 4);
+                flickeringElement.AddToClassList($"transition-{randomDelay}");
+                flickeringElement.RegisterCallback<TransitionEndEvent>(_ =>
+                    flickeringElement.ToggleInClassList("flicker-loop"));
+                root.schedule.Execute(() => flickeringElement.ToggleInClassList("flicker-loop")).StartingIn(100);
+            }
         }
     }
 }

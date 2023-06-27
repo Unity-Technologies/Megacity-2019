@@ -96,7 +96,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.entities": {
-      "version": "1.0.10",
+      "version": "1.0.11",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -114,11 +114,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.entities.graphics": {
-      "version": "1.0.10",
+      "version": "1.0.11",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.entities": "1.0.10",
+        "com.unity.entities": "1.0.11",
         "com.unity.modules.particlesystem": "1.0.0",
         "com.unity.render-pipelines.core": "14.0.6"
       },
@@ -193,12 +193,12 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.netcode": {
-      "version": "1.0.11",
+      "version": "1.0.12",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.transport": "2.0.1",
-        "com.unity.entities": "1.0.10",
+        "com.unity.entities": "1.0.11",
         "com.unity.logging": "1.0.11",
         "com.unity.modules.animation": "1.0.0"
       },
@@ -226,13 +226,13 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.physics": {
-      "version": "1.0.10",
+      "version": "1.0.11",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.burst": "1.8.4",
         "com.unity.collections": "2.1.4",
-        "com.unity.entities": "1.0.10",
+        "com.unity.entities": "1.0.11",
         "com.unity.mathematics": "1.2.6",
         "com.unity.modules.imgui": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0"
@@ -283,7 +283,7 @@
       }
     },
     "com.unity.scriptablebuildpipeline": {
-      "version": "1.21.5",
+      "version": "1.21.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -346,7 +346,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.services.multiplay": {
-      "version": "1.0.4",
+      "version": "1.0.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -437,7 +437,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.7.4",
+      "version": "1.7.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {

@@ -14,7 +14,7 @@ namespace Unity.MegaCity.Gameplay
     [WorldSystemFilter(WorldSystemFilterFlags.ThinClientSimulation)]
     public partial struct MegaCityThinInputSystem : ISystem
     {
-        private NativeReference<Unity.Mathematics.Random> m_Rand;
+        private NativeReference<Random> m_Rand;
 
         public void OnCreate(ref SystemState state)
         {

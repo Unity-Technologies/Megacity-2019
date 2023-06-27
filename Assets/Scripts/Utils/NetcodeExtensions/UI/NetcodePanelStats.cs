@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.UIElements.Experimental;
@@ -10,6 +9,7 @@ namespace Unity.NetCode
     /// </summary>
     public class NetcodePanelStats : MonoBehaviour
     {
+        private NetcodeConnectionMonitor m_Monitor;
         private Button m_BackButton;
         private VisualElement m_BackIcon;
         private VisualElement m_InfoPanel;
@@ -26,6 +26,8 @@ namespace Unity.NetCode
         private bool m_IsRunning;
 
         public static NetcodePanelStats Instance { private set; get; }
+        public NetcodeConnectionMonitor Monitor => m_Monitor;
+        public bool IsMonitorEnable => m_Monitor != null;
         public bool IsRunning => m_IsRunning;
         private float PanelHeight => m_InfoPanel.layout.height + 10f;
 
@@ -59,6 +61,7 @@ namespace Unity.NetCode
 
         private void OnEnable()
         {
+            m_Monitor = FindObjectOfType<NetcodeConnectionMonitor>();
             var root = GetComponent<UIDocument>().rootVisualElement;
             m_Main = root.Q<VisualElement>("info-panel");
             m_InfoPanel = root.Q<VisualElement>("info-panel-body");

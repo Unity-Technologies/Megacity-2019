@@ -39,7 +39,6 @@ namespace Unity.Megacity.Gameplay
 
                     // Start showing death message in UI
                     HUD.Instance.ShowDeathMessage(playerScore.ValueRO.KillerName.ToString());
-                    DeathSounds.Instance.PlayDeathSound();
                 }
 
                 m_PreviousLife = health.ValueRO.Value;

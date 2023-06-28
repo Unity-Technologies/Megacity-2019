@@ -33,11 +33,6 @@
     background-image: url('project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=-8733241691560729093&guid=31e77ef23200a8842b3829370f52c886&type=3#button-selected');
 }
 
-.button:selected {
-    color: rgb(255, 255, 255);
-    background-image: url('project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=-8733241691560729093&guid=31e77ef23200a8842b3829370f52c886&type=3#button-selected');
-}
-
 .button:active {
     color: rgb(255, 255, 255);
     background-image: url('project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=-8733241691560729093&guid=31e77ef23200a8842b3829370f52c886&type=3#button-selected');
@@ -102,15 +97,11 @@
 }
 
 .checkbox {
-    margin: 5px;
+    margin: 10px;
     flex-direction: column;
     width: 80px;
     height: 80px;
     padding: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 .checkbox > Label {
@@ -246,4 +237,20 @@
 
 .label-input #unity-text-input TextElement {
     font-size: 22px;
+}
+
+.transition-1 {
+    transition-duration: 1s;
+}
+
+.transition-2 {
+    transition-duration: 1.5s;
+}
+
+.transition-3 {
+    transition-duration: 2s;
+}
+
+.flicker-loop{
+    opacity: 0.2;
 }

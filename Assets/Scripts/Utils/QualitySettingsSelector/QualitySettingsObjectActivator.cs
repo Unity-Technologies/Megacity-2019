@@ -2,9 +2,12 @@ using UnityEngine;
 
 namespace Unity.QualitySettingsTools
 {
+    /// <summary>
+    /// Activates children of this object based on the current quality settings.
+    /// </summary>
     public class QualitySettingsObjectActivator : MonoBehaviour
     {
-        enum Quality
+        private enum Quality
         {
             Optimal = 0,
             Medium = 1,

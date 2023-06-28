@@ -13,6 +13,7 @@ namespace Unity.MegaCity.UI
     {
         private Slider m_VolumeSlider;
         private Slider m_SoundFXSlider;
+        private Slider m_MusicSlider;
         private Slider m_VivoxVolumeSlider;
         private Slider m_VivoxMicrophoneSlider;
 
@@ -23,6 +24,7 @@ namespace Unity.MegaCity.UI
             var root = GameSettingsView.Q<GroupBox>().Q<VisualElement>("sliders");
             m_VolumeSlider = root.Q<Slider>("volume");
             m_SoundFXSlider = root.Q<Slider>("sound-fx");
+            m_MusicSlider = root.Q<Slider>("music");
             m_VivoxVolumeSlider = root.Q<Slider>("vivox-volume");
             m_VivoxMicrophoneSlider = root.Q<Slider>("vivox-microphone-volume");
 
@@ -30,6 +32,7 @@ namespace Unity.MegaCity.UI
             m_VivoxMicrophoneSlider.RegisterValueChangedCallback(OnVivoxMicrophoneVolumeUpdated);
             m_SoundFXSlider.RegisterValueChangedCallback(OnSoundFXUpdated);
             m_VolumeSlider.RegisterValueChangedCallback(OnVolumeUpdated);
+            m_MusicSlider.RegisterValueChangedCallback(OnMusicUpdated);
             base.Initialization();
         }
 
@@ -48,6 +51,7 @@ namespace Unity.MegaCity.UI
             {
                 m_SoundFXSlider.UnregisterValueChangedCallback(OnSoundFXUpdated);
                 m_VolumeSlider.UnregisterValueChangedCallback(OnVolumeUpdated);
+                m_MusicSlider.UnregisterValueChangedCallback(OnMusicUpdated);
             }
         }
 
@@ -58,7 +62,12 @@ namespace Unity.MegaCity.UI
 
         private void OnSoundFXUpdated(ChangeEvent<float> value)
         {
-            AudioMaster.Instance.volume.audioMixer.SetFloat("sound-fx", Mathf.Log(value.newValue) * 20);
+            AudioMaster.Instance.soundFX.audioMixer.SetFloat("sound-fx", Mathf.Log(value.newValue) * 20);
+        }
+        
+        private void OnMusicUpdated(ChangeEvent<float> value)
+        {
+            AudioMaster.Instance.music.audioMixer.SetFloat("music", Mathf.Log(value.newValue) * 20);
         }
 
         private void OnVivoxMicrophoneVolumeUpdated(ChangeEvent<float> value)

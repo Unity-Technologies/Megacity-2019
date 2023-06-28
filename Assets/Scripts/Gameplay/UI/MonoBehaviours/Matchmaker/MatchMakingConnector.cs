@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Unity.MegaCity.Gameplay;
 using Unity.MegaCity.Traffic;
+using Unity.NetCode.Extensions;
 using Unity.Services.Samples;
 using Unity.Services.Samples.GameServerHosting;
 using UnityEngine;
@@ -31,12 +33,14 @@ namespace Unity.MegaCity.UI
 
         public string DefaultName => m_DefaultName;
 
-        public MatchMakingConnector(MultiplayerServerSettings ServerSettings)
+        public MatchMakingConnector(MultiplayerServerSettings serverSettings)
         {
-            m_ServerSettings = ServerSettings;
-            m_DefaultName = Environment.UserName.ToUpper();
+            m_ServerSettings = serverSettings;
+            // Get name from BotNameGenerator to use as default name
+            var name = BotNameGenerator.GetRandomName(); 
+            m_DefaultName = name;
         }
-
+        
         public async Task Init()
         {
             IsTryingToConnect = false;
@@ -177,7 +181,7 @@ namespace Unity.MegaCity.UI
         {
             m_MultiplayerTextField.style.display = isMatchMaking ? DisplayStyle.None : DisplayStyle.Flex;
             m_MultiplayerServerDropdownMenu.style.display = isMatchMaking ? DisplayStyle.None : DisplayStyle.Flex;
-            m_MultiplayerServerDropdownMenu.value = m_MultiplayerServerDropdownMenu.choices[0];
+            m_MultiplayerServerDropdownMenu.value = m_MultiplayerServerDropdownMenu.choices[0] ?? "Local";
             UpdatePortAndIP(m_ServerSettings.GetIPByName(m_MultiplayerServerDropdownMenu.value));
         }
     }

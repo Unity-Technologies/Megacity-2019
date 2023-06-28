@@ -188,7 +188,7 @@ Transform:
   - {fileID: 7410388637878519152}
   - {fileID: 7065157017470143039}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1658215580204977147
 MonoBehaviour:
@@ -372,9 +372,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StreamingInDistance: 1200
   StreamingOutDistance: 1250
-  StreamingLowMinInOut:
-    x: 600
-    y: 800
   PlayerScene: {fileID: 102900000, guid: 49a72a7c2a2c8044abfaf7829f316369, type: 3}
 --- !u!114 &9003922629475569152
 MonoBehaviour:

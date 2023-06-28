@@ -31,7 +31,8 @@ namespace Unity.MegaCity.Gameplay
             var weAreInGame = m_NetworkStreamConnectionQuery.CalculateChunkCountWithoutFiltering() != 0;
 
             // Trying to match states...
-            if (weAreInGame == clientIsInGame) return;
+            if (weAreInGame == clientIsInGame) 
+                return;
 
             if (weAreInGame)
             {
@@ -45,7 +46,7 @@ namespace Unity.MegaCity.Gameplay
                 // Connect so that we match...
                 if (!NetworkEndpoint.TryParse(MainMenu.Instance.MatchMakingConnector.IP, NetCodeBootstrap.MegaCityServerIp.Port, out var networkEndpoint))
                 {
-                    UnityEngine.Debug.LogError($"[{state.WorldUnmanaged.Name}] Thin Client cannot connect as cannot parse endpoint!");
+                    Debug.LogError($"[{state.WorldUnmanaged.Name}] Thin Client cannot connect as cannot parse endpoint!");
                     return;
                 }
 

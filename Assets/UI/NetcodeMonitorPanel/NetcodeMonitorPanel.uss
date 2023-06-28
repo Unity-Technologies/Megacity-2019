@@ -111,7 +111,6 @@
     display: flex;
     right: 10px;
     background-color: rgba(34, 33, 44, 0);
-    opacity: 0.9;
 }
 
 .panel-body {
@@ -123,47 +122,4 @@
     -unity-background-image-tint-color: rgba(34, 33, 44, 0);
     padding: 15px;
     margin-top: -10px;
-}
-
-.label-monitor {
-    font-size: 16px;
-}
-
-.unity-scroller__low-button {
-    background-color: rgba(0, 0, 0, 0);
-    background-image: url('project://database/Assets/Art/Textures/NetcodePanelStats/arrow_drop_up.png?fileID=21300000&guid=b7d29987f422fd349bc27a81c02657d0&type=3#arrow_drop_up');
-    -unity-background-image-tint-color: rgb(255, 255, 255);
-    -unity-background-scale-mode: scale-to-fit;
-    border-width: 0;
-}
-
-.unity-scroller__high-button {
-    background-color: rgba(0, 0, 0, 0);
-    background-image: url('project://database/Assets/Art/Textures/NetcodePanelStats/arrow_drop_up.png?fileID=21300000&guid=b7d29987f422fd349bc27a81c02657d0&type=3#arrow_drop_up');
-    -unity-background-image-tint-color: rgb(255, 255, 255);
-    -unity-background-scale-mode: scale-to-fit;
-    rotate: 180deg;
-    border-width: 0;
-}
-
-.unity-slider {
-    align-items: center;
-}
-
-.unity-base-slider__drag-container {
-    align-items: center;
-}
-
-.unity-base-slider__tracker {
-    border-width: 0;
-    opacity: 0.4;
-}
-
-.unity-base-slider__input {
-    width: 5px;
-}
-
-.unity-base-slider__dragger {
-    width: 5px;
-    left: 0;
 }

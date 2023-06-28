@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;
@@ -107,7 +106,7 @@ namespace Unity.MegaCity.Gameplay
                         state.Dependency = findANewNameJob.Schedule(state.Dependency);
                         state.Dependency.Complete();
 
-                        //if the requester is not a client should use one from the bank of names.
+                        // If the requester is not a client should use one from the bank of names.
                         var name = info.IsClient ? info.Name : m_UsedNames[m_UsedNames.Length - 1];
                         var uasID = info.UASId;
 

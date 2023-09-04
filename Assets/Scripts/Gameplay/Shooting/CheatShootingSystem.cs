@@ -3,7 +3,7 @@ using Unity.NetCode;
 using static Unity.Entities.SystemAPI;
 using Unity.NetCode.Extensions;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
 #if DEVELOPMENT_BUILD || UNITY_EDITOR
     /// <summary>
@@ -12,6 +12,12 @@ namespace Unity.MegaCity.Gameplay
     [UpdateInGroup(typeof(PredictedSimulationSystemGroup))]
     public partial struct CheatShootingSystem : ISystem
     {
+        public void OnCreate(ref SystemState state)
+        {
+            state.RequireForUpdate<NetworkTime>();
+            state.Enabled = false;
+        }
+
         public void OnUpdate(ref SystemState state)
         {
             var netTime = GetSingleton<NetworkTime>();

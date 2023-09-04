@@ -1,6 +1,7 @@
 ﻿using Unity.Entities;
+using Unity.Mathematics;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Control settings values
@@ -8,6 +9,8 @@ namespace Unity.MegaCity.Gameplay
     public struct ControlSettings : IComponentData
     {
         public float MouseSensitivity;
+        public float2 AccelerationRange;
+        public float2 DirectionRange;
         public bool InverseLookHorizontal;
         public bool InverseLookVertical;
     }

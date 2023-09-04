@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 using VivoxUnity;
 using Random = Unity.Mathematics.Random;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Detects the talker and updates UI Vivox player's name. 
@@ -48,11 +48,6 @@ namespace Unity.MegaCity.Gameplay
             if (VivoxManager.Instance == null || VivoxManager.Instance.Devices == null)
                 return;
             
-            if (Input.GetKeyDown(KeyCode.V))
-            {
-                OnMuteToggle();
-            }
-
             if (IsMicrophoneMuted != VivoxManager.Instance.Devices.Muted)
             {
                 IsMicrophoneMuted = VivoxManager.Instance.Devices.Muted;
@@ -91,7 +86,7 @@ namespace Unity.MegaCity.Gameplay
             participant.PropertyChanged -= OnParticipantOnPropertyChanged;
         }
 
-        private void OnMuteToggle()
+        public void OnMuteToggle()
         {
             VivoxManager.Instance.Devices.SetMicrophoneMute(!VivoxManager.Instance.Devices.Muted);
         }

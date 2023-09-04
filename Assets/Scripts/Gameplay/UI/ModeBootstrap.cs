@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Linq;
-using Unity.MegaCity.Traffic;
+using Unity.Megacity.Traffic;
 using Unity.NetCode;
 using Unity.Networking.Transport;
 using UnityEngine;
 
-namespace Unity.MegaCity.UI
+namespace Unity.Megacity.UI
 {
     /// <summary>
     /// Save bool parameters such as SkipMenu or QuitAfterFlyover,
@@ -65,7 +65,7 @@ namespace Unity.MegaCity.UI
         private static void ParseThinClientArgs(string[] commandLineArgs, out NetworkEndpoint userSpecifiedEndpoint,
             out int userSpecifiedNumThinClients)
         {
-            var hardcodedFallbackAddress = NetCodeBootstrap.MegaCityServerIp;
+            var hardcodedFallbackAddress = NetCodeBootstrap.MegacityServerIp;
             userSpecifiedEndpoint = hardcodedFallbackAddress;
             userSpecifiedNumThinClients = 0;
 
@@ -147,7 +147,7 @@ namespace Unity.MegaCity.UI
 
         private static void ParseMultiplayEndpoint(string[] commandlineArgs, out NetworkEndpoint multiplayEndpoint)
         {
-            var hardcodedFallbackAddress = NetCodeBootstrap.MegaCityServerIp;
+            var hardcodedFallbackAddress = NetCodeBootstrap.MegacityServerIp;
             multiplayEndpoint = hardcodedFallbackAddress;
             if (commandlineArgs.Length < 1)
                 return;

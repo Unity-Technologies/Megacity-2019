@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Unity.MegaCity.Utils
+namespace Unity.Megacity.Utils
 {
     /// <summary>
     /// keeps the data for Line Doppler and applies according to the delay parameters.

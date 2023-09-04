@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using VivoxUnity;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Adds events to Vivox UI

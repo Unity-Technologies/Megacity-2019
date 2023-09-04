@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering.HighDefinition;
 
-namespace Unity.MegaCity.Utils
+namespace Unity.Megacity.Utils
 {
     /// <summary>
     /// Updates the transform position of HDAdditionalLightData gameobject,

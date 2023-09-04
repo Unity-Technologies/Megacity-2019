@@ -2,31 +2,36 @@
     <ui:Template name="background" src="project://database/Assets/UI/MainMenu/background.uxml?fileID=9197481963319205126&amp;guid=ee745de6c90100b468b8fa83a7cc0ea7&amp;type=3#background" />
     <Style src="project://database/Assets/UI/MainMenu/Styles.uss?fileID=7433441132597879392&amp;guid=dfb32b1fdf2bfae48bbadfa74165273b&amp;type=3#Styles" />
     <Style src="project://database/Assets/UI/Custom/radial-progress/radial-progress.uss?fileID=7433441132597879392&amp;guid=e8303b202c1f8b449928c170556b69f8&amp;type=3#radial-progress" />
-    <ui:VisualElement name="visual-menu" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; width: 100%; height: 100%; align-items: center; transition-property: opacity; transition-duration: 1s; transition-timing-function: ease; transition-delay: 0s; opacity: 1; color: rgb(0, 0, 0); -unity-background-image-tint-color: rgb(0, 0, 0); display: flex;">
-        <ui:Instance template="background" name="background" picking-mode="Ignore" class="background" style="flex-grow: 1; -unity-background-scale-mode: scale-and-crop; width: 101%; height: 101%;" />
-        <ui:VisualElement name="gradient" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; background-image: url(&apos;project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=-6167541733945284890&amp;guid=31e77ef23200a8842b3829370f52c886&amp;type=3#RadialGradient&apos;); height: 100%; width: 1466px; opacity: 0.5;" />
-        <ui:VisualElement name="unity-logo" picking-mode="Ignore" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=2189907575338286644&amp;guid=31e77ef23200a8842b3829370f52c886&amp;type=3#MadeWithUnity&apos;); width: 180px; height: 50px; position: absolute; bottom: 24px; -unity-background-scale-mode: scale-to-fit;" />
-        <ui:GroupBox name="main-group-box" style="position: absolute; bottom: 200px; width: 400px;">
-            <ui:VisualElement name="logo" picking-mode="Ignore" style="background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=4956762818165564686&amp;guid=31e77ef23200a8842b3829370f52c886&amp;type=3#logo&apos;); width: 800px; align-self: center; height: 250px; -unity-background-scale-mode: scale-to-fit;" />
-            <ui:RadioButtonGroup label="Mode" value="0" choices="Matchmake, Connect" name="multiplayer-mode" class="label-input" />
-            <ui:DropdownField label="Dropdown" index="0" choices="Local,America,Europe,Asia" name="multiplayer-server-location" class="popup-selection" />
-            <ui:TextField picking-mode="Ignore" label="Server IP" value="127.0.0.1:7979" name="multiplayer-server-textfield" tabindex="-1" class="label-input MenuTextField" />
-            <ui:TextField picking-mode="Ignore" label="Name" value="Player" name="name-textfield" tabindex="-1" max-length="20" readonly="false" is-delayed="false" class="label-input MenuTextField" />
-            <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="connection-label" style="-unity-text-align: upper-center; -unity-font: url(&apos;project://database/Assets/UI/Fonts/ChakraPetch-Medium.ttf?fileID=12800000&amp;guid=25f588e56b0a32d4ca3779fef2ecb271&amp;type=3#ChakraPetch-Medium&apos;); -unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/ChakraPetch-Medium%20SDF.asset?fileID=11400000&amp;guid=f3103ff426df8704595bd7db20530273&amp;type=2#ChakraPetch-Medium SDF&apos;); font-size: 25px; display: none; padding-top: 20px; padding-bottom: 20px;" />
-            <ui:VisualElement name="matchmaking-loading-bar" style="background-color: rgba(0, 0, 0, 0); width: 100px; height: 100px; align-items: center; align-self: center; justify-content: space-between; display: none;">
-                <MyUILibrary.RadialProgress progress="100" name="matchmaking-loading-bar-0" class="radial-progress-no-text" style="position: absolute; width: 100px; height: 100px;" />
-                <MyUILibrary.RadialProgress progress="0" name="matchmaking-loading-bar-1" class="radial-progress-no-text" style="position: absolute; width: 70px; height: 70px; top: 15px;" />
-            </ui:VisualElement>
-            <ui:Button tabindex="-1" text="Play" display-tooltip-when-elided="true" name="player-controller-button" focusable="true" class="button" style="visibility: visible; display: flex; opacity: 1;" />
-            <ui:Button tabindex="-1" text="Settings" display-tooltip-when-elided="true" name="settings-button" class="button" />
-            <ui:Button tabindex="-1" text="Quit" display-tooltip-when-elided="true" name="quit-button" class="button" />
-        </ui:GroupBox>
+    <ui:VisualElement name="main-menu-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: center; justify-content: center;">
+        <ui:Instance template="background" name="background" picking-mode="Ignore" class="background" style="-unity-background-scale-mode: scale-and-crop; width: 101%; height: 101%; position: absolute;" />
+        <ui:VisualElement name="gradient" picking-mode="Ignore" style="position: absolute; background-image: url(&apos;project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=-6167541733945284890&amp;guid=31e77ef23200a8842b3829370f52c886&amp;type=3#RadialGradient&apos;); height: 100%; width: 100%; opacity: 0.7; display: flex; -unity-background-scale-mode: scale-to-fit;" />
+        <ui:VisualElement style="background-color: rgba(0, 0, 0, 0); width: 100%; height: 100%; align-items: center; justify-content: space-around;">
+            <ui:VisualElement name="logo" picking-mode="Ignore" tabindex="-1" style="background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=4956762818165564686&amp;guid=31e77ef23200a8842b3829370f52c886&amp;type=3#logo&apos;); width: 800px; align-self: center; height: 250px; -unity-background-scale-mode: scale-to-fit;" />
+            <ui:GroupBox name="base-menu-options" tabindex="-1" style="position: relative; width: 400px; display: flex;">
+                <ui:Button tabindex="0" text="Single player" name="single-player-button" focusable="true" class="button" style="visibility: visible; display: flex; opacity: 1;" />
+                <ui:Button tabindex="1" text="Multiplayer" name="multiplayer-button" focusable="true" class="button" style="visibility: visible; display: flex; opacity: 1;" />
+                <ui:Button tabindex="2" text="Settings" name="settings-button" class="button" />
+                <ui:Button tabindex="3" text="Quit" name="quit-button" class="button" />
+            </ui:GroupBox>
+            <ui:GroupBox name="multiplayer-menu-options" style="position: relative; width: 400px; display: none;">
+                <ui:RadioButtonGroup label="Mode" value="0" choices="Matchmake, Connect" name="multiplayer-mode" focusable="true" class="label-input" />
+                <ui:DropdownField label="Dropdown" index="0" choices="Local,America,Europe,Asia" name="multiplayer-server-location" tabindex="1" class="popup-selection" />
+                <ui:TextField picking-mode="Ignore" label="Server IP" value="127.0.0.1:7979" name="multiplayer-server-textfield" tabindex="2" class="label-input MenuTextField" />
+                <ui:TextField picking-mode="Ignore" label="Name" value="Player" name="name-textfield" tabindex="3" max-length="20" readonly="false" is-delayed="false" class="label-input MenuTextField" />
+                <ui:Label tabindex="4" display-tooltip-when-elided="true" name="connection-label" style="-unity-text-align: upper-center; -unity-font: url(&apos;project://database/Assets/UI/Fonts/ChakraPetch-Medium.ttf?fileID=12800000&amp;guid=25f588e56b0a32d4ca3779fef2ecb271&amp;type=3#ChakraPetch-Medium&apos;); -unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/ChakraPetch-Medium%20SDF.asset?fileID=11400000&amp;guid=f3103ff426df8704595bd7db20530273&amp;type=2#ChakraPetch-Medium SDF&apos;); font-size: 25px; display: none; padding-top: 20px; padding-bottom: 20px;" />
+                <ui:VisualElement name="matchmaking-loading-bar" style="background-color: rgba(0, 0, 0, 0); width: 100px; height: 100px; align-items: center; align-self: center; justify-content: space-between; display: none;">
+                    <MyUILibrary.RadialProgress progress="100" name="matchmaking-loading-bar-0" class="radial-progress-no-text" style="position: absolute; width: 100px; height: 100px;" />
+                    <MyUILibrary.RadialProgress progress="0" name="matchmaking-loading-bar-1" class="radial-progress-no-text" style="position: absolute; width: 70px; height: 70px; top: 15px;" />
+                </ui:VisualElement>
+                <ui:Button tabindex="5" text="Play" display-tooltip-when-elided="true" name="multiplayer-play-button" focusable="true" class="button" style="visibility: visible; display: flex; opacity: 1;" />
+                <ui:Button tabindex="6" text="Return" display-tooltip-when-elided="true" name="multiplayer-return-button" focusable="true" class="button" style="visibility: visible; display: flex; opacity: 1;" />
+            </ui:GroupBox>
+            <ui:GroupBox name="single-player-menu-options" style="position: relative; width: 400px; display: none;">
+                <ui:Button tabindex="0" text="Guided Flight" display-tooltip-when-elided="true" name="guided-flight-button" focusable="true" class="button" style="visibility: visible; display: flex; opacity: 1;" />
+                <ui:Button tabindex="1" text="Free Flight" display-tooltip-when-elided="true" name="free-flight-button" focusable="true" class="button" style="visibility: visible; display: flex; opacity: 1;" />
+                <ui:Button tabindex="2" text="Return" display-tooltip-when-elided="true" name="single-player-return-button" class="button" />
+            </ui:GroupBox>
+            <ui:VisualElement name="unity-logo" picking-mode="Ignore" tabindex="-1" style="background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=2189907575338286644&amp;guid=31e77ef23200a8842b3829370f52c886&amp;type=3#MadeWithUnity&apos;); width: 180px; height: 50px; position: relative; -unity-background-scale-mode: scale-to-fit;" />
+        </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="loading-screen" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); display: none; position: absolute; width: 100%; height: 100%; align-items: center; transition-property: opacity; transition-duration: 1s; transition-timing-function: ease; transition-delay: 0s;">
-        <ui:Instance template="background" name="background" picking-mode="Ignore" class="background" style="flex-grow: 1; display: flex; -unity-background-scale-mode: scale-and-crop;" />
-        <ui:VisualElement name="logo" picking-mode="Ignore" style="background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=4956762818165564686&amp;guid=31e77ef23200a8842b3829370f52c886&amp;type=3#logo&apos;); width: 800px; align-self: center; height: 250px; -unity-background-scale-mode: scale-to-fit; position: absolute; top: 270px;" />
-        <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=2189907575338286644&amp;guid=31e77ef23200a8842b3829370f52c886&amp;type=3#MadeWithUnity&apos;); width: 180px; height: 50px; position: absolute; bottom: 20px; -unity-background-scale-mode: scale-to-fit;" />
-        <ui:ProgressBar name="progressbar" high-value="1" low-value="0" picking-mode="Ignore" class="progress-bar" style="position: absolute; bottom: 100px; font-size: 12px; width: 500px; height: 40px;" />
-    </ui:VisualElement>
-    <ui:VisualElement name="overlay" picking-mode="Ignore" style="flex-grow: 1; background-color: rgb(0, 0, 0); opacity: 0; position: absolute; width: 100%; height: 100%;" />
 </ui:UXML>

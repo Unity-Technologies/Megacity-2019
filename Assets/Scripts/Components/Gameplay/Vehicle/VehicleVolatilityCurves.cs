@@ -3,7 +3,7 @@ using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Create blob asset out of the animation curves used in the player,

@@ -1,7 +1,7 @@
 using Unity.Entities;
 using UnityEngine;
 
-namespace Unity.MegaCity.Utils
+namespace Unity.Megacity.Utils
 {
     /// <summary>
     /// Adds the MultiMaterialObjectTag which identifies an entity that is missing a material definition.

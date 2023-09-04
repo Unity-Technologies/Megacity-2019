@@ -1,8 +1,8 @@
 using Unity.Collections;
 using Unity.Entities;
-using Unity.MegaCity.CameraManagement;
-using Unity.MegaCity.Gameplay;
-using Unity.MegaCity.UI;
+using Unity.Megacity.CameraManagement;
+using Unity.Megacity.Gameplay;
+using Unity.Megacity.UI;
 using Unity.NetCode;
 
 namespace Unity.Megacity.UI

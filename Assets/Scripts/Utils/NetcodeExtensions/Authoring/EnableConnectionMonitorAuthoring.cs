@@ -6,7 +6,8 @@ namespace Unity.NetCode.Extensions
     [DisallowMultipleComponent]
     public class EnableConnectionMonitorAuthoring : MonoBehaviour
     {
-        class Baker : Baker<EnableConnectionMonitorAuthoring>
+        [BakingVersion("julian", 1)]
+        private class EnableConnectionMonitorBaker : Baker<EnableConnectionMonitorAuthoring>
         {
             public override void Bake(EnableConnectionMonitorAuthoring authoring)
             {

@@ -3,7 +3,7 @@ using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-namespace Unity.MegaCity.CameraManagement
+namespace Unity.Megacity.CameraManagement
 {
     /// <summary>
     /// Job to update the camera target position and rotation

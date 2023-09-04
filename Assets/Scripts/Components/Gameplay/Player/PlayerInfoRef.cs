@@ -4,7 +4,7 @@ using Unity.Physics;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     public struct PlayerInfoRef
     {
@@ -111,23 +111,13 @@ namespace Unity.MegaCity.Gameplay
             Panel.style.display = DisplayStyle.Flex;
         }
 
-        public bool IsVisible(CollisionWorld collisionWorld, float3 cameraPos, float3 playerPos)
+        public bool IsVisible(float3 cameraPos, float3 cameraForward, float3 playerPos)
         {
-            var rayInput = new RaycastInput
-            {
-                Start = cameraPos,
-                End = playerPos,
-                Filter = CollisionFilter.Default
-            };
-
-            if (collisionWorld.CastRay(rayInput, out var closestHit))
-            {
-                var minDistance = Settings.MinDistanceBetweenCameraRayAndPlayer;
-                return closestHit.Entity.Equals(Self) || math.distance(playerPos, closestHit.Position) < minDistance;
-            }
-
-            return true;
-        }
+            var cameraToPlayer = playerPos - cameraPos;
+            var angle = math.degrees(math.acos(math.dot(math.normalize(cameraForward), math.normalize(cameraToPlayer))));
+            // Check if the angle is within the threshold
+            return angle < 45f;
+    }
 
         public void UpdateScale(float distance)
         {

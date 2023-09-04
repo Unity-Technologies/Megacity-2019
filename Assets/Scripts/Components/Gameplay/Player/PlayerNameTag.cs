@@ -1,6 +1,6 @@
 ﻿using Unity.Entities;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Added to a player who already has a name

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Unity.MegaCity.UI
+namespace Unity.Megacity.UI
 {
     /// <summary>
     /// Contains the shared and global properties and Methods for the UI tabs Views in GameSettings.

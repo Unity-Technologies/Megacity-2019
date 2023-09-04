@@ -1,11 +1,13 @@
 using System.Collections;
+using JetBrains.Annotations;
 using Unity.Mathematics;
-using Unity.MegaCity.Gameplay;
+using Unity.Megacity.Gameplay;
+using Unity.NetCode;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.UIElements.Experimental;
 
-namespace Unity.MegaCity.UI
+namespace Unity.Megacity.UI
 {
     /// <summary>
     /// Manages the HUD UI elements.
@@ -18,6 +20,9 @@ namespace Unity.MegaCity.UI
     {
         [SerializeField] private UILeaderboard m_Leaderboard;
         [SerializeField] private PlayerInfoItemSettings m_PlayerInfoSettings;
+        [SerializeField] private GameObject m_VirtualJoystickPrefab;
+        public VirtualJoystick JoystickLeft { get; private set; }
+        public VirtualJoystick JoystickRight { get; private set; }
 
         private ProgressBar m_LifeBar;
         private Crosshair m_Crosshair;
@@ -25,6 +30,7 @@ namespace Unity.MegaCity.UI
         private LaserBar m_LaserBar;
 
         private VisualElement m_MessageScreen;
+        private VisualElement m_LifeBarContainer;
         
         private Label m_BottomMessageLabel;
         private Label m_MessageLabel;
@@ -55,12 +61,55 @@ namespace Unity.MegaCity.UI
             m_Crosshair = GetComponent<Crosshair>();
             m_Notification = GetComponent<Notification>();
             m_LaserBar = GetComponent<LaserBar>();
+        }
 
+        private void Start()
+        {
             var root = GetComponent<UIDocument>().rootVisualElement;
+            
             m_LifeBar = root.Q<ProgressBar>("life-bar");
+            m_LifeBarContainer = root.Q<VisualElement>("lifebar-container");
             m_MessageScreen = root.Q<VisualElement>("message-screen");
             m_MessageLabel = m_MessageScreen.Q<Label>("message-label");
             m_BottomMessageLabel = m_MessageScreen.Q<Label>("bottom-message-label");
+            m_MessageScreen.style.display = DisplayStyle.None;
+            
+            CursorUtils.HideCursor();
+            JoystickLeft = CreateJoystick(VirtualJoystick.Align.Left);
+            JoystickRight = CreateJoystick(VirtualJoystick.Align.Right);
+
+            if (PlayerInfoController.Instance.IsSinglePlayer)
+            {
+                Hide();
+            }
+            else
+            {
+                Show();
+            }
+        }
+
+        private VirtualJoystick CreateJoystick(VirtualJoystick.Align align)
+        {
+            var prefab =  Instantiate(m_VirtualJoystickPrefab, transform.parent, true);
+            var joystick = prefab.GetComponent<VirtualJoystick>();
+            joystick.SetPosition(align);
+            return joystick;
+        }
+
+        private void Hide()
+        {
+            m_LifeBarContainer.style.display = DisplayStyle.None;
+            m_Crosshair.Hide();
+            m_LaserBar.Hide();
+            NetcodePanelStats.Instance.Disable();
+        }
+
+        private void Show()
+        {
+            m_LifeBarContainer.style.display = DisplayStyle.Flex;
+            m_Crosshair.Show();
+            m_LaserBar.Show();
+            NetcodePanelStats.Instance.Disable();
         }
 
         public void UpdateLife(float life)
@@ -132,7 +181,8 @@ namespace Unity.MegaCity.UI
 
         public void HideMessageScreen()
         {
-            StartCoroutine(HideWhenCompletedMessage());
+            if(m_MessageScreen.style.display == DisplayStyle.Flex)
+                StartCoroutine(HideWhenCompletedMessage());
         }
 
         private IEnumerator HideWhenCompletedMessage()

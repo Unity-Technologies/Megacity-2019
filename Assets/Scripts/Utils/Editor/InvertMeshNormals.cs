@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Unity.MegaCity.EditorTools
+namespace Unity.Megacity.EditorTools
 {
     public class InvertMeshNormals : EditorWindow
     {

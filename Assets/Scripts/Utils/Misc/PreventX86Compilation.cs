@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
-namespace Unity.MegaCity.Utils{
+namespace Unity.Megacity.Utils{
     /// <summary>
     /// Validate that Megacity is built targeting the correct architecture and platform.
     /// </summary>
@@ -15,7 +15,7 @@ namespace Unity.MegaCity.Utils{
         public void OnPreprocessBuild(BuildReport report)
         {
             if(report.summary.platform == BuildTarget.StandaloneWindows)
-                Debug.LogError("MegaCity should be built in x86_64 (Build Settings / Architecture)");
+                Debug.LogError("Megacity should be built in x86_64 (Build Settings / Architecture)");
         }
     }
 }

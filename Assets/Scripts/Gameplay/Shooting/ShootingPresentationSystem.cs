@@ -4,7 +4,7 @@ using Unity.Mathematics;
 using Unity.Physics;
 using static Unity.Entities.SystemAPI;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// System to handle shooting presentation

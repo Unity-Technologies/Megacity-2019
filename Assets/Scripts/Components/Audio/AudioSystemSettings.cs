@@ -1,6 +1,6 @@
 ﻿using Unity.Entities;
 
-namespace Unity.MegaCity.Audio
+namespace Unity.Megacity.Audio
 {
     /// <summary>
     /// Audio system settings component authored based on the constant Audio Master class settings.
@@ -9,6 +9,9 @@ namespace Unity.MegaCity.Audio
     {
         public bool DebugMode;
         public float MaxDistance;
+        public float MaxSqDistance;
+        public int MaxVehicles;
         public int ClosestEmitterPerClipCount;
+        public bool HasInitialized;
     }
 }

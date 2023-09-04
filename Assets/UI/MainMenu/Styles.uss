@@ -29,18 +29,13 @@
     -unity-font-definition: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium%20SDF.asset?fileID=11400000&guid=f3103ff426df8704595bd7db20530273&type=2#ChakraPetch-Medium SDF');
 }
 
-.button:hover {
-    background-image: url('project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=-8733241691560729093&guid=31e77ef23200a8842b3829370f52c886&type=3#button-selected');
-}
-
-.button:active {
+.button:focus {
     color: rgb(255, 255, 255);
     background-image: url('project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=-8733241691560729093&guid=31e77ef23200a8842b3829370f52c886&type=3#button-selected');
 }
 
-.button-menu-active {
-    color: rgb(255, 255, 255);
-    background-image: url('project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=-8733241691560729093&guid=31e77ef23200a8842b3829370f52c886&type=3#button-selected');
+.button:disabled {
+    color: rgb(118, 118, 118);
 }
 
 .decoration-asset {
@@ -251,6 +246,6 @@
     transition-duration: 2s;
 }
 
-.flicker-loop{
+.flicker-loop {
     opacity: 0.2;
 }

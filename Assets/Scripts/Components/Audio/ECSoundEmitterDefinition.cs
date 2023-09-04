@@ -1,7 +1,7 @@
 ﻿using System;
 using Unity.Entities;
 
-namespace Unity.MegaCity.Audio
+namespace Unity.Megacity.Audio
 {
     [Serializable]
     public struct ECSoundEmitterDefinition : IComponentData

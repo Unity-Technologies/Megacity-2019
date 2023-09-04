@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Unity.MegaCity.UI
+namespace Unity.Megacity.UI
 {
     /// <summary>
     /// UI element for switching between screen resolutions

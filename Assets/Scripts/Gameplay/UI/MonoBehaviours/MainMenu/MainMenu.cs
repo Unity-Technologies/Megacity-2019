@@ -1,25 +1,13 @@
-﻿//  Add Platforms here that exclude Quit Menu option
-
-using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using Unity.MegaCity.Audio;
+﻿using System;
+using Unity.Megacity.CameraManagement;
 using UnityEngine;
-using Unity.MegaCity.CameraManagement;
-using Unity.MegaCity.Gameplay;
-using UnityEngine.SceneManagement;
+using Unity.Megacity.Gameplay;
+using Unity.Megacity.UGS;
 using UnityEngine.UIElements;
-using UnityEngine.UIElements.Experimental;
 using Random = UnityEngine.Random;
 
-namespace Unity.MegaCity.UI
+namespace Unity.Megacity.UI
 {
-    public enum MultiplayerMode
-    {
-        Matchmaker = 0,
-        Connect = 1
-    }
-
     /// <summary>
     /// Manages the UI for the main menu.
     /// This sets the audio settings for the city.
@@ -29,41 +17,23 @@ namespace Unity.MegaCity.UI
     /// </summary>
     public class MainMenu : MonoBehaviour
     {
-        public HybridCameraManager m_HybridCameraManager;
-        [SerializeField] private AudioMaster m_AudioMaster;
-        [SerializeField] private UIGameSettings m_GameSettings;
-        [SerializeField] private MultiplayerServerSettings m_ServerSettings;
+        public event Action<GameMode> OnGameModeSelected;  
+        private UIGameSettings m_GameSettings;
 
-        [field: SerializeField]
-        public MultiplayerMode SelectedMultiplayerMode { get; private set; } = MultiplayerMode.Matchmaker;
-
-        [SerializeField] private MatchMakingConnector m_MatchMakingConnector;
-        public AudioMaster AudioMaster => m_AudioMaster;
-        private int m_CurrentMenuItem;
-        private int m_PrevMenuItem;
-
-        private TextField m_NameTextField;
-        private RadioButtonGroup m_MultiplayerModeGroup;
-
-        private Button m_PlayerControllerButton;
+        [SerializeField] private PlayerInfoItemSettings m_PlayerSettings;
+        // Base Menu Options
+        private VisualElement m_BaseMenuOptions;
+        private Button m_SinglePlayerButton;
+        private Button m_MultiplayerButton;
         private Button m_QuitButton;
         private Button m_GameSettingsButton;
-        private VisualElement m_VisualMenu;
-        private VisualElement m_OverlayMenu;
         private VisualElement m_MainMenuContainer;
-        private List<Button> m_Options;
-
-        public MatchMakingConnector MatchMakingConnector
-        {
-            get => m_MatchMakingConnector;
-            private set => m_MatchMakingConnector = value;
-        }
 
         public static MainMenu Instance { get; private set; }
 
-        public bool IsVisible => m_VisualMenu.style.display == DisplayStyle.Flex;
-
-        private async void Awake()
+        public bool IsVisible => m_MainMenuContainer.style.display == DisplayStyle.Flex;
+        
+        private void Awake()
         {
             if (Instance == null)
             {
@@ -72,275 +42,134 @@ namespace Unity.MegaCity.UI
             else
             {
                 Destroy(gameObject);
-                return;
-            }
-
-            MatchMakingConnector = new MatchMakingConnector(m_ServerSettings);
-            if (string.IsNullOrEmpty(Application.cloudProjectId))
-            {
-                Debug.LogWarning($"To use Unity's dashboard services, " +
-                                 "you need to link your Unity project to a project ID. " +
-                                 "To do this, go to Project Settings to select your organization, " +
-                                 "select your project and then link a project ID. " +
-                                 "You also need to make sure your organization has access to the required products. " +
-                                 "Visit https://dashboard.unity3d.com to sign up.");
-            }
-            else
-            {
-                await MatchMakingConnector.Init();
             }
         }
 
         private void OnDestroy()
         {
             if (Instance == this)
+            {
                 Instance = null;
+                m_GameSettingsButton.clicked -= ShowGameSettings;
+                m_QuitButton.clicked -= QuitDemo;
+            }
         }
 
         private void Start()
         {
-            // too strongly coupled to the ui so there we go :(
-            // In Awake() the AudioManager is not present (before OnEnable()) so we would run into a null-ref exception.
+            if (SceneController.IsReturningToMainMenu)
+            {
+                SceneController.IsReturningToMainMenu = false;
+                ServerConnectionUtils.CreateDefaultWorld();
+            }
 #if UNITY_SERVER && !UNITY_EDITOR
             Debug.Log("Beginning server mode");
             gameObject.SetActive(false);
-            return;
 #else
             InitUI();
 #endif
         }
 
         private void InitUI()
-        {
-            m_Options = new List<Button>();
-            m_MainMenuContainer = GetComponent<UIDocument>().rootVisualElement;
-            m_MultiplayerModeGroup = m_MainMenuContainer.Q<RadioButtonGroup>("multiplayer-mode");
-            m_NameTextField = m_MainMenuContainer.Q<TextField>("name-textfield");
-            m_PlayerControllerButton = m_MainMenuContainer.Q<Button>("player-controller-button");
+        { 
+            m_PlayerSettings.GameMode = GameMode.None;
+            var root = GetComponent<UIDocument>().rootVisualElement;
+            m_MainMenuContainer = root.Q<VisualElement>("main-menu-container");
+            
+            // Base Menu Options
+            m_BaseMenuOptions = m_MainMenuContainer.Q<VisualElement>("base-menu-options");
             m_GameSettingsButton = m_MainMenuContainer.Q<Button>("settings-button");
             m_QuitButton = m_MainMenuContainer.Q<Button>("quit-button");
-            m_VisualMenu = m_MainMenuContainer.Q<VisualElement>("visual-menu");
-            m_OverlayMenu = m_MainMenuContainer.Q<VisualElement>("overlay");
+            m_SinglePlayerButton = m_MainMenuContainer.Q<Button>("single-player-button");
+            m_MultiplayerButton = m_MainMenuContainer.Q<Button>("multiplayer-button");
 
-            MatchMakingConnector.InitUI(m_MainMenuContainer);
+            m_GameSettingsButton.clicked += ShowGameSettings;
+            m_QuitButton.clicked += QuitDemo;
 
-            m_VisualMenu.style.display = DisplayStyle.Flex;
-
-            m_MultiplayerModeGroup.RegisterValueChangedCallback(selectedGroup =>
+            m_SinglePlayerButton.clicked += () =>
             {
-                SetConnectionMode((MultiplayerMode) selectedGroup.newValue);
-            });
-
-            var userName = MatchMakingConnector.DefaultName;
-            Debug.Log($"Initializing UI as {userName}");
-            if (!string.IsNullOrEmpty(userName))
-            {
-                m_NameTextField.value = userName;
-                PlayerInfoController.Instance.Name = userName;
-            }
-
-            m_NameTextField.RegisterValueChangedCallback(evt =>
-            {
-                var filteredText = FilterNonAlphanumeric(evt.newValue);
-                if (filteredText != evt.newValue)
-                {
-                    m_NameTextField.SetValueWithoutNotify(filteredText);
-                }
-
-                if (PlayerInfoController.Instance != null)
-                    PlayerInfoController.Instance.Name = filteredText;
-
-                MatchMakingConnector.SetProfileServeName(filteredText);
-            });
-
-            m_PlayerControllerButton.clicked += () =>
-            {
-                if (!m_PlayerControllerButton.enabledSelf)
-                    return;
-                m_CurrentMenuItem = 0;
-                SelectItem();
+                ToggleBaseMenuOptions();
+                //m_SinglePlayerMenu.ToggleVisibility();
+                m_PlayerSettings.GameMode = GameMode.SinglePlayer;
+                if (OnGameModeSelected != null)
+                    OnGameModeSelected(m_PlayerSettings.GameMode);
             };
-            m_GameSettingsButton.clicked += () =>
+            
+            m_MultiplayerButton.clicked += () =>
             {
-                m_CurrentMenuItem = 1;
-                SelectItem();
+                ToggleBaseMenuOptions();
+                //m_MultiplayerMenu.ToggleVisibility();
+                m_PlayerSettings.GameMode = GameMode.Multiplayer;
+                if (OnGameModeSelected != null)
+                    OnGameModeSelected(m_PlayerSettings.GameMode);
             };
-            m_QuitButton.clicked += () =>
-            {
-                m_CurrentMenuItem = 2;
-                SelectItem();
-            };
+            
+            m_SinglePlayerButton.RegisterCallback<MouseOverEvent>(_ => { m_SinglePlayerButton.Focus(); });
+            m_MultiplayerButton.RegisterCallback<MouseOverEvent>(_ => {m_MultiplayerButton.Focus(); });
+            m_GameSettingsButton.RegisterCallback<MouseOverEvent>(_ => { m_GameSettingsButton.Focus(); });
+            m_QuitButton.RegisterCallback<MouseOverEvent>(_ => { m_QuitButton.Focus(); });
 
-            m_PlayerControllerButton.RegisterCallback<MouseOverEvent>(e => { m_CurrentMenuItem = 0; });
-            m_GameSettingsButton.RegisterCallback<MouseOverEvent>(e => { m_CurrentMenuItem = 1; });
-            m_QuitButton.RegisterCallback<MouseOverEvent>(e => { m_CurrentMenuItem = 2; });
-
-            m_Options.Add(m_PlayerControllerButton);
-            m_Options.Add(m_GameSettingsButton);
-            m_Options.Add(m_QuitButton);
-            SetMenuOptionUIElements(m_CurrentMenuItem);
-            SetConnectionMode(SelectedMultiplayerMode);
+            m_SinglePlayerButton.Focus();
+            
             SetupCosmeticFlickering(m_MainMenuContainer);
+            Show();
         }
 
-        private string FilterNonAlphanumeric(string input)
+        public void ToggleBaseMenuOptions()
         {
-            return Regex.Replace(input, @"[^a-zA-Z0-9-_]", string.Empty);
-        }
-
-        private void SetConnectionMode(MultiplayerMode mode)
-        {
-            SelectedMultiplayerMode = mode;
-            var connectButtonText = SelectedMultiplayerMode == MultiplayerMode.Matchmaker
-                ? "Find Match"
-                : SelectedMultiplayerMode.ToString();
-            m_PlayerControllerButton.text = connectButtonText;
-            var isMatchMaking = mode == MultiplayerMode.Matchmaker;
-            MatchMakingConnector.SetConnectionMode(isMatchMaking);
-        }
-
-        private void OnPlaySelected()
-        {
-            if (MatchMakingConnector.ClientIsInGame)
+            if (m_BaseMenuOptions.style.display == DisplayStyle.None)
             {
-                Debug.LogWarning("Cant hit play while already in-game!");
-                return;
+                m_BaseMenuOptions.style.display = DisplayStyle.Flex;
+                m_SinglePlayerButton.Focus();
+                m_PlayerSettings.GameMode = GameMode.None;
             }
-
-            switch (SelectedMultiplayerMode)
+            else
             {
-                case MultiplayerMode.Matchmaker:
-                    Matchmake();
-                    break;
-                case MultiplayerMode.Connect:
-                    MatchMakingConnector.ConnectToServer();
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+                m_BaseMenuOptions.style.display = DisplayStyle.None;
             }
         }
 
         public void ConnectionSucceeded()
         {
-            m_HybridCameraManager.m_CameraTargetMode = HybridCameraManager.CameraTargetMode.FollowPlayer;
-            AnimateOut();
-            MatchMakingConnector.ConnectionSucceeded();
+            HybridCameraManager.Instance.SetFollowCamera();
+            Hide();
+            MatchMakingConnector.Instance.ConnectionSucceeded();
         }
 
         public void ConnectionFailed()
         {
-            MatchMakingConnector.ConnectionFailed();
-            SceneManager.LoadScene("MegaCity");
+            MatchMakingConnector.Instance.ConnectionFailed();
+            SceneController.LoadMenu();
         }
 
-        public void Show()
+        private void Show()
         {
-            m_VisualMenu.style.display = DisplayStyle.Flex;
-            m_VisualMenu.visible = true;
-            MatchMakingConnector.ClientIsInGame = false;
-            CursorUtils.ShowCursor(true);
+            m_MainMenuContainer.style.display = DisplayStyle.Flex;
+            MatchMakingConnector.Instance.ClientIsInGame = false;
+            CursorUtils.ShowCursor();
         }
 
-        private void AnimateOut()
+        public void Hide()
         {
-            //LoadAudioSettings();
-            m_OverlayMenu.style.display = DisplayStyle.Flex;
-
-            m_OverlayMenu.experimental.animation
-                .Start(new StyleValues {opacity = 1}, 1000)
-                .Ease(Easing.Linear)
-                .OnCompleted(() =>
-                {
-                    m_VisualMenu.style.display = DisplayStyle.None;
-                    m_VisualMenu.visible = false;
-                    m_OverlayMenu.experimental.animation
-                        .Start(new StyleValues {opacity = 0f}, 2000)
-                        .Ease(Easing.Linear)
-                        .OnCompleted(() => { m_OverlayMenu.style.display = DisplayStyle.None; });
-
-                    // Show HUD
-                    TutorialScreen.Instance.ShowTutorial();
-                });
+            LoadingScreen.Instance.Show();
+            m_MainMenuContainer.style.display = DisplayStyle.None;
         }
-
-        private async void Matchmake()
-        {
-            SetUIMatchmaking(true);
-            await MatchMakingConnector.Matchmake();
-            SetUIMatchmaking(false);
-        }
-
-        private void SetUIMatchmaking(bool matchmaking)
-        {
-            m_PlayerControllerButton.style.display = matchmaking ? DisplayStyle.None : DisplayStyle.Flex;
-            m_QuitButton.style.display = matchmaking ? DisplayStyle.None : DisplayStyle.Flex;
-            m_GameSettingsButton.style.display = matchmaking ? DisplayStyle.None : DisplayStyle.Flex;
-            //show when is doing matchmaking
-            MatchMakingConnector.SetUIConnectionStatusEnable(matchmaking);
-            m_PlayerControllerButton.SetEnabled(!matchmaking);
-        }
-
-        private void Update()
-        {
-            if (!IsVisible)
-                return;
-
-            if (Input.GetKeyDown(KeyCode.Escape) && !m_GameSettings.IsVisible)
-                QuitSystem.WantsToQuit = true;
-
-            //	Only restrict update interval with respect to moving, not selecting
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-                ++m_CurrentMenuItem;
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
-                --m_CurrentMenuItem;
-            else if (Input.GetKeyDown(KeyCode.Return))
-                SelectItem();
-
-            m_CurrentMenuItem =
-                Mathf.Clamp(m_CurrentMenuItem, 0, m_Options.Count > 0 ? m_Options.Count - 1 : 0);
-
-            if (m_CurrentMenuItem != m_PrevMenuItem)
-            {
-                SetMenuOptionUIElements(m_CurrentMenuItem);
-                m_PrevMenuItem = m_CurrentMenuItem;
-            }
-        }
-
-        private void SetMenuOptionUIElements(int optionActive)
-        {
-            foreach (var buttonOption in m_Options)
-                buttonOption.RemoveFromClassList("button-menu-active");
-
-            m_Options[optionActive].AddToClassList("button-menu-active");
-        }
-
-        private void SelectItem()
-        {
-            switch (m_CurrentMenuItem)
-            {
-                case 0:
-                    OnPlaySelected();
-                    break;
-                case 1:
-                    ShowGameSettings();
-                    break;
-                case 2:
-                    QuitDemo();
-                    break;
-            }
-        }
-
+        
         private void QuitDemo()
         {
-            MatchMakingConnector?.Dispose();
             // If we want to do something before quiting game
             QuitSystem.WantsToQuit = true;
         }
 
         private void ShowGameSettings()
         {
-            m_GameSettings.Show(m_VisualMenu);
-            m_VisualMenu.style.display = DisplayStyle.None;
+            if (m_GameSettings == null)
+            {
+                m_GameSettings = FindObjectOfType<UIGameSettings>();
+            }
+            
+            m_GameSettings.Show(m_MainMenuContainer);
+            m_MainMenuContainer.style.display = DisplayStyle.None;
         }
 
         private void SetupCosmeticFlickering(VisualElement root)

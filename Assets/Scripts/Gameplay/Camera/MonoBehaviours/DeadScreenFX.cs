@@ -3,15 +3,13 @@ using Unity.Mathematics;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 
-namespace Unity.MegaCity.CameraManagement
+namespace Unity.Megacity.CameraManagement
 {
     /// <summary>
     /// Handles the Dead Screen FX
     /// </summary>
     public class DeadScreenFX : MonoBehaviour
     {
-        [SerializeField]
-        private Volume m_Volume;
         [SerializeField]
         private Texture2D m_TextureLut;
         [SerializeField, Range(0,1)]
@@ -33,7 +31,8 @@ namespace Unity.MegaCity.CameraManagement
 
         private void Awake()
         {
-            var profile = m_Volume.sharedProfile;
+            var assetProfile = GetComponent<Volume>();
+            var profile = assetProfile.sharedProfile;
             if (!profile.TryGet(out m_ColorAdjustments))
                 m_ColorAdjustments = profile.Add<ColorAdjustments>(false);
 

@@ -1,11 +1,12 @@
 ﻿using Unity.Entities;
-using Unity.MegaCity.Traffic;
-using Unity.MegaCity.UI;
+using Unity.Megacity.Traffic;
+using Unity.Megacity.UGS;
+using Unity.Megacity.UI;
 using Unity.NetCode;
 using Unity.Networking.Transport;
 using UnityEngine;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Auto-connects thin clients to the main client.
@@ -27,7 +28,7 @@ namespace Unity.MegaCity.Gameplay
                 return; // Auto-connection is already handled by NetcodeBootstrap.
 
             // Only auto-connect thin clients once the main client is connecting.
-            var clientIsInGame = MainMenu.Instance.MatchMakingConnector.ClientIsInGame;
+            var clientIsInGame = MatchMakingConnector.Instance.ClientIsInGame;
             var weAreInGame = m_NetworkStreamConnectionQuery.CalculateChunkCountWithoutFiltering() != 0;
 
             // Trying to match states...
@@ -44,7 +45,7 @@ namespace Unity.MegaCity.Gameplay
             else
             {
                 // Connect so that we match...
-                if (!NetworkEndpoint.TryParse(MainMenu.Instance.MatchMakingConnector.IP, NetCodeBootstrap.MegaCityServerIp.Port, out var networkEndpoint))
+                if (!NetworkEndpoint.TryParse(MatchMakingConnector.Instance.IP, NetCodeBootstrap.MegacityServerIp.Port, out var networkEndpoint))
                 {
                     Debug.LogError($"[{state.WorldUnmanaged.Name}] Thin Client cannot connect as cannot parse endpoint!");
                     return;

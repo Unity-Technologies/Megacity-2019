@@ -1,10 +1,10 @@
 ﻿using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
-using Unity.MegaCity.Gameplay;
+using Unity.Megacity.Gameplay;
 using Unity.Transforms;
 
-namespace Unity.MegaCity.CameraManagement
+namespace Unity.Megacity.CameraManagement
 {
     /// <summary>
     /// Reads the transform data copied from the dolly cart game object and moves the player accordingly

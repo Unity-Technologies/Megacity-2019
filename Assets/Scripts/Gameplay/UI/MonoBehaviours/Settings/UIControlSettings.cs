@@ -1,6 +1,6 @@
 using UnityEngine.UIElements;
 
-namespace Unity.MegaCity.UI
+namespace Unity.Megacity.UI
 {
     /// <summary>
     /// This class manages the Controls View in UI Game Settings view.

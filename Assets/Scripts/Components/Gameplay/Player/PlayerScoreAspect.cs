@@ -3,7 +3,7 @@ using Unity.Mathematics;
 using Unity.NetCode;
 using Unity.NetCode.Extensions;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Player score Aspect

@@ -1,7 +1,7 @@
 using Unity.Entities;
 using Unity.Physics;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Set of components required for player vehicle movement and control

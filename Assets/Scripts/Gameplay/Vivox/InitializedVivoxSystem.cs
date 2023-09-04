@@ -5,7 +5,7 @@ using Unity.NetCode;
 using Unity.NetCode.Extensions;
 using static Unity.Entities.SystemAPI;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Component added to the player entity when the Vivox connection is established.

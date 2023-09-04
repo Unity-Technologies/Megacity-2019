@@ -1,8 +1,7 @@
 {
-    "name": "Unity.MegaCity.Gameplay",
+    "name": "Unity.Megacity.Gameplay",
     "rootNamespace": "",
     "references": [
-        "Unity.MegaCity.Components",
         "Unity.Mathematics",
         "Unity.Mathematics.Extensions",
         "Unity.Entities",
@@ -27,7 +26,9 @@
         "Unity.Services.Vivox",
         "Unity.Services.Core",
         "VivoxUnity",
-        "Unity.Megacity.Utils.Graphics"
+        "Unity.Megacity.Utils.Graphics",
+        "Unity.InputSystem",
+        "Unity.Megacity.Components"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

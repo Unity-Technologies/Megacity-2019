@@ -1,13 +1,13 @@
 ﻿using Unity.Entities;
+using Unity.Megacity.Streaming;
 using UnityEditor;
 using UnityEngine;
-using Unity.MegaCity.Streaming;
 #if !UNITY_EDITOR_WIN
 using Unity.Mathematics;
 using UnityEngine.Serialization;
 #endif
 
-namespace Unity.MegaCity.Authoring
+namespace Unity.Megacity.Authoring
 {
     /// <summary>
     /// Configures the streaming in/out distances based on player position in the scene
@@ -21,6 +21,7 @@ namespace Unity.MegaCity.Authoring
         public float2 StreamingLowMinInOut = new (600f, 800f);
 #endif
         public SceneAsset PlayerScene;
+        public SceneAsset TrafficScene;
 
         private void OnDrawGizmosSelected()
         {
@@ -37,7 +38,7 @@ namespace Unity.MegaCity.Authoring
             public override void Bake(StreamingConfigAuthoring authoring)
             {
                 var entity = GetEntity(authoring.gameObject, TransformUsageFlags.Dynamic);
-                var config = new StreamingConfig()
+                var config = new StreamingConfig
                 {
 #if UNITY_EDITOR_WIN
                     DistanceForStreamingIn = authoring.StreamingInDistance,
@@ -46,9 +47,8 @@ namespace Unity.MegaCity.Authoring
                     DistanceForStreamingIn = math.min(authoring.StreamingLowMinInOut.x,authoring.StreamingInDistance),
                     DistanceForStreamingOut = math.min(authoring.StreamingLowMinInOut.y, authoring.StreamingOutDistance),
 #endif
-                    PlayerSectionGUID =
-                        new Entities.Hash128(
-                            AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(authoring.PlayerScene))),
+                    PlayerSectionGUID = new Entities.Hash128(AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(authoring.PlayerScene))),
+                    TrafficSectionGUID = new Entities.Hash128(AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(authoring.TrafficScene))),
                 };
                 AddComponent(entity, config);
             }

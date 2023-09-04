@@ -2,7 +2,7 @@
 using Unity.Mathematics;
 using Unity.NetCode;
 
-namespace Unity.MegaCity.Utils
+namespace Unity.Megacity.Utils
 {
     public static class PlayerColor
     {

@@ -1,9 +1,8 @@
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.UIElements;
 
-namespace Unity.MegaCity.UI
+namespace Unity.Megacity.UI
 {
     /// <summary>
     /// Access to GameObjects in the Scene and graphics settings that allows change the quality of the game.

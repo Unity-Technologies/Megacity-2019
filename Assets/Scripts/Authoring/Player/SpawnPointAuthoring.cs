@@ -1,8 +1,8 @@
 ﻿using Unity.Entities;
+using Unity.Megacity.Gameplay;
 using UnityEngine;
-using Unity.MegaCity.Gameplay;
 
-namespace Unity.MegaCity.Authoring
+namespace Unity.Megacity.Authoring
 {
     /// <summary>
     /// Defines a spawn point on the map based on the position of a child object.

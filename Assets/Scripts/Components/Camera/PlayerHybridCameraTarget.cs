@@ -1,6 +1,6 @@
 ﻿using Unity.Entities;
 
-namespace Unity.MegaCity.CameraManagement
+namespace Unity.Megacity.CameraManagement
 {
     public struct PlayerHybridCameraTarget : IComponentData
     {

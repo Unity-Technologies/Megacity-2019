@@ -1,13 +1,13 @@
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
+using Unity.Megacity.Gameplay;
 using Unity.NetCode;
 using Unity.Physics;
 using Unity.Physics.Authoring;
 using UnityEngine;
-using Unity.MegaCity.Gameplay;
 
-namespace Unity.MegaCity.Authoring
+namespace Unity.Megacity.Authoring
 {
     /// <summary>
     /// Create all the required player vehicle components
@@ -79,22 +79,31 @@ namespace Unity.MegaCity.Authoring
                     ControlDirection = float3.zero,
                     Acceleration = 0,
                     Brake = 0,
-                    RightRoll = 0,
-                    LeftRoll = 0
+                    Roll = 0
                 };
                 AddComponent(entity, input);
                 // Get physics damping data
                 var physicsBody = GetComponent<PhysicsBodyAuthoring>();
+                var maxVelocity = 10f;
                 var damping = new PhysicsDamping
                 {
-                    Angular = physicsBody.AngularDamping,
-                    Linear = physicsBody.LinearDamping
+                    Angular = 2,
+                    Linear = 2
                 };
+                
+                if (physicsBody != null)
+                {
+                    damping = new PhysicsDamping
+                    {
+                        Angular = physicsBody.AngularDamping,
+                        Linear = physicsBody.LinearDamping
+                    };
 
-                // Adding a really small constant (Time.fixedDeltaTime) to avoid subtraction to be Zero (0),
-                // in case damping.Linear will be 1. Also this allows to modify the speed according to Physics values.
-                var maxVelocity = (authoring.MaxSpeed / damping.Linear - Time.fixedDeltaTime * authoring.MaxSpeed) /
-                                  physicsBody.Mass;
+                    // Adding a really small constant (Time.fixedDeltaTime) to avoid subtraction to be Zero (0),
+                    // in case damping.Linear will be 1. Also this allows to modify the speed according to Physics values.
+                    maxVelocity = (authoring.MaxSpeed / damping.Linear - Time.fixedDeltaTime * authoring.MaxSpeed) /
+                                      physicsBody.Mass;
+                }
 
                 // Add vehicle settings component
                 var settings = new PlayerVehicleSettings

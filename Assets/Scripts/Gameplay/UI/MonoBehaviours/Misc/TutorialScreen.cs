@@ -1,8 +1,12 @@
 ﻿using System.Collections;
+using Unity.Megacity.CameraManagement;
+using Unity.Megacity.Gameplay;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 using UnityEngine.UIElements;
 
-namespace Unity.MegaCity.UI
+namespace Unity.Megacity.UI
 {
     /// <summary>
     /// Tutorial Screen UI element
@@ -13,6 +17,7 @@ namespace Unity.MegaCity.UI
         public static TutorialScreen Instance { get; private set; }
         
         private VisualElement m_TutorialScreen;
+        private VisualElement m_MultiplayerTutorial;
         private bool m_InTutorialScreen;
 
         private void Awake()
@@ -31,8 +36,29 @@ namespace Unity.MegaCity.UI
         {
             var root = GetComponent<UIDocument>().rootVisualElement;
             m_TutorialScreen = root.Q<VisualElement>("tutorial-screen");
+            m_MultiplayerTutorial = root.Q<VisualElement>("tutorial-multiplayer");
         }
-        
+
+        private void Start()
+        {
+            if (PlayerInfoController.Instance == null)
+                return;
+            
+            ShowTutorial();
+            
+            if (PlayerInfoController.Instance.IsSinglePlayer)
+            {
+                if(HybridCameraManager.Instance.IsDollyCamera)
+                    HideTutorial();
+                
+                m_MultiplayerTutorial.style.display = DisplayStyle.None;
+            }
+            else
+            {
+                m_MultiplayerTutorial.style.display = DisplayStyle.Flex;
+            }
+        }
+
         public void ShowTutorial()
         {
             if (m_InTutorialScreen) 
@@ -41,21 +67,24 @@ namespace Unity.MegaCity.UI
             m_TutorialScreen.style.display = DisplayStyle.Flex;
             m_InTutorialScreen = true;
             
-            CursorUtils.ShowCursor(false);
-
             StartCoroutine(WaitForAnyInput());
         }
-        
+
+        private void HideTutorial()
+        {
+            m_TutorialScreen.style.display = DisplayStyle.None;
+            m_InTutorialScreen = false;
+        }
+
         private IEnumerator WaitForAnyInput()
         {
             while (m_InTutorialScreen)
             {
-                if (Input.anyKey)
+                InputSystem.onAnyButtonPress.CallOnce(_ =>
                 {
-                    m_TutorialScreen.style.display = DisplayStyle.None;
-                    m_InTutorialScreen = false;
-                    yield break;
-                }
+                    HideTutorial();
+                });
+                
                 yield return null;
             }
         }

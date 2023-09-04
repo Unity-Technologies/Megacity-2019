@@ -6,7 +6,7 @@ using Unity.NetCode;
 using Unity.Physics;
 using Unity.Transforms;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Job to simulate the laser.
@@ -26,7 +26,8 @@ namespace Unity.MegaCity.Gameplay
         public ComponentLookup<VehicleHealth> healthLookup;
         
         [BurstCompile]
-        private void Execute(ref VehicleLaser laser, 
+        private void Execute(in Entity entity, 
+            ref VehicleLaser laser, 
             in PlayerVehicleInput input,
             in LocalTransform localTrans,
             in VehicleHealth health,
@@ -64,7 +65,7 @@ namespace Unity.MegaCity.Gameplay
             if (collisionWorld.CastRay(rayInput, out var closestHit))
             {
                 hitPoint = closestHit.Position;
-                if (healthLookup.HasComponent(closestHit.Entity))
+                if (healthLookup.HasComponent(closestHit.Entity) && entity != closestHit.Entity)
                     laser.Target = closestHit.Entity;
             }
 

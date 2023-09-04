@@ -1,9 +1,8 @@
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Transforms;
-using static Unity.Entities.SystemAPI;
 
-namespace Unity.MegaCity.CameraManagement
+namespace Unity.Megacity.CameraManagement
 {
     /// <summary>
     /// Updates player camera target position and rotation
@@ -13,21 +12,23 @@ namespace Unity.MegaCity.CameraManagement
     [WorldSystemFilter(WorldSystemFilterFlags.LocalSimulation | WorldSystemFilterFlags.ClientSimulation)]
     public partial struct PlayerCameraTargetUpdater : ISystem
     {
+        public EntityQuery m_CameraTarget;
         public void OnCreate(ref SystemState state)
         {
-            state.RequireForUpdate<PlayerCameraTarget>();
+            m_CameraTarget = state.GetEntityQuery(ComponentType.ReadOnly<PlayerCameraTarget>(),ComponentType.ReadOnly<LocalToWorld>());
+            state.RequireForUpdate(m_CameraTarget);
         }
 
         public void OnUpdate(ref SystemState state)
         {
-            var player = GetSingletonEntity<PlayerCameraTarget>();
+            var cameraTarget = SystemAPI.GetSingleton<PlayerCameraTarget>();
             var deltaTime = state.WorldUnmanaged.Time.DeltaTime;
-            var localToWorld = state.EntityManager.GetComponentData<LocalToWorld>(player);
-            if (HybridCameraManager.Instance == null)
-                return;
-
-            HybridCameraManager.Instance.SetPlayerCameraPosition(localToWorld.Position, deltaTime);
-            HybridCameraManager.Instance.SetPlayerCameraRotation(localToWorld.Rotation, deltaTime);
+            
+            if (!HybridCameraManager.Instance.IsCameraReady)
+                HybridCameraManager.Instance.PlaceCamera(cameraTarget.Position);
+            
+            HybridCameraManager.Instance.SetPlayerCameraPosition(cameraTarget.Position, deltaTime);
+            HybridCameraManager.Instance.SetPlayerCameraRotation(cameraTarget.Rotation, deltaTime);
         }
     }
 }

@@ -4,17 +4,15 @@
 #if !UNITY_EDITOR
 using UnityEngine;
 #endif
-using System.Collections.Generic;
 using Unity.Entities;
-using Unity.MegaCity.UI;
 using Unity.NetCode;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// System that handles quitting the game
     /// </summary>
-    [WorldSystemFilter(WorldSystemFilterFlags.ClientSimulation)]
+    [WorldSystemFilter(WorldSystemFilterFlags.ClientSimulation | WorldSystemFilterFlags.LocalSimulation)]
     public partial struct QuitSystem : ISystem
     {
         public static bool WantsToQuit;
@@ -27,10 +25,10 @@ namespace Unity.MegaCity.Gameplay
                 ShouldDisconnectPlayers = false;
                 if (SystemAPI.TryGetSingletonEntity<NetworkStreamConnection>(out var singletonEntity))
                 {
-                    MainMenu.Instance.MatchMakingConnector.ClientIsInGame = false;
                     UnityEngine.Debug.Log($"[{state.WorldUnmanaged.Name}] User has requested to disconnect from the server.");
                     var requestDisconnect = new NetworkStreamRequestDisconnect { Reason = NetworkStreamDisconnectReason.ConnectionClose };
                     state.EntityManager.AddComponentData(singletonEntity, requestDisconnect);
+                    SceneController.LoadMenu();
                 }
             }
 
@@ -51,22 +49,6 @@ namespace Unity.MegaCity.Gameplay
         {
             if(!ShouldDisconnectPlayers)
                 ShouldDisconnectPlayers = true;
-        }
-
-        public static bool IsPlayerConnected()
-        {
-            return GetAllClientConnected().Count > 0;
-        }
-
-        private static List<World> GetAllClientConnected()
-        {
-            var clientWorlds = new List<World>();
-            foreach (var world in World.All)
-            {
-                if (world.IsClient() || world.IsThinClient())
-                    clientWorlds.Add(world);
-            }
-            return clientWorlds;
         }
     }
 }

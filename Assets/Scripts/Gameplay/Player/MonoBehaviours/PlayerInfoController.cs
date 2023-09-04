@@ -6,25 +6,26 @@ using Unity.Transforms;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Manages the player name tags.
     /// </summary>
     public class PlayerInfoController : MonoBehaviour
     {
-        [HideInInspector]
-        public string Name;
+        public static PlayerInfoController Instance;
+        
         [SerializeField]
         private PlayerInfoItemSettings m_Settings;
         [SerializeField]
         private VisualTreeAsset m_PlayerInfoItem;
         private VisualElement m_PlayerInfoContainer;
         private readonly Dictionary<Entity, PlayerInfoRef> NameTags = new();
-        public static PlayerInfoController Instance;
         private Transform m_CameraTransform;
         private Camera m_Camera;
 
+        public string PlayerName => m_Settings.PlayerName;
+        public bool IsSinglePlayer => m_Settings.GameMode == GameMode.SinglePlayer;
         private void Awake()
         {
             if (Instance == null)
@@ -44,11 +45,6 @@ namespace Unity.MegaCity.Gameplay
         {
             var root = GetComponent<UIDocument>().rootVisualElement;
             m_PlayerInfoContainer = root.Q<VisualElement>("player-name-info-container");
-        }
-
-        private void OnDestroy()
-        {
-            Name = string.Empty;
         }
 
         public void CreateNameTag(string playerName, Entity player, float health)
@@ -81,17 +77,18 @@ namespace Unity.MegaCity.Gameplay
             }
         }
 
-        public void UpdateNamePosition(Entity player, string playerName, float health, LocalToWorld localToWorld, CollisionWorld collisionWorld)
+        public void UpdateNamePosition(Entity player, string playerName, float health, LocalToWorld localToWorld)
         {
             if (NameTags.ContainsKey(player))
             {
                 NameTags[player].SetLife(health);
                 var cameraPosition = m_CameraTransform.position;
+                var cameraForward = m_CameraTransform.forward;
                 var distance = math.distancesq(localToWorld.Position, cameraPosition);
                 var placerPosition = localToWorld.Position + GetOffsetByDistance(distance);
                 var screenPosition = m_Camera.WorldToScreenPoint(placerPosition);
-                var rootRay = cameraPosition + m_CameraTransform.forward * m_Settings.RayOffsetFromCamera;
-                if (screenPosition.z < 0 || !NameTags[player].IsVisible(collisionWorld, rootRay, localToWorld.Position))
+                
+                if (screenPosition.z < 0 || !NameTags[player].IsVisible(cameraPosition, cameraForward,localToWorld.Position))
                 {
                     NameTags[player].Hide();
                 }
@@ -148,6 +145,16 @@ namespace Unity.MegaCity.Gameplay
             {
                 DestroyNameTag(entity);
             }
+        }
+
+        public void SetMode(GameMode gameMode)
+        {
+            m_Settings.GameMode = gameMode;
+        }
+
+        public void ClearNames()
+        {
+            NameTags.Clear();
         }
     }
 }

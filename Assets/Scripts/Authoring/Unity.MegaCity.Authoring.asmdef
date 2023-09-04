@@ -1,10 +1,8 @@
 {
-    "name": "Unity.MegaCity.Authoring",
+    "name": "Unity.Megacity.Authoring",
     "rootNamespace": "",
     "references": [
-        "Unity.MegaCity.Components",
         "Unity.Mathematics",
-        "Unity.MegaCity.Gameplay",
         "Unity.Networking.Transport",
         "Unity.Transforms",
         "Unity.Entities",
@@ -20,7 +18,11 @@
         "Unity.Mathematics.Extensions",
         "Unity.Netcode.Extensions",
         "Unity.Physics.Custom",
-        "Unity.Physics.Custom.Editor"
+        "Unity.Physics.Custom.Editor",
+        "Unity.Megacity.Components",
+        "Unity.Megacity.Gameplay",
+        "Unity.Entities.Build",
+        "Unity.Scenes"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
-namespace Unity.MegaCity.EditorTools
+namespace Unity.Megacity.EditorTools
 {
     public class UnusedAssetsChecker : EditorWindow
     {

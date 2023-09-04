@@ -1,7 +1,7 @@
 ﻿using Unity.Mathematics;
 using Unity.NetCode;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Capture the user input and apply them to a component for later uses
@@ -14,11 +14,10 @@ namespace Unity.MegaCity.Gameplay
 
         public float Acceleration; // acceleration
         public float Brake; // brake
-        public float RightRoll; // manual roll to right
-        public float LeftRoll; // manual roll to left
+        public float Roll; // manual roll
         public bool Shoot; // Shoot laser (X or A)
 
         // Cheats
-        public bool Cheat_1; // Autohurt
+        public bool Cheat_1; // Auto-hurt
     }
 }

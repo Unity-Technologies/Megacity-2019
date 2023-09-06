@@ -17,6 +17,7 @@ namespace Unity.Megacity.UI
         public static TutorialScreen Instance { get; private set; }
         
         private VisualElement m_TutorialScreen;
+        private VisualElement m_SinglePlayerTutorial;
         private VisualElement m_MultiplayerTutorial;
         private bool m_InTutorialScreen;
 
@@ -36,6 +37,7 @@ namespace Unity.Megacity.UI
         {
             var root = GetComponent<UIDocument>().rootVisualElement;
             m_TutorialScreen = root.Q<VisualElement>("tutorial-screen");
+            m_SinglePlayerTutorial = root.Q<VisualElement>("tutorial-single-player");
             m_MultiplayerTutorial = root.Q<VisualElement>("tutorial-multiplayer");
         }
 
@@ -51,11 +53,13 @@ namespace Unity.Megacity.UI
                 if(HybridCameraManager.Instance.IsDollyCamera)
                     HideTutorial();
                 
+                m_SinglePlayerTutorial.style.display = DisplayStyle.Flex;
                 m_MultiplayerTutorial.style.display = DisplayStyle.None;
             }
             else
             {
                 m_MultiplayerTutorial.style.display = DisplayStyle.Flex;
+                m_SinglePlayerTutorial.style.display = DisplayStyle.None;
             }
         }
 

@@ -1,5 +1,4 @@
-﻿using System;
-using Unity.Megacity.CameraManagement;
+﻿using Unity.Megacity.CameraManagement;
 using Unity.Megacity.Gameplay;
 using UnityEngine;
 using UnityEngine.InputSystem;

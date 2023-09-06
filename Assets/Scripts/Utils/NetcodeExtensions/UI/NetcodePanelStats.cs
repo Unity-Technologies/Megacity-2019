@@ -67,6 +67,14 @@ namespace Unity.NetCode
             m_SystemsLabel = root.Q<Label>("systems-value");
             m_BackIcon = root.Q<VisualElement>("back-icon");
             m_BackButton.clicked += ToggleNetcodePanel;
+            
+            m_InfoPanel.RegisterCallback<GeometryChangedEvent>(OnGeometryChanged);
+        }
+
+        private void OnGeometryChanged(GeometryChangedEvent evt)
+        {
+            // Hide panel by default
+            HidePanel();
         }
 
         private void HidePanel()
@@ -88,8 +96,6 @@ namespace Unity.NetCode
             if(m_Main.style.display != DisplayStyle.Flex)
                 m_Main.style.display = DisplayStyle.Flex;
             m_IsRunning = true;
-            if(!Application.isEditor)
-                HidePanel();
         }
 
         public void Disable()

@@ -1,4 +1,3 @@
-using System;
 using Unity.Megacity.Audio;
 using Unity.Megacity.Gameplay;
 using UnityEngine;
@@ -24,8 +23,10 @@ namespace Unity.Megacity.UI
 
         public override string TabName => "audio";
 
-        protected override void Initialization()
+        protected override void Initialize()
         {
+            base.Initialize();
+            
             var root = GameSettingsView.Q<GroupBox>().Q<VisualElement>("sliders");
             m_VolumeSlider = root.Q<Slider>("volume");
             m_SoundFXSlider = root.Q<Slider>("sound-fx");
@@ -43,7 +44,6 @@ namespace Unity.Megacity.UI
             m_SoundFXSlider.RegisterValueChangedCallback(OnSoundFXUpdated);
             m_VolumeSlider.RegisterValueChangedCallback(OnVolumeUpdated);
             m_MusicSlider.RegisterValueChangedCallback(OnMusicUpdated);
-            base.Initialization();
         }
 
         protected override void SaveCurrentState()
@@ -57,7 +57,7 @@ namespace Unity.Megacity.UI
 
         private void OnDestroy()
         {
-            if (IsSet)
+            if (IsInitialized)
             {
                 m_SoundFXSlider.UnregisterValueChangedCallback(OnSoundFXUpdated);
                 m_VolumeSlider.UnregisterValueChangedCallback(OnVolumeUpdated);

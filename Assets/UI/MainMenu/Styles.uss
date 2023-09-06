@@ -25,8 +25,6 @@
     color: rgb(255, 255, 255);
     padding-top: 16px;
     height: 90px;
-    -unity-font: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium.ttf?fileID=12800000&guid=25f588e56b0a32d4ca3779fef2ecb271&type=3#ChakraPetch-Medium');
-    -unity-font-definition: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium%20SDF.asset?fileID=11400000&guid=f3103ff426df8704595bd7db20530273&type=2#ChakraPetch-Medium SDF');
 }
 
 .button:focus {
@@ -63,8 +61,6 @@
 
 .popup-selection > Label {
     display: none;
-    -unity-font: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium.ttf?fileID=12800000&guid=25f588e56b0a32d4ca3779fef2ecb271&type=3#ChakraPetch-Medium');
-    -unity-font-definition: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium%20SDF.asset?fileID=11400000&guid=f3103ff426df8704595bd7db20530273&type=2#ChakraPetch-Medium SDF');
 }
 
 .popup-selection > .unity-base-field__input {
@@ -78,14 +74,12 @@
     -unity-text-align: middle-center;
     color: rgb(255, 255, 255);
     margin-right: 20px;
-    -unity-font: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium.ttf?fileID=12800000&guid=25f588e56b0a32d4ca3779fef2ecb271&type=3#ChakraPetch-Medium');
-    -unity-font-definition: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium%20SDF.asset?fileID=11400000&guid=f3103ff426df8704595bd7db20530273&type=2#ChakraPetch-Medium SDF');
 }
 
 .popup-selection > .unity-base-field__input > VisualElement {
     background-image: url('project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=248915577040845545&guid=31e77ef23200a8842b3829370f52c886&type=3#arrow');
-    -unity-background-scale-mode: scale-and-crop;
-    width: 33px;
+    -unity-background-scale-mode: scale-to-fit;
+    width: 17px;
     height: 17px;
     background-color: rgba(0, 0, 0, 0);
     -unity-background-image-tint-color: rgb(255, 255, 255);
@@ -101,8 +95,6 @@
 
 .checkbox > Label {
     display: none;
-    -unity-font: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium.ttf?fileID=12800000&guid=25f588e56b0a32d4ca3779fef2ecb271&type=3#ChakraPetch-Medium');
-    -unity-font-definition: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium%20SDF.asset?fileID=11400000&guid=f3103ff426df8704595bd7db20530273&type=2#ChakraPetch-Medium SDF');
 }
 
 .unity-toggle > .unity-toggle__input > .unity-toggle__checkmark {
@@ -160,8 +152,6 @@
 
 .progress-bar.min > .unity-progress-bar__container .unity-progress-bar__title {
     font-size: 22px;
-    -unity-font: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium.ttf?fileID=12800000&guid=25f588e56b0a32d4ca3779fef2ecb271&type=3#ChakraPetch-Medium');
-    -unity-font-definition: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium%20SDF.asset?fileID=11400000&guid=f3103ff426df8704595bd7db20530273&type=2#ChakraPetch-Medium SDF');
 }
 
 .progress-bar > .unity-progress-bar__container {
@@ -188,46 +178,12 @@
     background-color: rgb(180, 0, 78);
 }
 
-.unity-base-dropdown {
-}
-
-.unity-base-dropdown > .unity-base-dropdown__container-outer {
-}
-
-.unity-base-dropdown > .unity-base-dropdown__container-outer > .unity-base-dropdown__container-inner {
-    background-color: red;
-}
-
-.unity-base-dropdown {
-    display: none;
-}
-
-.unity-base-dropdown > VisualElement > ScrollView {
-    display: none;
-}
-
-.MyPopUp {
-    background-color: red;
-}
-
 .MenuTextField > #unity-text-input {
     background-color: rgba(0, 0, 0, 0);
-    -unity-font: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium.ttf?fileID=12800000&guid=25f588e56b0a32d4ca3779fef2ecb271&type=3#ChakraPetch-Medium');
-    -unity-font-definition: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium%20SDF.asset?fileID=11400000&guid=f3103ff426df8704595bd7db20530273&type=2#ChakraPetch-Medium SDF');
     border-left-color: rgb(50, 101, 125);
     border-right-color: rgb(50, 101, 125);
     border-top-color: rgb(50, 101, 125);
     border-bottom-color: rgb(50, 101, 125);
-}
-
-.label-input Label {
-    -unity-font: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium.ttf?fileID=12800000&guid=25f588e56b0a32d4ca3779fef2ecb271&type=3#ChakraPetch-Medium');
-    -unity-font-definition: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium%20SDF.asset?fileID=11400000&guid=f3103ff426df8704595bd7db20530273&type=2#ChakraPetch-Medium SDF');
-}
-
-.label-input #unity-text-input TextElement {
-    -unity-font: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium.ttf?fileID=12800000&guid=25f588e56b0a32d4ca3779fef2ecb271&type=3#ChakraPetch-Medium');
-    -unity-font-definition: url('project://database/Assets/UI/Fonts/ChakraPetch-Medium%20SDF.asset?fileID=11400000&guid=f3103ff426df8704595bd7db20530273&type=2#ChakraPetch-Medium SDF');
 }
 
 .label-input #unity-text-input TextElement {

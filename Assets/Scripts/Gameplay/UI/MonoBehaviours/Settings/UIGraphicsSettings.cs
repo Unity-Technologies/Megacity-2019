@@ -41,14 +41,13 @@ namespace Unity.Megacity.UI
         private DropdownField m_ShadowQualityValue;
         private DropdownField m_LevelOfDetailValue;
 
-        private VisualElement m_MainRoot;
-
         public override string TabName => "graphics";
         private bool m_CanSetAsCustom = true;
 
-        protected override void Initialization()
+        protected override void Initialize()
         {
-            m_MainRoot = GetComponent<UIDocument>().rootVisualElement.parent;
+            base.Initialize();
+            
             var root = GameSettingsView.Q<GroupBox>().Q<VisualElement>("advance");
             m_PostprocesingValue = root.Q<GroupBox>().Q<Toggle>("postprocessing");
             m_VolumetricFogValue = root.Q<GroupBox>().Q<Toggle>("volumetric-fog");
@@ -97,8 +96,6 @@ namespace Unity.Megacity.UI
             {
                 m_ScreenmodeValue.value = FullScreenMode.Windowed.ToString();
             }
-
-            base.Initialization();
         }
 
         private void OnScreenResolutionChanged(ChangeEvent<string> value)
@@ -110,6 +107,8 @@ namespace Unity.Megacity.UI
 
         protected override void SaveCurrentState()
         {
+            base.SaveCurrentState();
+            
             UpdateCurrentToggleState(m_PostprocesingValue);
             UpdateCurrentToggleState(m_VolumetricFogValue);
             UpdateCurrentToggleState(m_ReflectionsValue);
@@ -119,13 +118,12 @@ namespace Unity.Megacity.UI
             UpdateCurrentDropdownFieldState(m_TextureDetailsValue);
             UpdateCurrentDropdownFieldState(m_ShadowQualityValue);
             UpdateCurrentDropdownFieldState(m_LevelOfDetailValue);
-
-            base.SaveCurrentState();
         }
 
         public override void Reset()
         {
             base.Reset();
+            
             ResetCurrentToggleState(m_PostprocesingValue);
             ResetCurrentToggleState(m_VolumetricFogValue);
             ResetCurrentToggleState(m_ReflectionsValue);
@@ -146,7 +144,7 @@ namespace Unity.Megacity.UI
             m_PostprocesingValue.value = true;
             m_ReflectionsValue.value = true;
 
-            var detail = "High";
+            const string detail = "High";
             m_ShadowQualityValue.value = detail;
             m_TextureDetailsValue.value = detail;
             m_LevelOfDetailValue.value = detail;
@@ -161,7 +159,7 @@ namespace Unity.Megacity.UI
             m_PostprocesingValue.value = true;
             m_ReflectionsValue.value = true;
 
-            var detail = "Medium";
+            const string detail = "Medium";
             m_ShadowQualityValue.value = detail;
             m_TextureDetailsValue.value = detail;
             m_LevelOfDetailValue.value = detail;
@@ -176,7 +174,7 @@ namespace Unity.Megacity.UI
             m_PostprocesingValue.value = false;
             m_ReflectionsValue.value = false;
 
-            var detail = "Low";
+            const string detail = "Low";
             m_ShadowQualityValue.value = detail;
             m_TextureDetailsValue.value = detail;
             m_LevelOfDetailValue.value = detail;
@@ -184,7 +182,7 @@ namespace Unity.Megacity.UI
 
         private void OnDestroy()
         {
-            if (IsSet)
+            if (IsInitialized)
             {
                 m_PostprocesingValue.UnregisterValueChangedCallback(OnPostprocessingChanged);
                 m_VolumetricFogValue.UnregisterValueChangedCallback(OnVolumetricFogChanged);
@@ -196,31 +194,6 @@ namespace Unity.Megacity.UI
                 m_ShadowQualityValue.UnregisterValueChangedCallback(OnShadowQualityChanged);
                 m_LevelOfDetailValue.UnregisterValueChangedCallback(LevelOfDetailChanged);
             }
-        }
-
-        private void Update()
-        {
-            m_CanSetAsCustom = true;
-            if (IsVisible && m_MainRoot != null)
-                AddStylesToPopupComboboxList();
-        }
-
-        private void AddStylesToPopupComboboxList()
-        {
-            m_MainRoot.Query<ScrollView>().ForEach((c) =>
-            {
-                c.style.backgroundColor = new StyleColor(new Color(0.0f, 0.0f, 0.0f, 0.97f));
-                c.style.color = new StyleColor(Color.white);
-                c.parent.style.borderBottomColor = new StyleColor(new Color(0.02352941f, 0.6862745f, 1));
-                c.parent.style.borderLeftColor = new StyleColor(new Color(0.02352941f, 0.6862745f, 1));
-                c.parent.style.borderRightColor = new StyleColor(new Color(0.02352941f, 0.6862745f, 1));
-                c.parent.style.borderTopColor = new StyleColor(new Color(0.02352941f, 0.6862745f, 1));
-
-                c.parent.style.borderLeftWidth = new StyleFloat(1);
-                c.parent.style.borderRightWidth = new StyleFloat(1);
-                c.parent.style.borderTopWidth = new StyleFloat(1);
-                c.parent.style.borderBottomWidth = new StyleFloat(1);
-            });
         }
 
         private void OnVsyncChanged(ChangeEvent<bool> value)
@@ -302,6 +275,9 @@ namespace Unity.Megacity.UI
                 case "high":
                     QualitySettings.shadows = ShadowQuality.All;
                     break;
+                default:
+                    QualitySettings.shadows = QualitySettings.shadows;
+                    break;
             }
         }
 
@@ -318,6 +294,9 @@ namespace Unity.Megacity.UI
                 case "high":
                     QualitySettings.globalTextureMipmapLimit = 0;
                     break;
+                default:
+                    QualitySettings.globalTextureMipmapLimit = QualitySettings.globalTextureMipmapLimit;
+                    break;
             }
         }
 
@@ -333,6 +312,9 @@ namespace Unity.Megacity.UI
                     break;
                 case "high":
                     QualitySettings.maximumLODLevel = 0;
+                    break;
+                default:
+                    QualitySettings.maximumLODLevel = QualitySettings.maximumLODLevel;
                     break;
             }
         }

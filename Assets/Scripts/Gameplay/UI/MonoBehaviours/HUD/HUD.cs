@@ -193,7 +193,9 @@ namespace Unity.Megacity.UI
             }
 
             FadeMessageScreen(false);
-            m_Crosshair.Show();
+            
+            if (!PlayerInfoController.Instance.IsSinglePlayer)
+                m_Crosshair.Show();
         }
 
         private IEnumerator Type(string message)

@@ -148,6 +148,10 @@ namespace Unity.Megacity.UI
             m_ShadowQualityValue.value = detail;
             m_TextureDetailsValue.value = detail;
             m_LevelOfDetailValue.value = detail;
+            
+            m_PostProcessing.enabled = true;
+            FogVolume.SetActive(true);
+            ReflectionVolume.SetActive(true);
         }
 
         private void OnMediumButtonOnClicked()
@@ -163,6 +167,10 @@ namespace Unity.Megacity.UI
             m_ShadowQualityValue.value = detail;
             m_TextureDetailsValue.value = detail;
             m_LevelOfDetailValue.value = detail;
+            
+            m_PostProcessing.enabled = true;
+            FogVolume.SetActive(true);
+            ReflectionVolume.SetActive(true);
         }
 
         private void OnLowButtonOnClicked()
@@ -178,6 +186,10 @@ namespace Unity.Megacity.UI
             m_ShadowQualityValue.value = detail;
             m_TextureDetailsValue.value = detail;
             m_LevelOfDetailValue.value = detail;
+            
+            m_PostProcessing.enabled = false;
+            FogVolume.SetActive(false);
+            ReflectionVolume.SetActive(false);
         }
 
         private void OnDestroy()
@@ -275,9 +287,6 @@ namespace Unity.Megacity.UI
                 case "high":
                     QualitySettings.shadows = ShadowQuality.All;
                     break;
-                default:
-                    QualitySettings.shadows = QualitySettings.shadows;
-                    break;
             }
         }
 
@@ -294,9 +303,6 @@ namespace Unity.Megacity.UI
                 case "high":
                     QualitySettings.globalTextureMipmapLimit = 0;
                     break;
-                default:
-                    QualitySettings.globalTextureMipmapLimit = QualitySettings.globalTextureMipmapLimit;
-                    break;
             }
         }
 
@@ -312,9 +318,6 @@ namespace Unity.Megacity.UI
                     break;
                 case "high":
                     QualitySettings.maximumLODLevel = 0;
-                    break;
-                default:
-                    QualitySettings.maximumLODLevel = QualitySettings.maximumLODLevel;
                     break;
             }
         }

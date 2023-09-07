@@ -7,7 +7,7 @@ namespace Unity.Megacity.Gameplay
     /// <summary>
     /// Update the message screen when the player is near the bounds.
     /// </summary>
-    [WorldSystemFilter(WorldSystemFilterFlags.ClientSimulation)]
+    [WorldSystemFilter(WorldSystemFilterFlags.ClientSimulation | WorldSystemFilterFlags.LocalSimulation)]
     public partial struct UpdateMessageNearBoundsSystem : ISystem
     {
         private bool m_MessageActive;

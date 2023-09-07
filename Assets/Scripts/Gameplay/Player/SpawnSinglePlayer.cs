@@ -35,6 +35,7 @@ namespace Unity.Megacity.Gameplay
             newTrans.Position = spawnBuffer.ElementAt(0).Value;
             cmdBuffer.SetComponent(player, newTrans);
             cmdBuffer.AddComponent<SinglePlayer>(player);
+            cmdBuffer.AddComponent(player, new PlayerLocationBounds { IsInside = true });
             cmdBuffer.Playback(state.EntityManager);
         }
     }

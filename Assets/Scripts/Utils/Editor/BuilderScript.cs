@@ -21,7 +21,7 @@ public class BuilderScript : MonoBehaviour
         buildPlayerOptions.scenes = new[] { "Assets/Scenes/Menu.unity","Assets/Scenes/Main.unity" };
         buildPlayerOptions.target = BuildTarget.Android;
         // SubTarget expects an integer.
-        buildPlayerOptions.locationPathName = "./build/players/MegacityMultiplayer.apk";
+        buildPlayerOptions.locationPathName = "./build/players/Megacity.apk";
       
         BuildPipeline.BuildPlayer(buildPlayerOptions);
     }
@@ -75,9 +75,9 @@ public class BuilderScript : MonoBehaviour
         buildPlayerOptions.scenes = new[] { "Assets/Scenes/Menu.unity","Assets/Scenes/Main.unity" };
         buildPlayerOptions.target = BuildTarget.StandaloneWindows64;
         //this is needed for profiling 
-        //buildPlayerOptions.options = BuildOptions.Development;
-        buildPlayerOptions.locationPathName = "./build/Megacity-Win-Client/MegacityMultiplayer.exe";
-
+        buildPlayerOptions.options = BuildOptions.Development | BuildOptions.ShowBuiltPlayer;
+        buildPlayerOptions.locationPathName = "./build/Megacity-Win-Client/Megacity.exe";
+        buildPlayerOptions.extraScriptingDefines = new[] { "NETCODE_DEBUG", "UNITY_CLIENT" };
         BuildPipeline.BuildPlayer(buildPlayerOptions);
     }
 }

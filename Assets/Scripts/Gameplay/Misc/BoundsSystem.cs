@@ -10,7 +10,7 @@ namespace Unity.Megacity.Gameplay
     /// <summary>
     /// System that updates the player location bounds.
     /// </summary>
-    [WorldSystemFilter(WorldSystemFilterFlags.ClientSimulation)]
+    [WorldSystemFilter(WorldSystemFilterFlags.ClientSimulation | WorldSystemFilterFlags.LocalSimulation)]
     [UpdateInGroup(typeof(TransformSystemGroup))]
     public partial struct UpdateBoundsSystem : ISystem
     {

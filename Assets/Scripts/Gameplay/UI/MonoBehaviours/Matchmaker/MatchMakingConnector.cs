@@ -36,7 +36,9 @@ namespace Unity.Megacity.UGS
                 Destroy(gameObject);
                 return;
             }
-
+            
+            // Get name from BotNameGenerator to use as default name
+            m_Settings.PlayerName = BotNameGenerator.GetRandomName();
             // Check if the project is linked to a project ID
             if (string.IsNullOrEmpty(Application.cloudProjectId))
             {
@@ -55,8 +57,6 @@ namespace Unity.Megacity.UGS
 
         private async Task Init()
         {
-            // Get name from BotNameGenerator to use as default name
-            m_Settings.PlayerName = BotNameGenerator.GetRandomName();
             IsTryingToConnect = false;
             ClientIsInGame = false;
 #if UNITY_SERVER && !UNITY_EDITOR
@@ -116,8 +116,6 @@ namespace Unity.Megacity.UGS
         {
             m_Matchmaker?.Dispose();
         }
-
-        
 
         public void SetProfileServiceName(string newValue)
         {

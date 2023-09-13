@@ -29,8 +29,10 @@ namespace Unity.Megacity.UI
 
         public int CurrentResolutionIndex => currentResolutionIndex;
 
-        private void Awake()
+        private void Start()
         {
+            // Ignore this script if we're on mobile
+#if !(UNITY_ANDROID || UNITY_IPHONE)
             // Get the screen's aspect ratio
             var screenAspectRatio = Screen.width / (float) Screen.height;
 
@@ -51,6 +53,7 @@ namespace Unity.Megacity.UI
             }
 
             SetResolution(CurrentResolutionIndex);
+#endif
         }
 
         public void NextResolution()

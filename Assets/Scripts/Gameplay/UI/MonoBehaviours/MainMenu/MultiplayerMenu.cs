@@ -97,6 +97,12 @@ namespace Unity.Megacity.UI
 
         private void OnPlaySelected()
         {
+            if(Application.internetReachability == NetworkReachability.NotReachable)
+            {
+                MatchMakingUI.Instance.UpdateConnectionStatus("Error: No Internet Connection!");
+                return;
+            }
+            
             if (MatchMakingConnector.Instance.ClientIsInGame)
             {
                 Debug.LogWarning("Cant hit play while already in-game!");

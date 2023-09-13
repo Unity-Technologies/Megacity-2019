@@ -13,6 +13,8 @@ namespace Unity.Megacity.UI
     [RequireComponent(typeof(UIGameSettings))]
     public class GameSettingsOptionsMenu : MonoBehaviour
     {
+        public static GameSettingsOptionsMenu Instance { get; private set; }
+        
         private UIGameSettings m_UIGameSettings;
         private VisualElement m_SettingsOptions;
 
@@ -24,10 +26,18 @@ namespace Unity.Megacity.UI
 
         private bool m_InSettingOptions;
         private InputAction m_OpenOptionsAction;
-
+        
         private void Awake()
         {
-            m_UIGameSettings = GetComponent<UIGameSettings>();
+            if (Instance == null)
+            {
+                Instance = this;
+                m_UIGameSettings = GetComponent<UIGameSettings>();
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
 
         private void OnEnable()
@@ -66,9 +76,10 @@ namespace Unity.Megacity.UI
                 }
             });
 
-            
+#if !(UNITY_ANDROID || UNITY_IPHONE)
             m_OpenOptionsAction = new InputAction("OpenOptions", InputActionType.Button, binding: "<Keyboard>/tab");
             m_OpenOptionsAction.Enable();
+#endif
 
             m_QuitButton.clicked += () => { QuitSystem.WantsToQuit = true; };
         }
@@ -85,7 +96,7 @@ namespace Unity.Megacity.UI
                 SceneController.LoadMenu();
         }
 
-        private void ShowSettingsOptions(bool display)
+        public void ShowSettingsOptions(bool display)
         {
             if (SceneController.IsFrontEnd || display == m_InSettingOptions)
                 return;
@@ -101,6 +112,7 @@ namespace Unity.Megacity.UI
                 CursorUtils.HideCursor();
         }
 
+#if !(UNITY_ANDROID || UNITY_IPHONE)
         private void Update()
         {
             if (m_OpenOptionsAction.triggered)
@@ -108,5 +120,6 @@ namespace Unity.Megacity.UI
                 ShowSettingsOptions(!m_InSettingOptions);
             }
         }
+#endif
     }
 }

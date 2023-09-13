@@ -54,6 +54,7 @@ namespace Unity.Megacity.UI
 
         protected void BackToTheMenu()
         {
+            MatchMakingUI.Instance.SetUIConnectionStatusEnable(false);
             m_MainMenu.ToggleBaseMenuOptions();
             ToggleVisibility();
         }

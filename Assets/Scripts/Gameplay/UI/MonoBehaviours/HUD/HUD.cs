@@ -4,6 +4,7 @@ using Unity.Mathematics;
 using Unity.Megacity.Gameplay;
 using Unity.NetCode;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
 using UnityEngine.UIElements.Experimental;
 
@@ -31,6 +32,8 @@ namespace Unity.Megacity.UI
 
         private VisualElement m_MessageScreen;
         private VisualElement m_LifeBarContainer;
+        
+        private Button m_SettingsButton;
         
         private Label m_BottomMessageLabel;
         private Label m_MessageLabel;
@@ -72,11 +75,17 @@ namespace Unity.Megacity.UI
             m_MessageScreen = root.Q<VisualElement>("message-screen");
             m_MessageLabel = m_MessageScreen.Q<Label>("message-label");
             m_BottomMessageLabel = m_MessageScreen.Q<Label>("bottom-message-label");
+            m_SettingsButton = root.Q<Button>("settings-button");
             m_MessageScreen.style.display = DisplayStyle.None;
             
             CursorUtils.HideCursor();
             JoystickLeft = CreateJoystick(VirtualJoystick.Align.Left);
             JoystickRight = CreateJoystick(VirtualJoystick.Align.Right);
+            
+            m_SettingsButton.clicked += () =>
+            {
+                GameSettingsOptionsMenu.Instance.ShowSettingsOptions(true);
+            };
 
             if (PlayerInfoController.Instance.IsSinglePlayer)
             {

@@ -20,14 +20,10 @@ namespace Unity.Megacity.UI
     /// </summary>
     public class UIGraphicsSettings : UISettingsTab
     {
-        [SerializeField]
-        private Volume m_PostProcessing;
-        [SerializeField]
-        private GameObject FogVolume;
-        [SerializeField]
-        private GameObject ReflectionVolume;
-        [SerializeField]
-        private UIScreenResolution ResolutionScreen;
+        [SerializeField] private Volume m_PostProcessing;
+        [SerializeField] private GameObject FogVolume;
+        [SerializeField] private GameObject ReflectionVolume;
+        [SerializeField] private UIScreenResolution ResolutionScreen;
 
         private Toggle m_PostprocesingValue;
         private Toggle m_VolumetricFogValue;
@@ -44,10 +40,15 @@ namespace Unity.Megacity.UI
         public override string TabName => "graphics";
         private bool m_CanSetAsCustom = true;
 
+        private void Start()
+        {
+            Initialize();
+        }
+
         protected override void Initialize()
         {
             base.Initialize();
-            
+
             var root = GameSettingsView.Q<GroupBox>().Q<VisualElement>("advance");
             m_PostprocesingValue = root.Q<GroupBox>().Q<Toggle>("postprocessing");
             m_VolumetricFogValue = root.Q<GroupBox>().Q<Toggle>("volumetric-fog");
@@ -96,24 +97,29 @@ namespace Unity.Megacity.UI
             {
                 m_ScreenmodeValue.value = FullScreenMode.Windowed.ToString();
             }
+
+            SaveCurrentState();
         }
 
         private void OnScreenResolutionChanged(ChangeEvent<string> value)
         {
+#if !(UNITY_ANDROID || UNITY_IPHONE)
             ResolutionScreen.SetResolution(value.newValue.ToLower(), out var isFullscreen);
             var screenMode = isFullscreen ? 1 : 0;
             m_ScreenmodeValue.value = m_ScreenmodeValue.choices[screenMode];
+#endif
         }
 
         protected override void SaveCurrentState()
         {
             base.SaveCurrentState();
-            
+
             UpdateCurrentToggleState(m_PostprocesingValue);
             UpdateCurrentToggleState(m_VolumetricFogValue);
             UpdateCurrentToggleState(m_ReflectionsValue);
             UpdateCurrentToggleState(m_VerticalSyncValue);
 
+            UpdateCurrentDropdownFieldState(m_QualityValue);
             UpdateCurrentDropdownFieldState(m_ScreenmodeValue);
             UpdateCurrentDropdownFieldState(m_TextureDetailsValue);
             UpdateCurrentDropdownFieldState(m_ShadowQualityValue);
@@ -123,16 +129,18 @@ namespace Unity.Megacity.UI
         public override void Reset()
         {
             base.Reset();
-            
+
             ResetCurrentToggleState(m_PostprocesingValue);
             ResetCurrentToggleState(m_VolumetricFogValue);
             ResetCurrentToggleState(m_ReflectionsValue);
             ResetCurrentToggleState(m_VerticalSyncValue);
 
+            ResetCurrentDropdownFieldState(m_QualityValue);
             ResetCurrentDropdownFieldState(m_ScreenmodeValue);
             ResetCurrentDropdownFieldState(m_TextureDetailsValue);
             ResetCurrentDropdownFieldState(m_ShadowQualityValue);
             ResetCurrentDropdownFieldState(m_LevelOfDetailValue);
+            
         }
 
         private void OnHighButtonOnClicked()
@@ -148,10 +156,6 @@ namespace Unity.Megacity.UI
             m_ShadowQualityValue.value = detail;
             m_TextureDetailsValue.value = detail;
             m_LevelOfDetailValue.value = detail;
-            
-            m_PostProcessing.enabled = true;
-            FogVolume.SetActive(true);
-            ReflectionVolume.SetActive(true);
         }
 
         private void OnMediumButtonOnClicked()
@@ -167,10 +171,6 @@ namespace Unity.Megacity.UI
             m_ShadowQualityValue.value = detail;
             m_TextureDetailsValue.value = detail;
             m_LevelOfDetailValue.value = detail;
-            
-            m_PostProcessing.enabled = true;
-            FogVolume.SetActive(true);
-            ReflectionVolume.SetActive(true);
         }
 
         private void OnLowButtonOnClicked()
@@ -186,10 +186,6 @@ namespace Unity.Megacity.UI
             m_ShadowQualityValue.value = detail;
             m_TextureDetailsValue.value = detail;
             m_LevelOfDetailValue.value = detail;
-            
-            m_PostProcessing.enabled = false;
-            FogVolume.SetActive(false);
-            ReflectionVolume.SetActive(false);
         }
 
         private void OnDestroy()

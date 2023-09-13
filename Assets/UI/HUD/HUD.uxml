@@ -20,7 +20,7 @@
             <ui:ProgressBar name="life-bar" class="progress-bar min" style="width: 300px; flex-direction: column; margin-left: 7px; margin-right: 7px; margin-top: 7px; margin-bottom: 7px;" />
         </ui:VisualElement>
         <ui:VisualElement name="settings-buttons" picking-mode="Ignore" style="position: absolute; flex-direction: column; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 25px; padding-right: 25px; padding-top: 25px; padding-bottom: 25px;">
-            <ui:Button name="settings-icon" class="icon-button" style="width: 60px; height: 60px;" />
+            <ui:Button name="settings-button" class="icon-button" style="width: 60px; height: 60px;" />
             <ui:Label tabindex="-1" text="Tab" display-tooltip-when-elided="true" name="Label" style="-unity-text-align: upper-center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; text-shadow: 0 0 1px rgb(255, 255, 255); font-size: 18px;" />
         </ui:VisualElement>
     </ui:VisualElement>

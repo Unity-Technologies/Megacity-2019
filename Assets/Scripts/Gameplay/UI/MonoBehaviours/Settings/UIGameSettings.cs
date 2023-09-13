@@ -80,6 +80,14 @@ namespace Unity.Megacity.UI
             };
 
             Hide();
+            
+#if UNITY_ANDROID || UNITY_IPHONE
+            var hideInMobileElements = root.Query(className: "hide-in-mobile").ToList();
+            foreach (var mobileElement in hideInMobileElements)
+            {
+                mobileElement.style.display = DisplayStyle.None;
+            }
+#endif
         }
 
         public void Show(VisualElement caller = null)

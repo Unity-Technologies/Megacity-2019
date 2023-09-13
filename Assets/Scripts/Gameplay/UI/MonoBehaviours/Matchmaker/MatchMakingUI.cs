@@ -68,6 +68,7 @@ namespace Unity.Megacity.UI
         
         public void UpdateConnectionStatus(string status)
         {
+            m_ConnectionStatusLabel.style.display = DisplayStyle.Flex;
             m_ConnectionStatusLabel.text = status;
         }
         

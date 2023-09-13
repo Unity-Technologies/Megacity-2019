@@ -15,10 +15,11 @@ namespace Unity.Megacity.UI
     public class TutorialScreen : MonoBehaviour
     {
         public static TutorialScreen Instance { get; private set; }
-        
+
         private VisualElement m_TutorialScreen;
         private VisualElement m_SinglePlayerTutorial;
         private VisualElement m_MultiplayerTutorial;
+        private VisualElement m_MobileTutorial;
         private bool m_InTutorialScreen;
 
         private void Awake()
@@ -39,15 +40,21 @@ namespace Unity.Megacity.UI
             m_TutorialScreen = root.Q<VisualElement>("tutorial-screen");
             m_SinglePlayerTutorial = root.Q<VisualElement>("tutorial-single-player");
             m_MultiplayerTutorial = root.Q<VisualElement>("tutorial-multiplayer");
+            m_MobileTutorial = root.Q<VisualElement>("tutorial-mobile");
         }
 
         private void Start()
         {
             if (PlayerInfoController.Instance == null)
                 return;
-            
+
             ShowTutorial();
-            
+
+#if UNITY_ANDROID || UNITY_IPHONE
+            m_MobileTutorial.style.display = DisplayStyle.Flex;
+            m_SinglePlayerTutorial.style.display = DisplayStyle.None;
+            m_MultiplayerTutorial.style.display = DisplayStyle.None;
+#else
             if (PlayerInfoController.Instance.IsSinglePlayer)
             {
                 if(HybridCameraManager.Instance.IsDollyCamera)
@@ -61,16 +68,18 @@ namespace Unity.Megacity.UI
                 m_MultiplayerTutorial.style.display = DisplayStyle.Flex;
                 m_SinglePlayerTutorial.style.display = DisplayStyle.None;
             }
+
+#endif
         }
 
         public void ShowTutorial()
         {
-            if (m_InTutorialScreen) 
+            if (m_InTutorialScreen)
                 return;
-            
+
             m_TutorialScreen.style.display = DisplayStyle.Flex;
             m_InTutorialScreen = true;
-            
+
             StartCoroutine(WaitForAnyInput());
         }
 
@@ -84,11 +93,8 @@ namespace Unity.Megacity.UI
         {
             while (m_InTutorialScreen)
             {
-                InputSystem.onAnyButtonPress.CallOnce(_ =>
-                {
-                    HideTutorial();
-                });
-                
+                InputSystem.onAnyButtonPress.CallOnce(_ => { HideTutorial(); });
+
                 yield return null;
             }
         }

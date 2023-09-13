@@ -120,7 +120,8 @@ namespace Unity.Megacity.UGS
         public void SetProfileServiceName(string newValue)
         {
             m_Settings.PlayerName = newValue;
-            m_ProfileService.LocalPlayer.SetName(newValue);
+            if(m_ProfileService != null && m_ProfileService.LocalPlayer != null)
+                m_ProfileService.LocalPlayer.SetName(newValue);
         }
 
         public void UpdateConnectionStatusLabel()

@@ -89,8 +89,35 @@ After you clone the project, follow these steps to start playing:
 1. Install a compatible Unity Editor version. During install make sure to include Standalone Support and Dedicated Server Support for Windows/Mac.
 2. To add the project to the **Unity Hub**, click the **Add** button and select the root folder of the cloned project.
 	- **Note**: The first time you open the project may take longer than usual because Unity is importing all the assets.
-3. Open the Megacity scene located in `Scenes/Megacity`. The first time you open the scene, tt may take longer to load the Subscenes.
+3. Prior to entering playmode, it may be necessary to create the Entities scene cache. To achieve this, please open Main scene located in `Scenes/Main.scene`.
+  - **Important**: To monitor the progress of the Entities scene cache loading, navigate to Window > General > Process. This action will open the Background Tasks Window, displaying a loading bar.
+  ![Background Tasks](Readme/background-tasks.png)
+3. When all subcenes has been created, open the Menu scene located in `Scenes/Menu`. 
 4. Click the **Play** button to start.
+
+## Main Menu
+
+The main menu offers the following options:
+1. **Single Player**
+  - *Guided Flight:* This mode enables automatic navigation through the city using Cinemachine path to establish the route.
+  - *Free Flight:* In this game mode, you can drive a vehicle and explore the entire city at your own pace.
+
+2. **Multiplayer**, in the "Mode" radio button, you can choose from the following options:
+  - [Matchmaking](#matchmaker)
+  - [Connect](#connect)
+
+3. **Settings**, it is possible to find the option to configure the game settings based on the hardware to enhance your overall gaming experience. This option is also available in the Main scene at runtime.
+
+## Run Main scene directly
+
+![Setup main scene](Readme/setup-main-scene.gif)
+Within the `Resources` directory, it is possible to find an asset named `MultiplayerServerSettings`. 
+This asset allows to configure the Server List that appears in the Menu.
+Furthermore, there are supplementary options available:
+
+1. *Auto Run Game Mode In Editor Main:* This option lets you choose between running the main scene directly in Singleplayer or Multiplayer mode, bypassing the Menu scene.
+2. *Auto Run Single Player Game Mode In Editor Main:* The availability of this option depends on the selection of "Auto Run Game Mode In Editor Main" as "Single Player."
+![Main Menu](Readme/main-menu.gif)
 
 ## Add Unity Gaming Services (UGS)
 
@@ -165,6 +192,7 @@ Megacity Multiplayer is server-authoritative, which means the server has ultimat
 
 ---------------
 
+### Connect
 ### Editor Local Multiplayer Setup (Without UGS)
 
 For testing purposes, you can run the Client and Server in the Editor. This enables inspection of entities, systems, components, etc. while running on both the Server and Client.

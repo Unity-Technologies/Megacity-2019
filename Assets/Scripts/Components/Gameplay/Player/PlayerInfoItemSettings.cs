@@ -1,36 +1,39 @@
 ﻿using Unity.Mathematics;
 using UnityEngine;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
+    public enum GameMode
+    {
+        None,
+        SinglePlayer,
+        Multiplayer
+    }
+    
+#if UNITY_EDITOR
+    public enum SinglePlayerGameMode 
+    {
+        GuidedFlight,
+        FreeFlight,
+    }
+#endif
+    
     [CreateAssetMenu(fileName = "PlayerInfoItemSettings", menuName = "Gameplay/Settings/HUDPlayerInfoSettings", order = 1)]
     public class PlayerInfoItemSettings : ScriptableObject
     {
+        [HideInInspector] 
+        public string PlayerName;
+        public GameMode GameMode;
+        [field: SerializeField] public float RayOffsetFromCamera { private set; get; }
+        [field: SerializeField] public float MinDistanceBetweenCameraRayAndPlayer { private set; get; }
+        [field: SerializeField]  public float MinLifeBar { private set; get; }
+        [field: SerializeField]  public float3 MinOffset { private set; get; }
+        [field: SerializeField]  public float3 Offset { private set; get; }
         
-        [SerializeField]
-        private float m_RayOffsetFromCamera = 10f;
-        [SerializeField]
-        private float m_MinDistanceBetweenCameraRayAndPlayer = 5f;
-        [SerializeField]
-        private float m_MinLifeBar = 30f;
-        [SerializeField]
-        private float3 m_Offset;
-        [SerializeField]
-        private float3 m_MinOffset;
         [SerializeField]
         private float2 m_MinMaxScale;
         [SerializeField]
         private float2 m_MinMaxDistance;
-
-        public float3 Offset => m_Offset;
-
-        public float3 MinOffset => m_MinOffset;
-
-        public float MinDistanceBetweenCameraRayAndPlayer  => m_MinDistanceBetweenCameraRayAndPlayer;
-
-        public float RayOffsetFromCamera => m_RayOffsetFromCamera;
-
-        public float MinLifeBar => m_MinLifeBar;
 
         public float MinScale => m_MinMaxScale.x;
 

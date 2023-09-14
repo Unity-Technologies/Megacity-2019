@@ -24,6 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722043676901417659}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 250, z: 1375}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,7 +32,6 @@ Transform:
   m_Children:
   - {fileID: 3661042572672611942}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1278694781262623723
 MonoBehaviour:
@@ -54,7 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3661042572672611942}
-  - component: {fileID: 3374171684394513773}
+  - component: {fileID: 1111850575585046173}
   m_Layer: 0
   m_Name: Building
   m_TagString: Untagged
@@ -69,6 +69,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7064242730892401934}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -100,9 +101,8 @@ Transform:
   - {fileID: 3581240566687516754}
   - {fileID: 3581240566102776087}
   m_Father: {fileID: 1722043676901417658}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &3374171684394513773
+--- !u!64 &1111850575585046173
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,7 +123,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: c07dbaf4f0ab62d4d9a8df142a9203ad, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 046f15415644f724caf7545eb98ccde8, type: 2}
 --- !u!1001 &1722043676089738565
 PrefabInstance:
   m_ObjectHideFlags: 0

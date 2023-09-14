@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Unity.MegaCity.UI
+namespace Unity.Megacity.UI
 {
     /// <summary>
     /// Contains the shared and global properties and Methods for the UI tabs Views in GameSettings.
@@ -10,7 +10,7 @@ namespace Unity.MegaCity.UI
     /// </summary>
     public abstract class UISettingsTab : MonoBehaviour
     {
-        protected bool IsSet;
+        protected bool IsInitialized;
         private string ViewName => "game-settings";
         public VisualElement GameSettingsView { get; set; }
         protected bool IsVisible { get; private set; }
@@ -22,11 +22,11 @@ namespace Unity.MegaCity.UI
 
         public void Show()
         {
-            if (!IsSet)
+            if (!IsInitialized)
             {
                 var root = GetComponent<UIDocument>().rootVisualElement;
                 if (root.Q<VisualElement>(ViewName).style.display == DisplayStyle.Flex)
-                    Initialization();
+                    Initialize();
             }
 
             IsVisible = true;
@@ -47,9 +47,9 @@ namespace Unity.MegaCity.UI
         {
         }
 
-        protected virtual void Initialization()
+        protected virtual void Initialize()
         {
-            IsSet = true;
+            IsInitialized = true;
         }
 
         public virtual void Reset()

@@ -1,11 +1,8 @@
 using Unity.Services.Core;
 using Unity.Services.Vivox;
 using UnityEngine;
-#if AUTH_PACKAGE_PRESENT
-using Unity.Services.Authentication;
-#endif
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Manages Vivox service
@@ -19,6 +16,7 @@ namespace Unity.MegaCity.Gameplay
         public VivoxDevicesVolume Devices { get; private set; }
         public VivoxSession Session { get; private set; }
         public VivoxChannel Channel { get; private set; }
+        
         private bool m_IsReady;
 
         private void Awake()
@@ -36,7 +34,7 @@ namespace Unity.MegaCity.Gameplay
                 Destroy(this);
                 return;
             }
-
+            
             Instance = this;
             m_IsReady = false;
             Devices = GetComponent<VivoxDevicesVolume>();
@@ -47,7 +45,7 @@ namespace Unity.MegaCity.Gameplay
         private async void Start()
         {
             // if the Unity project is not linked to a Unity services project.
-            Debug.Log($"vivox applciation project {Application.cloudProjectId}");
+            Debug.Log($"Vivox application project {Application.cloudProjectId}");
             if (string.IsNullOrEmpty(Application.cloudProjectId))
             {
                 Debug.LogWarning(VivoxEvents.k_SetupProjectInTheCloud);
@@ -55,9 +53,7 @@ namespace Unity.MegaCity.Gameplay
             }
 
             await UnityServices.InitializeAsync(new InitializationOptions());
-#if AUTH_PACKAGE_PRESENT
-            await AuthenticationService.Instance.SignInAnonymouslyAsync();
-#endif
+
             if (UnityServices.State == ServicesInitializationState.Initialized && VivoxService.Instance != null)
             {
                 m_IsReady = true;
@@ -75,7 +71,7 @@ namespace Unity.MegaCity.Gameplay
             if (m_IsReady)
             {
                 Devices.SetMicrophoneMute(true);
-                Session.Logout();
+                Session.ClosingClientConnection();
             }
         }
 

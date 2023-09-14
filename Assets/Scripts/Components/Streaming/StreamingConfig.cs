@@ -3,7 +3,7 @@ using Unity.Entities;
 using Unity.NetCode;
 using Hash128 = Unity.Entities.Hash128;
 
-namespace Unity.MegaCity.Streaming
+namespace Unity.Megacity.Streaming
 {
     /// <summary>
     /// Creates two lists of Entities from the ones that got inside of camera range and the entities that got outside.
@@ -17,5 +17,6 @@ namespace Unity.MegaCity.Streaming
         public float DistanceForStreamingIn;
         public float DistanceForStreamingOut;
         public Hash128 PlayerSectionGUID;
+        public Hash128 TrafficSectionGUID;
     }
 }

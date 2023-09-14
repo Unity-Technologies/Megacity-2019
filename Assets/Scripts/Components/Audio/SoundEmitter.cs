@@ -1,7 +1,7 @@
 ﻿using Unity.Entities;
 using Unity.Mathematics;
 
-namespace Unity.MegaCity.Audio
+namespace Unity.Megacity.Audio
 {
     /// <summary>
     /// Instantiate AudioSources GameObjects.

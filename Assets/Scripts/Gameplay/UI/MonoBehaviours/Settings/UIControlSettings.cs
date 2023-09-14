@@ -1,6 +1,6 @@
 using UnityEngine.UIElements;
 
-namespace Unity.MegaCity.UI
+namespace Unity.Megacity.UI
 {
     /// <summary>
     /// This class manages the Controls View in UI Game Settings view.
@@ -32,8 +32,10 @@ namespace Unity.MegaCity.UI
             }
         }
 
-        protected override void Initialization()
+        protected override void Initialize()
         {
+            base.Initialize();
+            
             var root = GameSettingsView.Q<GroupBox>().Q<VisualElement>("controls-sliders");
             m_MouseSensitivitySlider = root.Q<Slider>("mouse-sensitivity");
             m_InverseLookHorizontalToggle = root.Q<Toggle>("invert-look-horizontal");
@@ -42,7 +44,6 @@ namespace Unity.MegaCity.UI
             m_MouseSensitivitySlider.RegisterValueChangedCallback(OnMouseSensitivityUpdated);
             m_InverseLookHorizontalToggle.RegisterValueChangedCallback(OnInverseLookHorizontalChanged);
             m_InverseLookVerticalToggle.RegisterValueChangedCallback(OnInverseLookVerticalChanged);
-            base.Initialization();
         }
 
         private void OnInverseLookHorizontalChanged(ChangeEvent<bool> evt)
@@ -73,7 +74,7 @@ namespace Unity.MegaCity.UI
 
         private void OnDestroy()
         {
-            if (IsSet)
+            if (IsInitialized)
             {
                 m_MouseSensitivitySlider.UnregisterValueChangedCallback(OnMouseSensitivityUpdated);
                 m_InverseLookHorizontalToggle.UnregisterValueChangedCallback(OnInverseLookHorizontalChanged);

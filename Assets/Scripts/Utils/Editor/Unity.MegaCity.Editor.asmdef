@@ -1,21 +1,22 @@
 {
-    "name": "Unity.MegaCity.Editor",
+    "name": "Unity.Megacity.Editor",
     "rootNamespace": "",
     "references": [
         "Unity.Mathematics",
-        "Unity.MegaCity.Authoring",
-        "Unity.MegaCity.Gameplay",
         "Unity.Transforms",
         "Unity.Entities",
         "Unity.Entities.Graphics",
-        "Unity.Entities.HLOD",
         "Unity.Collections",
         "UnityEditor.UI",
         "UnityEngine.UI",
         "UnityEditor.TestRunner",
         "UnityEngine.TestRunner",
         "Unity.Scenes",
-        "Unity.Scenes.Editor"
+        "Unity.Scenes.Editor",
+        "Unity.Megacity.Components",
+        "Unity.NetCode.Authoring.Hybrid",
+        "Unity.Megacity.Gameplay",
+        "Unity.Megacity.Authoring"
     ],
     "includePlatforms": [
         "Editor"

@@ -1,6 +1,6 @@
 using UnityEditor;
 
-namespace Unity.MegaCity.EditorTools
+namespace Unity.Megacity.EditorTools
 {
     public static class PrefabUtilities
     {

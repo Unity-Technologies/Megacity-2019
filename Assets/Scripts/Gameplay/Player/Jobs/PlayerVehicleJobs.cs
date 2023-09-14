@@ -4,8 +4,9 @@ using Unity.Mathematics;
 using Unity.Physics;
 using Unity.Transforms;
 using Unity.NetCode;
+using UnityEngine;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Set of jobs to control the player car movement and breaking
@@ -52,16 +53,14 @@ namespace Unity.MegaCity.Gameplay
             in PlayerVehicleInput input,
             ref VehicleRoll vehicleRoll)
         {
-            if (input.RightRoll > 0 || input.LeftRoll > 0)
+            if (math.abs(input.Roll) > 0)
             {
                 if (vehicleRoll.ManualRollValue == 0)
                 {
                     vehicleRoll.ManualRollValue = vehicleRoll.BankAmount;
                 }
 
-                vehicleRoll.ManualRollSpeed += input.RightRoll > 0
-                    ? -vehicleSettings.ManualRollAcceleration
-                    : vehicleSettings.ManualRollAcceleration;
+                vehicleRoll.ManualRollSpeed -= input.Roll * vehicleSettings.ManualRollAcceleration;
 
                 if (math.abs(vehicleRoll.ManualRollSpeed) > vehicleSettings.ManualRollMaxSpeed)
                 {
@@ -321,7 +320,7 @@ namespace Unity.MegaCity.Gameplay
             ref LocalTransform localTransform)
         {
             // Let control continue for half a sec to improve prediction
-            if (health.Value == 0 && Tick.TicksSince(health.AliveStateChangeTick) > 30)
+            if (Tick.IsValid && health.Value == 0 && Tick.TicksSince(health.AliveStateChangeTick) > 30)
             {
                 // 5 sec
                 if (Tick.TicksSince(health.AliveStateChangeTick) > 300)
@@ -337,7 +336,6 @@ namespace Unity.MegaCity.Gameplay
                     return;
                 }
             }
-
 
             var xRotation = quaternion.AxisAngle(math.up(), controlInput.ControlDirection.y);
             var yRotation = quaternion.AxisAngle(math.right(), controlInput.ControlDirection.x);
@@ -379,10 +377,8 @@ namespace Unity.MegaCity.Gameplay
             float deltaTime,
             ref PhysicsVelocity velocity)
         {
-            if (controlInput.RightRoll > 0 || controlInput.LeftRoll > 0)
-            {
+            if (math.abs(controlInput.Roll) > 0)
                 return;
-            }
 
             velocity.Angular += math.forward() * math.dot(localToWorld.Right, math.up()) *
                                 -vehicleSettings.RollAutoLevelVelocity * deltaTime * mass.InverseInertia;

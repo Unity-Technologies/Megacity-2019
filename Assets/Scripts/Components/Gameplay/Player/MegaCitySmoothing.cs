@@ -7,13 +7,13 @@ using Unity.Mathematics;
 using Unity.NetCode;
 using Unity.Transforms;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
-    /// The MegaCity-tuned prediction error <see cref="SmoothingAction"/> function for the <see cref="LocalTransform"/> component.
+    /// The Megacity-tuned prediction error <see cref="SmoothingAction"/> function for the <see cref="LocalTransform"/> component.
     /// </summary>
     [BurstCompile]
-    public unsafe struct MegaCitySmoothingAction
+    public unsafe struct MegacitySmoothingAction
     {
         /// <summary>
         /// The default value for the <see cref="DefaultSmoothingActionUserParams"/> if the no user data is passed to the function.

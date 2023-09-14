@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Unity.MegaCity.UI
+namespace Unity.Megacity.UI
 {
     /// <summary>
     /// Allows game settings to navigate through game setting views.
@@ -27,7 +27,7 @@ namespace Unity.MegaCity.UI
 
         public bool IsVisible => m_GameSettings.style.display == DisplayStyle.Flex;
 
-        private void Awake()
+        private void OnEnable()
         {
             var root = GetComponent<UIDocument>().rootVisualElement;
             m_GameSettings = root.Q<VisualElement>("game-settings");
@@ -80,6 +80,14 @@ namespace Unity.MegaCity.UI
             };
 
             Hide();
+            
+#if UNITY_ANDROID || UNITY_IPHONE
+            var hideInMobileElements = root.Query(className: "hide-in-mobile").ToList();
+            foreach (var mobileElement in hideInMobileElements)
+            {
+                mobileElement.style.display = DisplayStyle.None;
+            }
+#endif
         }
 
         public void Show(VisualElement caller = null)

@@ -1,8 +1,8 @@
 ﻿using Unity.Entities;
+using Unity.Megacity.Gameplay;
 using UnityEngine;
-using Unity.MegaCity.Gameplay;
 
-namespace Unity.MegaCity.Authoring
+namespace Unity.Megacity.Authoring
 {
     /// <summary>
     /// examines the object's scale and position to generate a cube and
@@ -12,7 +12,6 @@ namespace Unity.MegaCity.Authoring
     {
         [SerializeField] 
         private float offset;
-
         private float Scale => transform.localScale.y / 2;
         private float SafeArea => Scale - offset;
         
@@ -22,13 +21,13 @@ namespace Unity.MegaCity.Authoring
             public override void Bake(LevelBoundsAuthoring authoring)
             {
                 var entity = GetEntity(authoring.gameObject, TransformUsageFlags.Dynamic);
+                var position = authoring.transform.position;
                 AddComponent(entity, new LevelBounds
                 {
-                    Center = authoring.transform.position,
-                    Top = authoring.transform.position + (Vector3.up * authoring.SafeArea),
-                    Bottom = authoring.transform.position - (Vector3.up * authoring.SafeArea),
+                    Center = position,
+                    Top = position + Vector3.up * authoring.SafeArea,
+                    Bottom = position - Vector3.up * authoring.SafeArea,
                     SafeAreaSq = authoring.SafeArea * authoring.SafeArea,
-                    IsInside = true
                 });
             }
         }
@@ -41,7 +40,6 @@ namespace Unity.MegaCity.Authoring
             Gizmos.DrawWireSphere(position + (Vector3.up * SafeArea), SafeArea);
             Gizmos.DrawWireSphere(position - (Vector3.up * SafeArea), SafeArea);
             Gizmos.DrawWireSphere(position, SafeArea);
-            
         }
     }
 }

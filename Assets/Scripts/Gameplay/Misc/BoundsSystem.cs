@@ -1,49 +1,57 @@
 ﻿using Unity.Burst;
+using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
-using Unity.NetCode;
 using Unity.Transforms;
 using static Unity.Entities.SystemAPI;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
-    /// Updates the glitch effect when the player is near the bounds.
+    /// System that updates the player location bounds.
     /// </summary>
-    [WorldSystemFilter(WorldSystemFilterFlags.ClientSimulation)]
+    [WorldSystemFilter(WorldSystemFilterFlags.ClientSimulation | WorldSystemFilterFlags.LocalSimulation)]
+    [UpdateInGroup(typeof(TransformSystemGroup))]
     public partial struct UpdateBoundsSystem : ISystem
     {
-        private bool m_GlitchActive;
-
+        [BurstCompile]
         public void OnCreate(ref SystemState state)
         {
             state.RequireForUpdate<LevelBounds>();
+            state.RequireForUpdate<PlayerLocationBounds>();
         }
 
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
-            var levelBounds = GetSingletonRW<LevelBounds>().ValueRW;
+            var levelBounds = GetSingleton<LevelBounds>();
+            var evaluateIsInsideBoundsJob = new EvaluateIsInsideBoundsJob { LevelBounds = levelBounds };
+            evaluateIsInsideBoundsJob.ScheduleParallel();
+        }
+    }
 
-            foreach (var localToWorld in Query<RefRW<LocalToWorld>>().WithAll<GhostOwnerIsLocal>())
+    [BurstCompile]
+    public partial struct EvaluateIsInsideBoundsJob : IJobEntity
+    {
+        [ReadOnly] public LevelBounds LevelBounds; 
+        public void Execute(in LocalToWorld localToWorld, ref PlayerLocationBounds locationBounds)
+        {
+            var position = localToWorld.Position;
+
+            // evaluate top cylinder radius
+            if (position.y > LevelBounds.Top.y)
             {
-                var insideBounds = true;
-                var position = localToWorld.ValueRO.Position;
-                
-                if (position.y > levelBounds.Top.y && math.distancesq(position, levelBounds.Top) > levelBounds.SafeAreaSq)
-                    insideBounds = false;
-                
-                if (position.y < levelBounds.Bottom.y && math.distancesq(position, levelBounds.Bottom) > levelBounds.SafeAreaSq)
-                    insideBounds =  false;
-            
-                var point = new float3(levelBounds.Center.x, position.y, levelBounds.Center.z);
-                if(math.distancesq(position, point) > levelBounds.SafeAreaSq)
-                    insideBounds = false;
-
-                levelBounds.IsInside = insideBounds;
+                locationBounds.IsInside = math.distancesq(position, LevelBounds.Top) < LevelBounds.SafeAreaSq;
             }
-            
-            SetSingleton(levelBounds);
+            // evaluate center cylinder radius
+            else if (position.y > LevelBounds.Bottom.y && position.y < LevelBounds.Top.y)
+            {
+                var point = new float3(LevelBounds.Center.x, position.y, LevelBounds.Center.z);
+                locationBounds.IsInside = math.distancesq(position, point) < LevelBounds.SafeAreaSq;
+            }
+            // evaluate bottom cylinder radius
+            else if (position.y < LevelBounds.Bottom.y)
+                locationBounds.IsInside =  math.distancesq(position, LevelBounds.Bottom) > LevelBounds.SafeAreaSq;
         }
     }
 }

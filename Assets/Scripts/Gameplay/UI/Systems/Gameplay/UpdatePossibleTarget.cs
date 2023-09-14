@@ -1,7 +1,7 @@
 ﻿using Unity.Entities;
 using Unity.Mathematics;
-using Unity.MegaCity.Gameplay;
-using Unity.MegaCity.UI;
+using Unity.Megacity.Gameplay;
+using Unity.Megacity.UI;
 using Unity.NetCode;
 using Unity.Physics;
 using static Unity.Entities.SystemAPI;

@@ -1,6 +1,6 @@
 ﻿using VivoxUnity;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     public enum ChatCapability
     {

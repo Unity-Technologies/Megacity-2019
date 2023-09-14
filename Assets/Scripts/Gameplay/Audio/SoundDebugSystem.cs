@@ -3,7 +3,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using static Unity.Entities.SystemAPI;
 
-namespace Unity.MegaCity.Audio
+namespace Unity.Megacity.Audio
 {
     /// <summary>
     /// The system draws Normals for all static emitters such as buildings, air conditions and so on.

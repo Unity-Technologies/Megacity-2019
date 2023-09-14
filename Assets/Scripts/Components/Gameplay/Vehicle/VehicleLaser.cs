@@ -2,7 +2,7 @@
 using Unity.Mathematics;
 using Unity.NetCode;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     ///  Vehicle laser settings

@@ -1,6 +1,6 @@
 ﻿using Unity.Entities;
 
-namespace Unity.MegaCity.Streaming
+namespace Unity.Megacity.Streaming
 {
     /// <summary>
     ///     Check the scene sections to load and update the GameLoadInfo singleton with loaded sections number

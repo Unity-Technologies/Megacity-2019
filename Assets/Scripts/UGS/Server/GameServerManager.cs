@@ -9,12 +9,12 @@ namespace Unity.Services.Samples.GameServerHosting
         [field: SerializeField] public GameServerInfo_Data serverInfo { get; private set; }
 
         public GameHostingServices gameHostingServices { get; private set; }
-        public bool WasAssigned;
 
         PlayerAuthentication m_AuthService;
-
+        
         public void Init(GameServerInfo_Data info)
         {
+            DontDestroyOnLoad(gameObject);
             serverInfo = info;
             m_AuthService = new PlayerAuthentication();
         }

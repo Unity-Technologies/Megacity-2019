@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-namespace Unity.MegaCity.Audio
+namespace Unity.Megacity.Audio
 {
     /// <summary>
     /// Defines the ECSound emitter type and parameters

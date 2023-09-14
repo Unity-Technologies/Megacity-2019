@@ -3,10 +3,10 @@ using Unity.Collections;
 using Unity.Entities;
 using Unity.NetCode;
 using System.Collections.Generic;
-using Unity.MegaCity.UI;
+using Unity.Megacity.UI;
 using Unity.NetCode.Extensions;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// System to update the score ranking.

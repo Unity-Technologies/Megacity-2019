@@ -3,7 +3,7 @@ using UnityEditor;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Unity.MegaCity.EditorTools
+namespace Unity.Megacity.EditorTools
 {
     /// <summary>
     /// Set of tools for editing and switching game objects in the scene.

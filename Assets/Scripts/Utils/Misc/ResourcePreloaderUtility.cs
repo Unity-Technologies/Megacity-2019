@@ -6,7 +6,7 @@ using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityObject = UnityEngine.Object;
 
-namespace Unity.MegaCity.Utils
+namespace Unity.Megacity.Utils
 {
     #if UNITY_EDITOR
     static class ResourcePreloaderUtility

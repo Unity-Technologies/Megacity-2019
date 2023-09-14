@@ -59,7 +59,7 @@ namespace Unity.NetCode.Extensions
         {
             public override void Bake(BotAuthoring authoring)
             {
-                var entity = GetEntity(authoring.gameObject, TransformUsageFlags.Dynamic);
+                var entity = GetEntity(authoring.gameObject, TransformUsageFlags.None);
                 var buffer = AddBuffer<BotNameElement>(entity);
                 var names = BotNameGenerator.Names;
                 foreach (var botName in names)

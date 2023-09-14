@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     public enum ServerLocation
     {
@@ -27,6 +27,12 @@ namespace Unity.MegaCity.Gameplay
     {
         [SerializeField]
         private ServerInfo[] ServerList;
+#if UNITY_EDITOR
+        [HideInInspector]
+        public bool IsAutoloading;
+        [field: SerializeField] public GameMode AutoRunGameModeInEditorMain { private set; get; }
+        [field: SerializeField] public SinglePlayerGameMode AutoRunSinglePlayerGameModeInEditorMain { private set; get; }
+#endif
 
         public List<string> GetUIChoices()
         {

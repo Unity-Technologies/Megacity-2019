@@ -1,7 +1,7 @@
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace Unity.MegaCity.Audio
+namespace Unity.Megacity.Audio
 {
     /// <summary>
     /// Defines Sound definitions assets and the possible audio clips to play.

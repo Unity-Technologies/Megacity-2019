@@ -3,20 +3,20 @@ using System.ComponentModel;
 using Unity.Services.Vivox;
 using UnityEngine;
 using VivoxUnity;
-using static Unity.MegaCity.Gameplay.VivoxEvents;
+using static Unity.Megacity.Gameplay.VivoxEvents;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Manages Vivox channels
     /// </summary>
     public class VivoxChannel : MonoBehaviour
     {
-        public event ParticipantValueChangedHandler OnSpeechDetectedEvent;
-        public event ParticipantValueUpdatedHandler OnAudioEnergyChangedEvent;
-        public event ChannelTextMessageChangedHandler OnTextMessageLogReceivedEvent;
-        public event ParticipantStatusChangedHandler OnParticipantAddedEvent;
-        public event ParticipantStatusChangedHandler OnParticipantRemovedEvent;
+        public event VivoxEvents.ParticipantValueChangedHandler OnSpeechDetectedEvent;
+        public event VivoxEvents.ParticipantValueUpdatedHandler OnAudioEnergyChangedEvent;
+        public event VivoxEvents.ChannelTextMessageChangedHandler OnTextMessageLogReceivedEvent;
+        public event VivoxEvents.ParticipantStatusChangedHandler OnParticipantAddedEvent;
+        public event VivoxEvents.ParticipantStatusChangedHandler OnParticipantRemovedEvent;
         public string Name => "MultipleUserChannel";
         private IReadOnlyDictionary<ChannelId, IChannelSession> ActiveChannels => m_Session?.ActiveChannels;
 

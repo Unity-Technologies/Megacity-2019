@@ -1,8 +1,8 @@
 ﻿using Unity.Entities;
+using Unity.Megacity.Gameplay;
 using UnityEngine;
-using Unity.MegaCity.Gameplay;
 
-namespace Unity.MegaCity.Authoring
+namespace Unity.Megacity.Authoring
 {
     /// <summary>
     /// Add required tag components for cosmetic physics

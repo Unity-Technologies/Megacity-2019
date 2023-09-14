@@ -1,7 +1,7 @@
 using Unity.Burst;
 using Unity.Entities;
 
-namespace Unity.MegaCity.CameraManagement
+namespace Unity.Megacity.CameraManagement
 {
     /// <summary>
     /// Updates the player position and rotation to match the dolly track
@@ -18,7 +18,7 @@ namespace Unity.MegaCity.CameraManagement
             if (HybridCameraManager.Instance == null)
                 return;
 
-            if (HybridCameraManager.Instance.m_CameraTargetMode != HybridCameraManager.CameraTargetMode.DollyTrack)
+            if (!HybridCameraManager.Instance.IsDollyCamera)
                 return;
 
             var dollyTrackRotation = HybridCameraManager.Instance.GetDollyCameraRotation();

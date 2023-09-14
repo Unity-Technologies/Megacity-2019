@@ -1,0 +1,60 @@
+.joystick {
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.background {
+    width: 256px;
+    height: 256px;
+    background-color: rgba(255, 255, 255, 0);
+    position: relative;
+    border-top-left-radius: 256px;
+    border-top-right-radius: 256px;
+    border-bottom-right-radius: 256px;
+    border-bottom-left-radius: 256px;
+    border-left-color: rgba(0, 0, 0, 0.25);
+    border-right-color: rgba(0, 0, 0, 0.25);
+    border-top-color: rgba(0, 0, 0, 0.25);
+    border-bottom-color: rgba(0, 0, 0, 0.25);
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    flex-shrink: 0;
+    justify-content: center;
+    -unity-background-scale-mode: scale-to-fit;
+    -unity-background-image-tint-color: rgba(163, 224, 255, 0.59);
+}
+
+.handle {
+    flex-grow: 0;
+    border-left-color: rgba(0, 0, 0, 0.25);
+    border-right-color: rgba(0, 0, 0, 0.25);
+    border-top-color: rgba(0, 0, 0, 0.25);
+    border-bottom-color: rgba(0, 0, 0, 0.25);
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    background-color: rgba(255, 255, 255, 0);
+    flex-direction: column;
+    transition-property: all translate;
+    transition-duration: 0s 0.1s;
+    transition-timing-function: ease ease;
+    transition-delay: 0s 0s;
+    align-self: center;
+    background-image: url('project://database/Assets/Art/Textures/UI/AtlasUI.psd?fileID=4753376370821678339&guid=31e77ef23200a8842b3829370f52c886&type=3#joystick-knot');
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.left {
+    bottom: 25px;
+    left: 25px;
+    position: absolute;
+}
+
+.right {
+    bottom: 25px;
+    right: 25px;
+    position: absolute;
+}

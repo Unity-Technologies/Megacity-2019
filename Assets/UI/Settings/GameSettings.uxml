@@ -13,8 +13,8 @@
             <ui:Button text="Quit" display-tooltip-when-elided="true" name="quit-button" class="button large" />
         </ui:GroupBox>
     </ui:VisualElement>
-    <ui:VisualElement name="game-settings" style="background-color: rgba(0, 0, 0, 0); display: none; width: 100%; height: 100%;">
-        <ui:VisualElement name="settings-background" class="background settings" style="display: flex; flex-grow: 1; overflow: visible; -unity-background-scale-mode: scale-and-crop; opacity: 1;">
+    <ui:VisualElement name="game-settings" style="background-color: rgba(0, 0, 0, 0); display: none; width: 100%; height: 100%; align-items: center; justify-content: center;">
+        <ui:VisualElement name="settings-background" class="background settings" style="display: flex; flex-grow: 1; overflow: visible; -unity-background-scale-mode: scale-and-crop; opacity: 1; width: 102%; height: 102%;">
             <ui:VisualElement name="flicker-elements" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; display: flex;">
                 <ui:Instance template="flicker-decoration-flipped" name="flicker-decoration-flipped" style="position: absolute; top: 573px; left: 404px;" />
                 <ui:Instance template="flicker-decoration-flipped" name="flicker-decoration-flipped" style="position: absolute; top: 1034px; left: 675px;" />

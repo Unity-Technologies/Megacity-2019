@@ -1,7 +1,7 @@
 ﻿using Unity.Services.Vivox;
 using UnityEngine;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Manages Vivox devices volume

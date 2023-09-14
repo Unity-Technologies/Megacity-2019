@@ -1,9 +1,8 @@
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.UIElements;
 
-namespace Unity.MegaCity.UI
+namespace Unity.Megacity.UI
 {
     /// <summary>
     /// Access to GameObjects in the Scene and graphics settings that allows change the quality of the game.
@@ -21,14 +20,10 @@ namespace Unity.MegaCity.UI
     /// </summary>
     public class UIGraphicsSettings : UISettingsTab
     {
-        [SerializeField]
-        private Volume m_PostProcessing;
-        [SerializeField]
-        private GameObject FogVolume;
-        [SerializeField]
-        private GameObject ReflectionVolume;
-        [SerializeField]
-        private UIScreenResolution ResolutionScreen;
+        [SerializeField] private Volume m_PostProcessing;
+        [SerializeField] private GameObject FogVolume;
+        [SerializeField] private GameObject ReflectionVolume;
+        [SerializeField] private UIScreenResolution ResolutionScreen;
 
         private Toggle m_PostprocesingValue;
         private Toggle m_VolumetricFogValue;
@@ -42,14 +37,18 @@ namespace Unity.MegaCity.UI
         private DropdownField m_ShadowQualityValue;
         private DropdownField m_LevelOfDetailValue;
 
-        private VisualElement m_MainRoot;
-
         public override string TabName => "graphics";
         private bool m_CanSetAsCustom = true;
 
-        protected override void Initialization()
+        private void Start()
         {
-            m_MainRoot = GetComponent<UIDocument>().rootVisualElement.parent;
+            Initialize();
+        }
+
+        protected override void Initialize()
+        {
+            base.Initialize();
+
             var root = GameSettingsView.Q<GroupBox>().Q<VisualElement>("advance");
             m_PostprocesingValue = root.Q<GroupBox>().Q<Toggle>("postprocessing");
             m_VolumetricFogValue = root.Q<GroupBox>().Q<Toggle>("volumetric-fog");
@@ -99,43 +98,49 @@ namespace Unity.MegaCity.UI
                 m_ScreenmodeValue.value = FullScreenMode.Windowed.ToString();
             }
 
-            base.Initialization();
+            SaveCurrentState();
         }
 
         private void OnScreenResolutionChanged(ChangeEvent<string> value)
         {
+#if !(UNITY_ANDROID || UNITY_IPHONE)
             ResolutionScreen.SetResolution(value.newValue.ToLower(), out var isFullscreen);
             var screenMode = isFullscreen ? 1 : 0;
             m_ScreenmodeValue.value = m_ScreenmodeValue.choices[screenMode];
+#endif
         }
 
         protected override void SaveCurrentState()
         {
+            base.SaveCurrentState();
+
             UpdateCurrentToggleState(m_PostprocesingValue);
             UpdateCurrentToggleState(m_VolumetricFogValue);
             UpdateCurrentToggleState(m_ReflectionsValue);
             UpdateCurrentToggleState(m_VerticalSyncValue);
 
+            UpdateCurrentDropdownFieldState(m_QualityValue);
             UpdateCurrentDropdownFieldState(m_ScreenmodeValue);
             UpdateCurrentDropdownFieldState(m_TextureDetailsValue);
             UpdateCurrentDropdownFieldState(m_ShadowQualityValue);
             UpdateCurrentDropdownFieldState(m_LevelOfDetailValue);
-
-            base.SaveCurrentState();
         }
 
         public override void Reset()
         {
             base.Reset();
+
             ResetCurrentToggleState(m_PostprocesingValue);
             ResetCurrentToggleState(m_VolumetricFogValue);
             ResetCurrentToggleState(m_ReflectionsValue);
             ResetCurrentToggleState(m_VerticalSyncValue);
 
+            ResetCurrentDropdownFieldState(m_QualityValue);
             ResetCurrentDropdownFieldState(m_ScreenmodeValue);
             ResetCurrentDropdownFieldState(m_TextureDetailsValue);
             ResetCurrentDropdownFieldState(m_ShadowQualityValue);
             ResetCurrentDropdownFieldState(m_LevelOfDetailValue);
+            
         }
 
         private void OnHighButtonOnClicked()
@@ -147,7 +152,7 @@ namespace Unity.MegaCity.UI
             m_PostprocesingValue.value = true;
             m_ReflectionsValue.value = true;
 
-            var detail = "High";
+            const string detail = "High";
             m_ShadowQualityValue.value = detail;
             m_TextureDetailsValue.value = detail;
             m_LevelOfDetailValue.value = detail;
@@ -162,7 +167,7 @@ namespace Unity.MegaCity.UI
             m_PostprocesingValue.value = true;
             m_ReflectionsValue.value = true;
 
-            var detail = "Medium";
+            const string detail = "Medium";
             m_ShadowQualityValue.value = detail;
             m_TextureDetailsValue.value = detail;
             m_LevelOfDetailValue.value = detail;
@@ -177,7 +182,7 @@ namespace Unity.MegaCity.UI
             m_PostprocesingValue.value = false;
             m_ReflectionsValue.value = false;
 
-            var detail = "Low";
+            const string detail = "Low";
             m_ShadowQualityValue.value = detail;
             m_TextureDetailsValue.value = detail;
             m_LevelOfDetailValue.value = detail;
@@ -185,7 +190,7 @@ namespace Unity.MegaCity.UI
 
         private void OnDestroy()
         {
-            if (IsSet)
+            if (IsInitialized)
             {
                 m_PostprocesingValue.UnregisterValueChangedCallback(OnPostprocessingChanged);
                 m_VolumetricFogValue.UnregisterValueChangedCallback(OnVolumetricFogChanged);
@@ -197,31 +202,6 @@ namespace Unity.MegaCity.UI
                 m_ShadowQualityValue.UnregisterValueChangedCallback(OnShadowQualityChanged);
                 m_LevelOfDetailValue.UnregisterValueChangedCallback(LevelOfDetailChanged);
             }
-        }
-
-        private void Update()
-        {
-            m_CanSetAsCustom = true;
-            if (IsVisible && m_MainRoot != null)
-                AddStylesToPopupComboboxList();
-        }
-
-        private void AddStylesToPopupComboboxList()
-        {
-            m_MainRoot.Query<ScrollView>().ForEach((c) =>
-            {
-                c.style.backgroundColor = new StyleColor(new Color(0.0f, 0.0f, 0.0f, 0.97f));
-                c.style.color = new StyleColor(Color.white);
-                c.parent.style.borderBottomColor = new StyleColor(new Color(0.02352941f, 0.6862745f, 1));
-                c.parent.style.borderLeftColor = new StyleColor(new Color(0.02352941f, 0.6862745f, 1));
-                c.parent.style.borderRightColor = new StyleColor(new Color(0.02352941f, 0.6862745f, 1));
-                c.parent.style.borderTopColor = new StyleColor(new Color(0.02352941f, 0.6862745f, 1));
-
-                c.parent.style.borderLeftWidth = new StyleFloat(1);
-                c.parent.style.borderRightWidth = new StyleFloat(1);
-                c.parent.style.borderTopWidth = new StyleFloat(1);
-                c.parent.style.borderBottomWidth = new StyleFloat(1);
-            });
         }
 
         private void OnVsyncChanged(ChangeEvent<bool> value)

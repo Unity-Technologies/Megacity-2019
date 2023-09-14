@@ -2,7 +2,7 @@
 using UnityEngine.UIElements;
 using UnityEngine.UIElements.Experimental;
 
-namespace Unity.MegaCity.UI
+namespace Unity.Megacity.UI
 {
     /// <summary>
     /// Matchmaking loading bar UI element

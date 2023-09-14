@@ -1,8 +1,8 @@
 using Unity.Entities;
+using Unity.Megacity.Audio;
 using UnityEngine;
-using Unity.MegaCity.Audio;
 
-namespace Unity.MegaCity.Authoring
+namespace Unity.Megacity.Authoring
 {
     /// <summary>
     /// Takes ECSoundEmitterComponent and convert them all to ECSoundEmitter based on ECSoundEmitterDefinitionAsset

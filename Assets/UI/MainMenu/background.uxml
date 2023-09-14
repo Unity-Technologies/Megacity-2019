@@ -2,7 +2,7 @@
     <ui:Template name="flicker-decoration-flipped" src="project://database/Assets/UI/MainMenu/flicker-decoration-flipped.uxml?fileID=9197481963319205126&amp;guid=d39991b8a9651b143bc0a93d764a32e4&amp;type=3#flicker-decoration-flipped" />
     <ui:Template name="flicker-decoration" src="project://database/Assets/UI/MainMenu/flicker-decoration.uxml?fileID=9197481963319205126&amp;guid=ec90f2ce8811dc445bcb19bcc8127408&amp;type=3#flicker-decoration" />
     <Style src="project://database/Assets/UI/MainMenu/Styles.uss?fileID=7433441132597879392&amp;guid=dfb32b1fdf2bfae48bbadfa74165273b&amp;type=3#Styles" />
-    <ui:VisualElement name="background" class="background">
+    <ui:VisualElement name="background" class="background" style="-unity-background-scale-mode: scale-and-crop; width: 102%; height: 102%; align-self: center;">
         <ui:VisualElement name="flicker-elements" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; opacity: 0.6;">
             <ui:Instance template="flicker-decoration-flipped" name="flicker-decoration-flipped" style="position: absolute; top: 573px; left: 404px;" />
             <ui:Instance template="flicker-decoration-flipped" name="flicker-decoration-flipped" style="position: absolute; top: 1034px; left: 675px;" />

@@ -1,0 +1,9 @@
+.unity-base-dropdown .unity-scroll-view {
+    background-color: rgb(10, 10, 10);
+    color: rgb(255, 255, 255);
+    border-color: rgb(0, 150, 255);
+}
+
+.unity-base-dropdown__container-outer {
+    border-color: rgb(0, 150, 255);
+}

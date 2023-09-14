@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Spawn point for the player

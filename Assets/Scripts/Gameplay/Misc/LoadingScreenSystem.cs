@@ -4,9 +4,8 @@ using Unity.Entities;
 using Unity.Scenes;
 using static Unity.Entities.SystemAPI;
 
-namespace Unity.MegaCity.Streaming
+namespace Unity.Megacity.Streaming
 {
-
     /// <summary>
     /// Update the GameLoadInfo singleton with loaded sections number
     /// </summary>
@@ -45,12 +44,6 @@ namespace Unity.MegaCity.Streaming
 
             SetSingleton(gameLoadInfo);
             sceneSectionEntities.Dispose(state.Dependency);
-
-            // Disable the system when everything is loaded
-            if (gameLoadInfo.IsLoaded)
-            {
-                state.Enabled = false;
-            }
         }
     }
 }

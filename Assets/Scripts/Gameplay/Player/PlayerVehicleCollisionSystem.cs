@@ -4,7 +4,7 @@ using Unity.Physics;
 using Unity.Physics.Systems;
 using static Unity.Entities.SystemAPI;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// System to handle the player vehicle collision.

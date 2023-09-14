@@ -2,7 +2,7 @@
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-namespace Unity.MegaCity.EditorTools
+namespace Unity.Megacity.EditorTools
 {
     [InitializeOnLoad]
     public class OpenSceneByDefault

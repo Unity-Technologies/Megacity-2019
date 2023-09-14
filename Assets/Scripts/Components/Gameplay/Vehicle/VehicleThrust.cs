@@ -1,7 +1,7 @@
 ﻿using Unity.Entities;
 using Unity.NetCode;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Vehicle thrust settings

@@ -2,7 +2,7 @@
 using Unity.Transforms;
 using Unity.Mathematics;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Player laser Aspect 

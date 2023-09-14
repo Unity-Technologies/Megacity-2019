@@ -1,12 +1,12 @@
 ﻿using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;
-using Unity.MegaCity.Utils;
+using Unity.Megacity.Utils;
 using Unity.NetCode;
 using Unity.Transforms;
 using static Unity.Entities.SystemAPI;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     [BurstCompile]
     [WorldSystemFilter(WorldSystemFilterFlags.ClientSimulation)]

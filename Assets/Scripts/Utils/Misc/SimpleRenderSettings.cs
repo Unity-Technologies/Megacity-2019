@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Rendering.HighDefinition;
 
-namespace Unity.MegaCity.Utils
+namespace Unity.Megacity.Utils
 {
     /// <summary>
     /// Alter the HD Renderpipeline Settings on the first run based on the quality settings.

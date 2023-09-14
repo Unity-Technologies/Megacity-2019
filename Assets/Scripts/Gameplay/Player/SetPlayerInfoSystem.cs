@@ -9,7 +9,7 @@ using Unity.Services.Samples.GameServerHosting;
 using static Unity.Entities.SystemAPI;
 using Random = Unity.Mathematics.Random;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// System to set the player info.
@@ -107,7 +107,9 @@ namespace Unity.MegaCity.Gameplay
                         state.Dependency.Complete();
 
                         // If the requester is not a client should use one from the bank of names.
-                        var name = info.IsClient ? info.Name : m_UsedNames[m_UsedNames.Length - 1];
+                        var isNameEmpty = string.IsNullOrEmpty(info.Name.ToString());
+                        var name = isNameEmpty ? BotNameGenerator.GetRandomName():info.Name;
+                        name = info.IsClient ? name : m_UsedNames[m_UsedNames.Length - 1];
                         var uasID = info.UASId;
 
                         commandBuffer.SetComponent(entity, new PlayerName { Name = name });

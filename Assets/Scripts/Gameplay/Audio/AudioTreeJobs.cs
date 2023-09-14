@@ -4,7 +4,7 @@ using Unity.Collections.LowLevel.Unsafe;
 using Unity.Jobs;
 using Unity.Mathematics;
 
-namespace Unity.MegaCity.Audio
+namespace Unity.Megacity.Audio
 {
 
     /// <summary>

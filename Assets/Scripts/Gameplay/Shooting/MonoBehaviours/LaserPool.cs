@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 #endif
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Manages the laser pool
@@ -51,8 +51,12 @@ namespace Unity.MegaCity.Gameplay
                 m_LaserPool[i].enabled = true;
                 m_LaserBeamPool[i].Play(true);
                 m_LaserHitPool[i].Play(true);
-                if(!m_LaserBeamAudioPool[i].isPlaying)
+                if (!m_LaserBeamAudioPool[i].isPlaying)
+                {
+                    m_LaserBeamAudioPool[i].pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+                    m_LaserBeamAudioPool[i].volume = UnityEngine.Random.Range(0.9f , 1f);
                     m_LaserBeamAudioPool[i].Play();
+                }
             }
 
             for (var i = m_ActiveLines; i < m_PrevActiveLines; ++i)

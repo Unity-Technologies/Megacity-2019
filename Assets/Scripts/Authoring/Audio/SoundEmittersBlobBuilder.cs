@@ -1,9 +1,9 @@
 using Unity.Collections;
 using Unity.Entities;
+using Unity.Megacity.Audio;
 using static Unity.Entities.SystemAPI;
-using Unity.MegaCity.Audio;
 
-namespace Unity.MegaCity.Authoring
+namespace Unity.Megacity.Authoring
 {
     /// <summary>
     /// The system gets all ECSoundEmitterComponent which belongs to the buildings.

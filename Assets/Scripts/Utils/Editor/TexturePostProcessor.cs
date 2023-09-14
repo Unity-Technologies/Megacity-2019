@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 
-namespace Unity.MegaCity.EditorTools
+namespace Unity.Megacity.EditorTools
 {
     /// <summary>
     /// Helper function to automatically format the project textures according to the target platform

@@ -1,7 +1,7 @@
 using Unity.Entities;
 using Unity.NetCode;
 
-namespace Unity.MegaCity.Utils
+namespace Unity.Megacity.Utils
 {
     public struct MultiMaterialObjectTag : IComponentData
     {

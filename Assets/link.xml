@@ -26,7 +26,7 @@
 	<assembly fullname="Unity.Burst" preserve="all" />
 	<assembly fullname="Unity.Properties.Codegen" preserve="all" />
 	<assembly fullname="Unity.Entities.HLOD" preserve="all" />
-	<assembly fullname="Unity.MegaCity.Gameplay" preserve="all" />
+	<assembly fullname="Unity.Megacity.Gameplay" preserve="all" />
 	<assembly fullname="Unity.Physics" preserve="all" />
 	<assembly fullname="Unity.NetCode" preserve="all" />
 	<assembly fullname="Unity.NetCode.Extensions" preserve="all" />

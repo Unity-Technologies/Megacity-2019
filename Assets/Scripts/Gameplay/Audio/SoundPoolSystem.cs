@@ -4,14 +4,13 @@ using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
 using Unity.Mathematics;
-using Unity.MegaCity.UI;
 using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 using Random = Unity.Mathematics.Random;
 
-namespace Unity.MegaCity.Audio
+namespace Unity.Megacity.Audio
 {
     [WorldSystemFilter(WorldSystemFilterFlags.LocalSimulation | WorldSystemFilterFlags.ClientSimulation, WorldSystemFilterFlags.LocalSimulation | WorldSystemFilterFlags.ClientSimulation)]
     public partial class AudioFrame : ComponentSystemGroup
@@ -29,7 +28,6 @@ namespace Unity.MegaCity.Audio
         static ProfilerMarker ProfilerMarkerC = new ProfilerMarker("SoundPoolSystem.C");
         static ProfilerMarker ProfilerMarkerD = new ProfilerMarker("SoundPoolSystem.D");
 
-        private AudioSystemSettings m_AudioSettings;
         private Scene m_AdditiveScene;
         private SoundManager m_SoundManager;
         private AudioTree [] m_AudioTrees;
@@ -51,17 +49,6 @@ namespace Unity.MegaCity.Audio
             var entityQueryDescAll = new EntityQueryDesc { All = new[] {ComponentType.ReadOnly<AudioBlobRef>()}};
             RequireForUpdate(GetEntityQuery(entityQueryDescAll));
 
-#if UNITY_EDITOR
-            if (!UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode)
-            {
-                m_AdditiveScene = SceneManager.GetSceneByName("AdditiveBuildingAudioPoolScene");
-            }
-            else
-#endif
-            {
-                m_AdditiveScene = SceneManager.CreateScene("AdditiveVehicleBuildingPoolScenePlaymode");
-            }
-
             m_AllEmitterBlobsQuery = GetEntityQuery(new EntityQueryDesc
             {
                 All = new[] { ComponentType.ReadOnly<AudioBlobRef>() }
@@ -82,28 +69,31 @@ namespace Unity.MegaCity.Audio
             m_Random = new Random((uint)SystemAPI.Time.ElapsedTime + (uint)DateTime.Now.Ticks);
         }
 
-        protected override void OnUpdate()
+        protected override void OnStartRunning()
         {
-            if (MainMenu.Instance != null && MainMenu.Instance.IsVisible && m_AudioSources != null)
+            base.OnStartRunning();
+            var audioSettings = SystemAPI.GetSingleton<AudioSystemSettings>();
+            if (!audioSettings.HasInitialized)
             {
-                foreach (var audioSource in m_AudioSources)
+#if UNITY_EDITOR
+                if (!UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode)
                 {
-                    audioSource.Stop();
+                    m_AdditiveScene = SceneManager.GetSceneByName("AdditiveBuildingAudioPoolScene");
                 }
-                return;
-            }
-
-            
-            if (m_SoundManager == null)
-            {
-                m_AudioSettings = SystemAPI.GetSingleton<AudioSystemSettings>();
+                else
+#endif
+                {
+                    m_AdditiveScene = SceneManager.CreateScene("AdditiveVehicleBuildingPoolScenePlaymode");
+                }
+                
+                
                 m_SoundManager = Object.FindObjectOfType<SoundManager>();
-                var poolSize = m_SoundManager.m_Clips.Length * m_AudioSettings.ClosestEmitterPerClipCount;
+                var poolSize = m_SoundManager.m_Clips.Length * audioSettings.ClosestEmitterPerClipCount;
                 m_AudioSources = new AudioSource[poolSize];
                 for (int i = 0; i < poolSize; i++)
                 {
-                    var clipIdx = i / m_AudioSettings.ClosestEmitterPerClipCount;
-                    var instance = i % m_AudioSettings.ClosestEmitterPerClipCount;
+                    var clipIdx = i / audioSettings.ClosestEmitterPerClipCount;
+                    var instance = i % audioSettings.ClosestEmitterPerClipCount;
                     var gameObject = new GameObject($"AudioSource (clip {clipIdx} / instance {instance}");
                     m_AudioSources[i] = gameObject.AddComponent<AudioSource>();
                     m_AudioSources[i].clip = m_SoundManager.m_Clips[clipIdx];
@@ -112,7 +102,7 @@ namespace Unity.MegaCity.Audio
                     m_AudioSources[i].dopplerLevel = 0f;
                     m_AudioSources[i].rolloffMode = AudioRolloffMode.Linear;
                     m_AudioSources[i].pitch = 1f + instance / 100f;
-                    m_AudioSources[i].maxDistance = m_AudioSettings.MaxDistance;
+                    m_AudioSources[i].maxDistance = audioSettings.MaxDistance;
                     m_AudioSources[i].playOnAwake = false;
                     m_AudioSources[i].outputAudioMixerGroup = AudioMaster.Instance.soundFX;
                     SceneManager.MoveGameObjectToScene(gameObject, m_AdditiveScene);
@@ -127,14 +117,45 @@ namespace Unity.MegaCity.Audio
                     var maxResultsPerAudioTree = m_AudioSources.Length / m_Definitions.Length;
                     m_AudioTrees[i].Initialize(maxResultsPerAudioTree);
                 }
+
+                audioSettings.HasInitialized = true;
+                SystemAPI.SetSingleton(audioSettings);
             }
+        }
 
+        protected override void OnStopRunning()
+        {
+            base.OnStopRunning();
+            if (m_Definitions.IsCreated)
+                m_Definitions.Dispose();
+            if (m_AudioTrees != null)
+            {
+                for (int i=0;i < m_AudioTrees.Length; i++)
+                {
+                    m_AudioTrees[i].Dispose();
+                }
+            }
+            
+            if (m_AudioSources != null)
+            {
+                foreach (var audioSource in m_AudioSources)
+                {
+                    if(audioSource != null)
+                        audioSource.Stop();
+                }
 
-            if (UnityEngine.Camera.main == null)
+                m_AudioSources = Array.Empty<AudioSource>();
+            }
+        }
+
+        protected override void OnUpdate()
+        {
+            var audioSettings = SystemAPI.GetSingleton<AudioSystemSettings>();
+            if (UnityEngine.Camera.main == null || !audioSettings.HasInitialized || !m_Definitions.IsCreated)
             {
                 return;
             }
-
+            
             var camPos = UnityEngine.Camera.main.transform.position;
 
             using (ProfilerMarkerQueryTrees.Auto())
@@ -185,8 +206,8 @@ namespace Unity.MegaCity.Audio
                             m_AudioSources[currentAudioSourceIndex].Play();
                         }
                     }
-
-                    if(m_AudioSettings.DebugMode)
+                    
+                    if(audioSettings.DebugMode)
                         Debug.DrawLine(camPos, position, m_AudioTrees[i].DebugLineColor);
 
                     currentAudioSourceIndex++;
@@ -233,17 +254,6 @@ namespace Unity.MegaCity.Audio
 
             // If no clip index was selected, return the minimum index
             return min;
-        }
-
-        protected override void OnDestroy()
-        {
-            if (m_Definitions.IsCreated)
-                m_Definitions.Dispose();
-            if (m_AudioTrees != null)
-                for (int i=0;i < m_AudioTrees.Length; i++)
-                {
-                    m_AudioTrees[i].Dispose();
-                }
         }
 
         private void UpdateTreeData()

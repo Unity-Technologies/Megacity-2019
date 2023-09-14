@@ -11,7 +11,11 @@
     -unity-font-style: bold;
 }
 
-.highlight.item-label, .highlight{
+.highlight.item-label {
+    color: rgb(6, 175, 255);
+}
+
+.highlight {
     color: rgb(6, 175, 255);
 }
 
@@ -68,4 +72,11 @@
     height: 100px;
     width: 120px;
     rotate: 0;
+}
+
+.life-bar {
+}
+
+.life-bar .unity-progress-bar__background {
+    max-height: 20px;
 }

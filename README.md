@@ -86,7 +86,7 @@ Before you can clone the project, you must install Git Large File Support (LFS).
 ## Get Started
 
 After you clone the project, follow these steps to start playing:
-1. Install a compatible Unity Editor version. During install make sure to include Standalone Support and Dedicated Server Support for Windows/Mac.
+1. Install a compatible Unity Editor version. During install make sure to include Standalone Support and Dedicated Server Support and Build Support (IL2CPP) for Windows/Mac.
 2. To add the project to the **Unity Hub**, click the **Add** button and select the root folder of the cloned project.
 	- **Note**: The first time you open the project may take longer than usual because Unity is importing all the assets.
 3. Prior to entering playmode, it may be necessary to create the Entities scene cache. To achieve this, please open Main scene located in `Scenes/Main.scene`.
@@ -142,8 +142,7 @@ After you integrate Game Server Hosting, you must create a [build](https://docs.
 For Megacity Multiplayer, we use the following Game Server Hosting configuration:
 
 - **Launch parameters**: `-ip $$ip$$ -port $$port$$ -queryport $$query_port$$ -logFile $$log_dir$$/$$timestamp$$-Engine.log`
-- **CPU Speed**: 1500 MHz
-- **Memory**: 1600 MB
+- **Servers per machine**: 3 (Server requires approximately 1500 MHz CPU Speed and 1600 MB Memory. 3 servers per machine will equate to each server having approximately 1700 MHz CPU and 2600 MB Memory)
 
 ### Matchmaker
 
@@ -165,8 +164,8 @@ For Matchmaker [rules](https://docs.unity.com/matchmaker/manual/matchmaking-rule
 - **Team count max**: 1
 - **Player count min**: 64
 - **Player count max**: 256
-- **Relaxation 1**: Replace min, Replacement value: 32, at seconds: 5
-- **Relaxation 2**: Replace min, Replacement value: 1, at seconds: 10
+- **Relaxation 1**: Replace youngest, Replacement value: 32, at seconds: 5
+- **Relaxation 2**: Replace youngest, Replacement value: 1, at seconds: 10
 
 After configuring the services on the dashboard website, navigate to **Edit > Project Settings > Service** and choose your organization and project ID.
 

@@ -46,9 +46,7 @@ Some important points of this demo are:
 - Cross-platform support for Windows and Mac
 
 **Important Note**:
-If you are specifically interested in `Large-scale streaming` or utilizing `HDRP`, please clone this repository. 
-For the latest features of ECS packages and the most recent version of this sample, please refer to the following repository 
-[Megacity Metro](https://github.com/Unity-Technologies/megacity-metro)
+This repository is deprecated and will no longer be maintained. For the latest features of ECS packages and the most recent version of this sample, please refer to the following repository: [Megacity Metro](https://github.com/Unity-Technologies/megacity-metro). However, if you are specifically interested in `Large-scale streaming` or utilizing `HDRP`, please clone this repository. 
 
 ## Megacity Multiplayer Prerequisites
 

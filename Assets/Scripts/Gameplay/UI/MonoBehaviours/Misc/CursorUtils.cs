@@ -1,24 +1,28 @@
 ﻿using UnityEngine;
 
-namespace Unity.MegaCity.UI
+namespace Unity.Megacity.UI
 {
     /// <summary>
     /// Utility class for managing the cursor.
     /// </summary>
     public static class CursorUtils
     {
-        public static void ShowCursor(bool visible)
+        public static void ShowCursor()
         {
-            if (visible)
-            {
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-            }
-            else
-            {
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
-            }
+            // TODO: Ignore this script if we're on mobile
+#if !(UNITY_ANDROID || UNITY_IPHONE)
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+#endif
+        }
+
+        public static void HideCursor()
+        {
+            // TODO: Ignore this script if we're on mobile
+#if !(UNITY_ANDROID || UNITY_IPHONE)
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+#endif
         }
     }
 }

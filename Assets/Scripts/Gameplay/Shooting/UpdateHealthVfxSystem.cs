@@ -5,7 +5,7 @@ using Unity.Pool;
 using Unity.Transforms;
 using static Unity.Entities.SystemAPI;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Handles updating the health VFX on the client
@@ -21,13 +21,13 @@ namespace Unity.MegaCity.Gameplay
                          .WithEntityAccess().WithAll<PlayerVehicleSettings>())
             {
                 // Resetting Health / Remove Smoke VFX
-                if (vehicleHealth.ValueRO.AliveStateChangeTick ==  NetworkTick.Invalid)
+                if (vehicleHealth.ValueRO.AliveStateChangeTick == NetworkTick.Invalid)
                 {
                     SmokeVfxPool.Instance.RemoveSmokeVfx(entity);
                     continue;
                 }
 
-                if(vehicleHealth.ValueRO.Value > 50f)
+                if (vehicleHealth.ValueRO.Value > 50f)
                     continue;
 
                 var localPosition = localToWorld.ValueRO.Position;
@@ -39,7 +39,8 @@ namespace Unity.MegaCity.Gameplay
                     entity, vehicleHealth.ValueRO.Value);
             }
 
-            SmokeVfxPool.Instance.ClearMissingEntities(state.EntityManager);
+            if (SmokeVfxPool.Instance != null)
+                SmokeVfxPool.Instance.ClearMissingEntities(state.EntityManager);
         }
     }
 }

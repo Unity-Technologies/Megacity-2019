@@ -1,8 +1,8 @@
 ﻿using Unity.Entities;
-using Unity.MegaCity.UI;
+using Unity.Megacity.UI;
 using static Unity.Entities.SystemAPI;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Updates Control Settings based on the Settings UI

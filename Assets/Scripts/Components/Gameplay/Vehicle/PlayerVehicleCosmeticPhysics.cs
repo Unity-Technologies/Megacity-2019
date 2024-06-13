@@ -1,7 +1,7 @@
 ﻿using Unity.Entities;
 using Unity.NetCode;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Move the player mesh to allow nice cosmetic effects like rolling and breaking the car

@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/UI/NetcodePanelStats/NetcodePanelStats.uss?fileID=7433441132597879392&amp;guid=850ddfe20ccd4424da1d4a1db8cf66cb&amp;type=3#NetcodePanelStats" />
+    <ui:VisualElement picking-mode="Ignore" usage-hints="DynamicTransform" name="VisualElement" class="container" style="display: none; flex-direction: column; bottom: 50px; right: 0; width: 320px;">
+        <ui:VisualElement class="panel-body">
+            <ui:VisualElement picking-mode="Ignore" class="properties-container">
+                <ui:ScrollView horizontal-scroller-visibility="Hidden" name="content-scroll-view" style="height: 200px;">
+                    <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="monitor-console-label" class="info-value-label label-monitor" />
+                </ui:ScrollView>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Label tabindex="-1" text="C" display-tooltip-when-elided="true" style="position: absolute; color: rgb(255, 255, 255); -unity-font-definition: url(&apos;project://database/Assets/UI/NetcodePanelStats/FiraCode-Regular%20SDF.asset?fileID=11400000&amp;guid=d92cbd036b66cdd4287d33c29491ddb4&amp;type=2#FiraCode-Regular SDF&apos;); -unity-font: url(&apos;project://database/Assets/UI/NetcodePanelStats/FiraCode-Regular.ttf?fileID=12800000&amp;guid=afe01fe54b350f74c86909ddaf7add7d&amp;type=3#FiraCode-Regular&apos;); font-size: 20px; top: 25px;" />
+        <ui:Button tabindex="-1" name="monitor-back-button" class="back-button">
+            <ui:VisualElement name="back-icon" class="back-icon" />
+        </ui:Button>
+    </ui:VisualElement>
+</ui:UXML>

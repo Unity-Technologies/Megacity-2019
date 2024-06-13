@@ -3,7 +3,7 @@ using Unity.Mathematics;
 using Unity.Transforms;
 using Unity.Collections;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Job to handle the vehicle roll.

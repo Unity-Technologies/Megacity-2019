@@ -24,6 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2130778780815412507}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,7 +32,6 @@ Transform:
   m_Children:
   - {fileID: 4909789350150318673}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4918281721954138538
 MonoBehaviour:
@@ -54,7 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4909789350150318673}
-  - component: {fileID: 2633422469647664468}
+  - component: {fileID: 8157517987161519865}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -69,6 +69,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8263399004131070690}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -82,9 +83,8 @@ Transform:
   - {fileID: 4955447771016649663}
   - {fileID: 5351140686820633450}
   m_Father: {fileID: 7183042925373588509}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &2633422469647664468
+--- !u!64 &8157517987161519865
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,7 +105,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 33a9224084df2b541890b5fec58e512b, type: 2}
+  m_Mesh: {fileID: 4300000, guid: d5f87b952f7c14642ad7df6dd2045b60, type: 2}
 --- !u!1001 &470961894212999239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -209,6 +209,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -149.99501
       objectReference: {fileID: 0}
+    - target: {fileID: 7921738750663145245, guid: 6303e74ce04e84d47925b40e6c11565f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -228,6 +233,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4909789350150318673}
     m_Modifications:
+    - target: {fileID: 2147273968296753772, guid: 4f3029cc178ed154da5efb1240db46c1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2762662378116165649, guid: 4f3029cc178ed154da5efb1240db46c1,
         type: 3}
       propertyPath: m_RootOrder
@@ -510,6 +520,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -99.80601
+      objectReference: {fileID: 0}
+    - target: {fileID: 7921738750663145245, guid: 6303e74ce04e84d47925b40e6c11565f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -794,6 +809,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755353718939130399, guid: b6e2f788faaac4049a46568b67e3ae28,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7985983617692286065, guid: b6e2f788faaac4049a46568b67e3ae28,
         type: 3}
@@ -1149,6 +1169,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 6481759991863513832, guid: 5923e7980e72a084bbb3dd03e9eb966f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6830272728855832873, guid: 5923e7980e72a084bbb3dd03e9eb966f,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1308,6 +1333,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4909789350150318673}
     m_Modifications:
+    - target: {fileID: 2147273968296753772, guid: 4f3029cc178ed154da5efb1240db46c1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2762662378116165649, guid: 4f3029cc178ed154da5efb1240db46c1,
         type: 3}
       propertyPath: m_RootOrder

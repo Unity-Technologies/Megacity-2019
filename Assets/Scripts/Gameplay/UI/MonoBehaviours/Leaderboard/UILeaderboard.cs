@@ -1,10 +1,10 @@
 using UnityEngine;
 using Unity.Collections;
-using Unity.MegaCity.Gameplay;
+using Unity.Megacity.Gameplay;
 using UnityEngine.UIElements;
 using UnityEngine.UIElements.Experimental;
 
-namespace Unity.MegaCity.UI
+namespace Unity.Megacity.UI
 {
     /// <summary>
     /// Leaderboard UI element

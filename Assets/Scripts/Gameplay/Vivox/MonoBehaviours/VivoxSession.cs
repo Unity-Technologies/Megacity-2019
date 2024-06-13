@@ -4,18 +4,18 @@ using System.Linq;
 using Unity.Services.Vivox;
 using UnityEngine;
 using VivoxUnity;
-using static Unity.MegaCity.Gameplay.VivoxEvents;
+using static Unity.Megacity.Gameplay.VivoxEvents;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Manages Vivox session
     /// </summary>
     public class VivoxSession : MonoBehaviour
     {
-        public event RecoveryStateChangedHandler OnRecoveryStateChangedEvent;
-        public event LoginStatusChangedHandler OnUserLoggedInEvent;
-        public event LoginStatusChangedHandler OnUserLoggedOutEvent;
+        public event VivoxEvents.RecoveryStateChangedHandler OnRecoveryStateChangedEvent;
+        public event VivoxEvents.LoginStatusChangedHandler OnUserLoggedInEvent;
+        public event VivoxEvents.LoginStatusChangedHandler OnUserLoggedOutEvent;
         public LoginState LoginState { get; private set; }
         public ILoginSession LoginSession;
         public Account Account => m_Account;
@@ -105,7 +105,7 @@ namespace Unity.MegaCity.Gameplay
 
         public void Logout()
         {
-            if (LoginSession.State == LoginState.LoggedIn)
+            if (LoginSession != null && LoginSession.State == LoginState.LoggedIn)
                 LoginSession.Logout();
         }
 

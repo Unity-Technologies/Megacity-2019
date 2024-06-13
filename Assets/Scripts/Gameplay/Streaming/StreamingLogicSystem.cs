@@ -6,7 +6,7 @@ using Unity.Mathematics;
 using Unity.Transforms;
 using Hash128 = Unity.Entities.Hash128;
 
-namespace Unity.MegaCity.Streaming
+namespace Unity.Megacity.Streaming
 {
     /// <summary>
     /// Set of jobs to handle streaming in/out of sub scenes
@@ -34,10 +34,14 @@ namespace Unity.MegaCity.Streaming
         public float3 CameraPosition;
         public float MaxDistanceSquared;
         public Hash128 PlayerSectionGUID;
-
+        public Hash128 TrafficSectionGUID;
+        
         public void Execute(Entity entity, in SceneSectionData sceneData)
         {
             if (sceneData.SceneGUID == PlayerSectionGUID)
+                return;
+            
+            if (sceneData.SceneGUID == TrafficSectionGUID)
                 return;
 
             AABB boundingVolume = sceneData.BoundingVolume;
@@ -84,6 +88,9 @@ namespace Unity.MegaCity.Streaming
 
         public void OnUpdate(ref SystemState state)
         {
+            if(SceneController.IsReturningToMainMenu)
+                return;
+            
             state.CompleteDependency();
             var entityCommandBufferSystem =
                 state.World.GetExistingSystemManaged<BeginInitializationEntityCommandBufferSystem>();
@@ -111,6 +118,7 @@ namespace Unity.MegaCity.Streaming
                 MaxDistanceSquared = streamingLogicConfig.DistanceForStreamingOut *
                                      streamingLogicConfig.DistanceForStreamingOut,
                 PlayerSectionGUID = streamingLogicConfig.PlayerSectionGUID,
+                TrafficSectionGUID = streamingLogicConfig.TrafficSectionGUID,
             };
             state.Dependency = streamOut.Schedule(state.Dependency);
             state.Dependency = new BuildCommandBufferJob
@@ -124,6 +132,7 @@ namespace Unity.MegaCity.Streaming
             removeRequestList.Dispose(state.Dependency);
         }
     }
+    
     [BurstCompile]
     [UpdateInGroup(typeof(InitializationSystemGroup))]
     [WorldSystemFilter(WorldSystemFilterFlags.Presentation)]
@@ -139,6 +148,9 @@ namespace Unity.MegaCity.Streaming
 
         public void OnUpdate(ref SystemState state)
         {
+            if(SceneController.IsReturningToMainMenu)
+                return;
+            
             var entityCommandBufferSystem =
                 state.World.GetExistingSystemManaged<BeginInitializationEntityCommandBufferSystem>();
 
@@ -165,6 +177,7 @@ namespace Unity.MegaCity.Streaming
                 MaxDistanceSquared = streamingLogicConfig.DistanceForStreamingOut *
                                      streamingLogicConfig.DistanceForStreamingOut,
                 PlayerSectionGUID = streamingLogicConfig.PlayerSectionGUID,
+                TrafficSectionGUID = streamingLogicConfig.TrafficSectionGUID,
             };
             state.Dependency = streamOut.Schedule(state.Dependency);
             state.Dependency = new BuildCommandBufferJob

@@ -1,8 +1,9 @@
+using System;
 using Cinemachine;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace Unity.MegaCity.CameraManagement
+namespace Unity.Megacity.CameraManagement
 {
     /// <summary>
     /// Create camera target authoring component in order to
@@ -10,45 +11,67 @@ namespace Unity.MegaCity.CameraManagement
     /// </summary>
     public class HybridCameraManager : MonoBehaviour
     {
-        public enum CameraTargetMode
+        private enum CameraTargetMode
         {
             None,
             FollowPlayer,
             DollyTrack
         }
-        public CameraTargetMode m_CameraTargetMode;
-
+        
         [SerializeField]
         private float m_TargetFollowDamping = 5.0f;
         [SerializeField]
         private Transform m_PlayerCameraTarget;
         [SerializeField]
         private Transform m_DollyCameraTarget;
-        [SerializeField]
-        private CinemachineImpulseSource m_ImpulseSource;
-        [SerializeField]
+        [SerializeField] 
+        private GameObject m_AutopilotCamera;
+        private CameraTargetMode m_CameraTargetMode;
+        public bool IsDollyCamera => m_CameraTargetMode == CameraTargetMode.DollyTrack;
+        public bool IsFollowCamera => m_CameraTargetMode == CameraTargetMode.FollowPlayer;
+        
         private PostProcessingBloomModifier m_Bloom;
-        [SerializeField]
-        private PostProcessingVignetteModifier m_Vignette;
-        [SerializeField]
         private DeadScreenFX m_DeadScreenFX;
-        [SerializeField]
-        private PostProcessingGlitch m_Glitch;
+        private CinemachineImpulseSource m_ImpulseSource;
+        public bool IsCameraReady { private set; get; }
 
         public static HybridCameraManager Instance;
-
+    
         private void Awake()
         {
             if (Instance != null)
-                Destroy(Instance);
+            {
+                IsCameraReady = false;
+                Destroy(gameObject);
+            }
             else
+            {
                 Instance = this;
+            }
+        }
+
+        private void Start()
+        {
+            m_Bloom = FindObjectOfType<PostProcessingBloomModifier>();
+            m_DeadScreenFX = FindObjectOfType<DeadScreenFX>();
+            m_ImpulseSource = FindObjectOfType<CinemachineImpulseSource>();
+        }
+
+        public void SetDollyCamera()
+        {
+            m_CameraTargetMode = CameraTargetMode.DollyTrack;
+            m_AutopilotCamera.gameObject.SetActive(true);
+        }
+        
+        public void SetFollowCamera()
+        {
+            m_CameraTargetMode = CameraTargetMode.FollowPlayer;
+            m_AutopilotCamera.gameObject.SetActive(false);
         }
 
         public void SetPlayerCameraPosition(float3 position, float deltaTime)
         {
-            m_PlayerCameraTarget.position =
-                math.lerp(m_PlayerCameraTarget.position, position, deltaTime * m_TargetFollowDamping);
+            m_PlayerCameraTarget.position = math.lerp(m_PlayerCameraTarget.position, position, deltaTime * m_TargetFollowDamping);
         }
 
         public void SetPlayerCameraRotation(quaternion rotation, float deltaTime)
@@ -89,15 +112,18 @@ namespace Unity.MegaCity.CameraManagement
             if (m_DeadScreenFX.IsRunning)
                 m_DeadScreenFX.StopGeneratingEffect();
         }
-
-        public void IncreaseVignette(bool value)
+        
+        public void Reset()
         {
-            m_Vignette.IncreaseVignette(value);
+            IsCameraReady = false;
+            m_AutopilotCamera.gameObject.SetActive(false);
+            m_CameraTargetMode = CameraTargetMode.None;
         }
 
-        public void EnableGlitch(bool value)
+        public void PlaceCamera(float3 position)
         {
-            m_Glitch.SetGlitchEnabled(value);
+            m_PlayerCameraTarget.position = position;
+            IsCameraReady = true;
         }
     }
 }

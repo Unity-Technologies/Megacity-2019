@@ -1,6 +1,6 @@
 ﻿using Unity.Entities;
 
-namespace Unity.MegaCity.Audio
+namespace Unity.Megacity.Audio
 {
     public struct TreeDataCollected : ICleanupComponentData { }
 }

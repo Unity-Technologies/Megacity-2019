@@ -1,43 +1,61 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Unity.MegaCity.Gameplay;
-using Unity.MegaCity.Traffic;
+using Unity.Megacity.Gameplay;
+using Unity.Megacity.UI;
+using Unity.NetCode.Extensions;
 using Unity.Services.Samples;
 using Unity.Services.Samples.GameServerHosting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-namespace Unity.MegaCity.UI
+namespace Unity.Megacity.UGS
 {
     /// <summary>
-    /// Matchmaking UI element
+    /// Matchmaking Manager
     /// </summary>
-    [Serializable]
-    public class MatchMakingConnector
+    public class MatchMakingConnector : MonoBehaviour
     {
-        private MultiplayerServerSettings m_ServerSettings;
-        private DropdownField m_MultiplayerServerDropdownMenu;
-        private Label m_ConnectionStatusLabel;
-        private string m_DefaultName;
-        private MatchMakingLoadingBar m_MatchMakingLoadingBar;
-        public bool IsTryingToConnect { get; private set; } = false;
-        [field: SerializeField] public string IP { get; private set; } = "127.0.0.1";
-        [field: SerializeField] public ushort Port { get; private set; } = NetCodeBootstrap.MegaCityServerIp.Port;
-
-        private TextField m_MultiplayerTextField;
         public bool ClientIsInGame { get; set; }
+        public bool IsTryingToConnect { get; private set; }
+        [SerializeField]
+        private PlayerInfoItemSettings m_Settings;
+        [field: SerializeField] public string IP { get; private set; } = "127.0.0.1";
+        [field: SerializeField] public ushort Port { get; private set; } = NetCodeBootstrap.MegacityServerIp.Port;
+        
         private ClientMatchmaker m_Matchmaker;
         private PlayerAuthentication m_ProfileService;
+        public static MatchMakingConnector Instance { get; private set; }
 
-        public string DefaultName => m_DefaultName;
-
-        public MatchMakingConnector(MultiplayerServerSettings ServerSettings)
+        private async void Awake()
         {
-            m_ServerSettings = ServerSettings;
-            m_DefaultName = Environment.UserName.ToUpper();
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+                return;
+            }
+            
+            // Get name from BotNameGenerator to use as default name
+            m_Settings.PlayerName = BotNameGenerator.GetRandomName();
+            // Check if the project is linked to a project ID
+            if (string.IsNullOrEmpty(Application.cloudProjectId))
+            {
+                Debug.LogWarning($"To use Unity's dashboard services, " +
+                                 "you need to link your Unity project to a project ID. " +
+                                 "To do this, go to Project Settings to select your organization, " +
+                                 "select your project and then link a project ID. " +
+                                 "You also need to make sure your organization has access to the required products. " +
+                                 "Visit https://dashboard.unity3d.com to sign up.");
+            }
+            else
+            {
+                await Init();
+            }
         }
 
-        public async Task Init()
+        private async Task Init()
         {
             IsTryingToConnect = false;
             ClientIsInGame = false;
@@ -47,7 +65,7 @@ namespace Unity.MegaCity.UI
             #region ServiceSignin
 
             m_ProfileService = new PlayerAuthentication();
-            await m_ProfileService.SignIn(m_DefaultName);
+            await m_ProfileService.SignIn(m_Settings.PlayerName);
             m_Matchmaker = new ClientMatchmaker();
 
             #endregion
@@ -56,7 +74,7 @@ namespace Unity.MegaCity.UI
         public async Task Matchmake()
         {
             Debug.Log("Beginning Matchmaking.");
-            m_ConnectionStatusLabel.text = "Beginning Matchmaking.";
+            MatchMakingUI.Instance.UpdateConnectionStatus("Beginning Matchmaking.");
 
             if (string.IsNullOrEmpty(Application.cloudProjectId))
             {
@@ -76,78 +94,39 @@ namespace Unity.MegaCity.UI
                 {
                     IP = matchmakingResult.ip;
                     Port = (ushort) matchmakingResult.port;
-                    m_ConnectionStatusLabel.text = "[Matchmaker] Matchmaking Success!";
+                    MatchMakingUI.Instance.UpdateConnectionStatus("[Matchmaker] Matchmaking Success!");
                     Debug.Log($"[Matchmaker] Matchmaking Success! Connecting to {IP} : {Port}");
                     await Task.Delay(5000); // Give the server a second to process before connecting
                     ConnectToServer();
                 }
                 else
                 {
-                    m_ConnectionStatusLabel.text =
-                        $"[Matchmaker] {matchmakingResult.result}] - {matchmakingResult.resultMessage}";
+                    MatchMakingUI.Instance.UpdateConnectionStatus($"[Matchmaker] {matchmakingResult.result}] - {matchmakingResult.resultMessage}");
                     Debug.LogError($"[Matchmaker] {matchmakingResult.result}] - {matchmakingResult.resultMessage}");
                 }
             }
             catch (Exception ex)
             {
                 Debug.LogError($"[Matchmaker] Error Matchmaking: {ex}");
-                m_ConnectionStatusLabel.text = $"[Matchmaker] Error Matchmaking: {ex}";
+                MatchMakingUI.Instance.UpdateConnectionStatus($"[Matchmaker] Error Matchmaking: {ex}");
             }
         }
 
-        public void Dispose()
+        public void OnDisable()
         {
             m_Matchmaker?.Dispose();
         }
 
-        public void InitUI(VisualElement container)
+        public void SetProfileServiceName(string newValue)
         {
-            m_ConnectionStatusLabel = container.Q<Label>("connection-label");
-            m_MatchMakingLoadingBar = new MatchMakingLoadingBar(container);
-            m_MultiplayerTextField = container.Q<TextField>("multiplayer-server-textfield");
-            m_MultiplayerServerDropdownMenu = container.Q<DropdownField>("multiplayer-server-location");
-            m_MultiplayerServerDropdownMenu.choices = m_ServerSettings.GetUIChoices();
-            m_MultiplayerServerDropdownMenu.RegisterValueChangedCallback(OnServerDropDownChanged);
-
-            m_MultiplayerTextField.RegisterValueChangedCallback(newStringEvent =>
-            {
-                UpdatePortAndIP(newStringEvent.newValue);
-            });
-        }
-
-        private void OnServerDropDownChanged(ChangeEvent<string> value)
-        {
-            m_MultiplayerTextField.value = m_ServerSettings.GetIPByName(value.newValue);
-            UpdatePortAndIP(m_MultiplayerTextField.value);
-        }
-
-        private void UpdatePortAndIP(string newStringEvent)
-        {
-            var ipSplit = newStringEvent.Split(":");
-            if (ipSplit.Length < 2)
-                return;
-
-            IP = ipSplit[0];
-            var portString = ipSplit[1];
-            if (!ushort.TryParse(portString, out var portShort))
-                return;
-            Port = portShort;
-        }
-
-        public void SetUIConnectionStatusEnable(bool matchmaking)
-        {
-            m_MatchMakingLoadingBar.Enable(matchmaking);
-            m_ConnectionStatusLabel.style.display = matchmaking ? DisplayStyle.Flex : DisplayStyle.None;
-        }
-
-        public void SetProfileServeName(string newValue)
-        {
-            m_ProfileService.LocalPlayer.SetName(newValue);
+            m_Settings.PlayerName = newValue;
+            if(m_ProfileService != null && m_ProfileService.LocalPlayer != null)
+                m_ProfileService.LocalPlayer.SetName(newValue);
         }
 
         public void UpdateConnectionStatusLabel()
         {
-            m_ConnectionStatusLabel.text = "Attempting to Connect...";
+            MatchMakingUI.Instance.UpdateConnectionStatus("Attempting to Connect...");
             Debug.Log($"Attempting to Connect to {IP}:{Port}.");
             IsTryingToConnect = true;
         }
@@ -155,7 +134,7 @@ namespace Unity.MegaCity.UI
         public void ConnectionSucceeded()
         {
             ClientIsInGame = true;
-            m_ConnectionStatusLabel.text = "Connected to Server...";
+            MatchMakingUI.Instance.UpdateConnectionStatus("Connected to Server...");
             Debug.Log("Connected to Server...");
             IsTryingToConnect = false;
         }
@@ -168,17 +147,16 @@ namespace Unity.MegaCity.UI
 
         public void ConnectToServer()
         {
+            ServerConnectionUtils.RequestConnection(IP,Port);
             if (ClientIsInGame)
                 return;
             UpdateConnectionStatusLabel();
         }
 
-        public void SetConnectionMode(bool isMatchMaking)
+        public void SetIPAndPort(string ip, ushort port)
         {
-            m_MultiplayerTextField.style.display = isMatchMaking ? DisplayStyle.None : DisplayStyle.Flex;
-            m_MultiplayerServerDropdownMenu.style.display = isMatchMaking ? DisplayStyle.None : DisplayStyle.Flex;
-            m_MultiplayerServerDropdownMenu.value = m_MultiplayerServerDropdownMenu.choices[0];
-            UpdatePortAndIP(m_ServerSettings.GetIPByName(m_MultiplayerServerDropdownMenu.value));
+            IP = ip;
+            Port = port;
         }
     }
 }

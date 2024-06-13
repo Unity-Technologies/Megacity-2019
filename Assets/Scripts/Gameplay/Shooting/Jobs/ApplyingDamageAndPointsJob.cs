@@ -4,7 +4,7 @@ using Unity.Entities;
 using Unity.NetCode;
 using Unity.NetCode.Extensions;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Job to apply damage and points to the target.
@@ -26,7 +26,7 @@ namespace Unity.MegaCity.Gameplay
         [BurstCompile]
         private void Execute(Entity entity, in VehicleLaser laser, in Simulate simulate)
         {
-            if (laser.Target != Entity.Null)
+            if (laser.Target != Entity.Null && laser.Target != entity)
             {
                 var health = healthLookup[laser.Target];
                 var immunity = immunityLookup[laser.Target];

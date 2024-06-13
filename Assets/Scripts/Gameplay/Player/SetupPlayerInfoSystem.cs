@@ -5,7 +5,7 @@ using Unity.NetCode;
 using Unity.Services.Samples;
 using static Unity.Entities.SystemAPI;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     public struct SetPlayerInfoRequest : IRpcCommand
     {
@@ -40,7 +40,7 @@ namespace Unity.MegaCity.Gameplay
                 var requestEntity = commandBuffer.CreateEntity();
                 var requestData = new SetPlayerInfoRequest
                 {
-                    Name = PlayerInfoController.Instance.Name,
+                    Name = PlayerInfoController.Instance.PlayerName,
                     //This returns [True] if the requester is not a Thin Client
                     IsClient = !state.World.IsThinClient(),
 

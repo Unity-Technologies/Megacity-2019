@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Cinemachine;
 using Unity.Mathematics;
 
-namespace Unity.MegaCity.CameraManagement
+namespace Unity.Megacity.CameraManagement
 {
     /// <summary>
     /// Move the dolly cart on the defined track to allow the player car to drive in autopilot mode
@@ -44,6 +45,14 @@ namespace Unity.MegaCity.CameraManagement
         {
             m_Path = GetComponent<CinemachineSmoothPath>();
             m_DollyCart.m_Speed = 0;
+            m_DollyCart.m_Position = 0;
+        }
+
+        private void OnEnable()
+        {
+            // Reset the dolly cart position and speed
+            m_DollyCart.m_Speed = 0;
+            m_DollyCart.m_Position = 0;
         }
 
         private void StartAcceleration()

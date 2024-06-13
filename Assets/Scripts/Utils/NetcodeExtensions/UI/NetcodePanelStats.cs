@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.UIElements.Experimental;
@@ -10,6 +9,7 @@ namespace Unity.NetCode
     /// </summary>
     public class NetcodePanelStats : MonoBehaviour
     {
+        private NetcodeConnectionMonitor m_Monitor;
         private Button m_BackButton;
         private VisualElement m_BackIcon;
         private VisualElement m_InfoPanel;
@@ -26,6 +26,8 @@ namespace Unity.NetCode
         private bool m_IsRunning;
 
         public static NetcodePanelStats Instance { private set; get; }
+        public NetcodeConnectionMonitor Monitor => m_Monitor;
+        public bool IsMonitorEnable => m_Monitor != null;
         public bool IsRunning => m_IsRunning;
         private float PanelHeight => m_InfoPanel.layout.height + 10f;
 
@@ -41,15 +43,7 @@ namespace Unity.NetCode
             }
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                Toggle();
-            }
-        }
-
-        private void Toggle()
+        public void ToggleNetcodePanel()
         {
             if (m_PanelHidden)
                 ShowPanel();
@@ -59,6 +53,7 @@ namespace Unity.NetCode
 
         private void OnEnable()
         {
+            m_Monitor = FindObjectOfType<NetcodeConnectionMonitor>();
             var root = GetComponent<UIDocument>().rootVisualElement;
             m_Main = root.Q<VisualElement>("info-panel");
             m_InfoPanel = root.Q<VisualElement>("info-panel-body");
@@ -71,7 +66,15 @@ namespace Unity.NetCode
             m_GhostsLabel = root.Q<Label>("ghosts-value");
             m_SystemsLabel = root.Q<Label>("systems-value");
             m_BackIcon = root.Q<VisualElement>("back-icon");
-            m_BackButton.clicked += Toggle;
+            m_BackButton.clicked += ToggleNetcodePanel;
+            
+            m_InfoPanel.RegisterCallback<GeometryChangedEvent>(OnGeometryChanged);
+        }
+
+        private void OnGeometryChanged(GeometryChangedEvent evt)
+        {
+            // Hide panel by default
+            HidePanel();
         }
 
         private void HidePanel()
@@ -93,8 +96,6 @@ namespace Unity.NetCode
             if(m_Main.style.display != DisplayStyle.Flex)
                 m_Main.style.display = DisplayStyle.Flex;
             m_IsRunning = true;
-            if(!Application.isEditor)
-                HidePanel();
         }
 
         public void Disable()

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 
-namespace Unity.MegaCity.CameraManagement
+namespace Unity.Megacity.CameraManagement
 {
     /// <summary>
     /// Post Processing Bloom Modifier
@@ -15,8 +15,7 @@ namespace Unity.MegaCity.CameraManagement
             PingPongAnimation,
             ExitingAnimation
         }
-        [SerializeField]
-        private Volume m_Volume;
+
         [SerializeField]
         private Color m_Color;
         [SerializeField]
@@ -34,7 +33,8 @@ namespace Unity.MegaCity.CameraManagement
 
         private void Awake()
         {
-            var profile = m_Volume.sharedProfile;
+            var assetProfile = GetComponent<Volume>();
+            var profile = assetProfile.sharedProfile;
             if (!profile.TryGet(out m_CurrentBloom))
                 m_CurrentBloom = profile.Add<Bloom>(false);
 

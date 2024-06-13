@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityObject = UnityEngine.Object;
 
-namespace Unity.MegaCity.Utils
+namespace Unity.Megacity.Utils
 {
     /// <summary>
     /// Creates a collection of UnityObject such as Textures in this case.

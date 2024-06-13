@@ -2,7 +2,7 @@
 using Unity.Entities;
 using Unity.Transforms;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// System to handle the player vehicle cosmetic physics.

@@ -27,6 +27,9 @@ namespace Unity.Pool
 
         public void UpdateSmokeRate(int health)
         {
+            if (m_VisualEffect == null || !m_VisualEffect.HasInt("SpawnRate"))
+                return;
+            
             m_VisualEffect.SetInt("SpawnRate", MaxSpawnRate - health);
         }
     }

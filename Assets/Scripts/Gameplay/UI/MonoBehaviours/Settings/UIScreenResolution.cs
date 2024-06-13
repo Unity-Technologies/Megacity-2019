@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Unity.MegaCity.UI
+namespace Unity.Megacity.UI
 {
     /// <summary>
     /// UI element for switching between screen resolutions
@@ -29,10 +29,12 @@ namespace Unity.MegaCity.UI
 
         public int CurrentResolutionIndex => currentResolutionIndex;
 
-        private void Awake()
+        private void Start()
         {
+            // Ignore this script if we're on mobile
+#if !(UNITY_ANDROID || UNITY_IPHONE)
             // Get the screen's aspect ratio
-            var screenAspectRatio = (float) Screen.width / (float) Screen.height;
+            var screenAspectRatio = Screen.width / (float) Screen.height;
 
             // Find the best resolution based on the screen's aspect ratio
             var bestAspectRatioDifference = float.MaxValue;
@@ -40,7 +42,7 @@ namespace Unity.MegaCity.UI
             for (int i = 0; i < resolutions.Count; i++)
             {
                 var resolution = resolutions[i];
-                var resolutionAspectRatio = (float) resolution.width / (float) resolution.height;
+                var resolutionAspectRatio = resolution.width / (float) resolution.height;
                 var aspectRatioDifference = Mathf.Abs(screenAspectRatio - resolutionAspectRatio);
 
                 if (aspectRatioDifference < bestAspectRatioDifference)
@@ -51,6 +53,7 @@ namespace Unity.MegaCity.UI
             }
 
             SetResolution(CurrentResolutionIndex);
+#endif
         }
 
         public void NextResolution()
@@ -67,7 +70,7 @@ namespace Unity.MegaCity.UI
 
         public void SetResolution(string value, out bool isFullscreen)
         {
-            for (int i = 0; i < resolutions.Count; i++)
+            for (var i = 0; i < resolutions.Count; i++)
             {
                 if (resolutions[i].ToString().Contains(value))
                     SetResolution(i);
@@ -105,9 +108,8 @@ namespace Unity.MegaCity.UI
         public List<string> GetResolutionOptions()
         {
             var value = new List<string>();
-            for (int i = 0; i < resolutions.Count; i++)
+            foreach (var resolution in resolutions)
             {
-                var resolution = resolutions[i];
                 value.Add($"{resolution}");
             }
 
@@ -116,9 +118,11 @@ namespace Unity.MegaCity.UI
 
         public List<string> GetResolutionModes()
         {
-            var value = new List<string>();
-            value.Add($"{FullScreenMode.Windowed}");
-            value.Add($"{FullScreenMode.FullScreenWindow}");
+            var value = new List<string>
+            {
+                $"{FullScreenMode.Windowed}",
+                $"{FullScreenMode.FullScreenWindow}"
+            };
 
             return value;
         }

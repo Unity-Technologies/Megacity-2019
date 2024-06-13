@@ -15,4 +15,4 @@ MonoBehaviour:
   FilterSettings:
     ExcludedBakingSystemAssemblies: []
   AdditionalScriptingDefines: []
-  ClientTarget: 0
+  ClientTarget: 1

@@ -1,7 +1,8 @@
 ﻿using Unity.Entities;
-using Unity.MegaCity.CameraManagement;
-using Unity.MegaCity.Gameplay;
-using Unity.MegaCity.UI;
+using Unity.Megacity.Audio;
+using Unity.Megacity.CameraManagement;
+using Unity.Megacity.Gameplay;
+using Unity.Megacity.UI;
 using Unity.NetCode;
 
 namespace Unity.Megacity.Gameplay
@@ -38,6 +39,7 @@ namespace Unity.Megacity.Gameplay
 
                     // Start showing death message in UI
                     HUD.Instance.ShowDeathMessage(playerScore.ValueRO.KillerName.ToString());
+                    PlayerSounds.Instance.PlayDeathSound();
                 }
 
                 m_PreviousLife = health.ValueRO.Value;

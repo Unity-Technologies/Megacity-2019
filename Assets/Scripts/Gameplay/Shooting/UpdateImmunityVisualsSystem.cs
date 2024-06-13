@@ -4,7 +4,7 @@ using Unity.NetCode;
 using Unity.Transforms;
 using static Unity.Entities.SystemAPI;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Handles immunity state changes on the client and updates the shield visuals
@@ -16,7 +16,7 @@ namespace Unity.MegaCity.Gameplay
     {
         public void OnUpdate(ref SystemState state)
         {
-            if(ShieldPool.Instance == null || state.World.IsServer())
+            if(ShieldPool.Instance == null)
                 return;
 
             foreach (var (immunity, localToWorld, entity) in

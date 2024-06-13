@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 #endif
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Manages the laser pool
@@ -15,23 +15,20 @@ namespace Unity.MegaCity.Gameplay
     {
         public static LaserPool Instance;
 
-        [Header("Laser Renderer")] [SerializeField]
-        private GameObject Renderer;
-
-        [Header("Particle Systems")] [SerializeField]
-        private GameObject LaserBeam;
+        [Header("Laser Renderer")] 
+        [SerializeField] private GameObject Renderer;
+        [Header("Particle Systems")] 
+        [SerializeField] private GameObject LaserBeam;
 
         [SerializeField] private GameObject LaserHit;
-
         [SerializeField] private float m_Speed = 25f;
-
         [SerializeField] private float m_MaxDistanceFactorPerSpeed = 25f;
-
         [SerializeField] private int m_MaxPlayers = 256;
 
         private LineRenderer[] m_LaserPool;
         private ParticleSystem[] m_LaserBeamPool;
         private ParticleSystem[] m_LaserHitPool;
+        private AudioSource[] m_LaserBeamAudioPool;
 
         private int m_ActiveLines;
         private int m_PrevActiveLines;
@@ -54,6 +51,12 @@ namespace Unity.MegaCity.Gameplay
                 m_LaserPool[i].enabled = true;
                 m_LaserBeamPool[i].Play(true);
                 m_LaserHitPool[i].Play(true);
+                if (!m_LaserBeamAudioPool[i].isPlaying)
+                {
+                    m_LaserBeamAudioPool[i].pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+                    m_LaserBeamAudioPool[i].volume = UnityEngine.Random.Range(0.9f , 1f);
+                    m_LaserBeamAudioPool[i].Play();
+                }
             }
 
             for (var i = m_ActiveLines; i < m_PrevActiveLines; ++i)
@@ -61,6 +64,8 @@ namespace Unity.MegaCity.Gameplay
                 m_LaserPool[i].enabled = false;
                 m_LaserBeamPool[i].Stop(true);
                 m_LaserHitPool[i].Stop(true);
+                if(m_LaserBeamAudioPool[i].isPlaying)
+                    m_LaserBeamAudioPool[i].Stop();
             }
         }
 
@@ -92,7 +97,7 @@ namespace Unity.MegaCity.Gameplay
             var newPos = math.lerp(m_LaserBeamPool[m_ActiveLines].transform.position, start, speed);
             var rotation = Quaternion.Lerp(m_LaserBeamPool[m_ActiveLines].transform.rotation, Quaternion.LookRotation(end - start), speed);
             m_LaserBeamPool[m_ActiveLines].transform.SetPositionAndRotation(newPos, rotation);
-
+            
             var endPos = math.lerp(m_LaserHitPool[m_ActiveLines].transform.position, end, speed);
             m_LaserHitPool[m_ActiveLines].transform.position = endPos;
             m_ActiveLines++;
@@ -136,7 +141,8 @@ namespace Unity.MegaCity.Gameplay
             m_LaserPool = new LineRenderer[m_MaxPlayers];
             m_LaserBeamPool = new ParticleSystem[m_MaxPlayers];
             m_LaserHitPool = new ParticleSystem[m_MaxPlayers];
-
+            m_LaserBeamAudioPool = new AudioSource[m_MaxPlayers];
+            
             // Allocate initial pools
             for (var i = 0; i < m_MaxPlayers; ++i)
             {
@@ -157,6 +163,9 @@ namespace Unity.MegaCity.Gameplay
             m_LaserBeamPool[index] = laserBeam.GetComponent<ParticleSystem>();
             m_LaserBeamPool[index].Pause(true);
             laserBeam.SetActive(true);
+
+            var laserAudioSource = laserBeam.GetComponent<AudioSource>();
+            m_LaserBeamAudioPool[index] = laserAudioSource;
 
             SceneManager.MoveGameObjectToScene(laserBeam, AdditiveScene);
 

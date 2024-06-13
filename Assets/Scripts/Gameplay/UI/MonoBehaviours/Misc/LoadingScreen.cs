@@ -1,23 +1,23 @@
-﻿using Unity.Mathematics;
+﻿using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.UIElements.Experimental;
 
-namespace Unity.MegaCity.UI
+namespace Unity.Megacity.UI
 {
     /// <summary>
     /// Reads the progress value from GameLoadInfo singleton and update the loading progress bar accordingly
     /// </summary>
     public class LoadingScreen : MonoBehaviour
     {
-        private VisualElement m_MainMenu;
+        public static LoadingScreen Instance { get; private set; }
+        
+        [HideInInspector] public bool IsVisible;
+
         private VisualElement m_LoadingScreen;
         private ProgressBar m_ProgressBar;
-
-        public static LoadingScreen Instance
-        {
-            get;
-            private set;
-        }
+        private bool m_InTransition;
 
         private void Awake()
         {
@@ -35,7 +35,6 @@ namespace Unity.MegaCity.UI
         private void SetUpUI()
         {
             var root = GetComponent<UIDocument>().rootVisualElement;
-            m_MainMenu = root.Q<VisualElement>("visual-menu");
             m_LoadingScreen = root.Q<VisualElement>("loading-screen");
             m_ProgressBar = root.Q<ProgressBar>("progressbar");
         }
@@ -47,14 +46,27 @@ namespace Unity.MegaCity.UI
 
         public void Show()
         {
-            m_MainMenu.style.display = DisplayStyle.None;
+            // Reset progress
+            m_ProgressBar.value = 0;
             m_LoadingScreen.style.display = DisplayStyle.Flex;
+            m_LoadingScreen.style.opacity = 1;
+            IsVisible = true;
         }
 
         public void Hide()
         {
-            m_MainMenu.style.display = DisplayStyle.Flex;
+            if (m_InTransition)
+                return;
+            StartCoroutine(DelayedHide());
+        }
+
+        private IEnumerator DelayedHide()
+        {
+            m_InTransition = true;
+            yield return new WaitForSeconds(1.5f);
             m_LoadingScreen.style.display = DisplayStyle.None;
+            m_InTransition = false;
+            IsVisible = false;
         }
     }
 }

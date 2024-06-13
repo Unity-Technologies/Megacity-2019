@@ -1,6 +1,6 @@
 ﻿using Unity.Entities;
-using Unity.MegaCity.Gameplay;
-using Unity.MegaCity.UI;
+using Unity.Megacity.Gameplay;
+using Unity.Megacity.UI;
 using Unity.NetCode;
 using static Unity.Entities.SystemAPI;
 

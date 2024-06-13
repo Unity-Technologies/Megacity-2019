@@ -1,5 +1,5 @@
 {
-    "name": "Unity.MegaCity.Components",
+    "name": "Unity.Megacity.Components",
     "rootNamespace": "",
     "references": [
         "Unity.Mathematics",
@@ -22,7 +22,6 @@
         "Unity.Netcode.Extensions",
         "Unity.Pooling",
         "Kino.Postprocessing",
-        "Unity.Services.Samples.DGS",
         "Unity.Services.Vivox",
         "Unity.Services.Core",
         "VivoxUnity"

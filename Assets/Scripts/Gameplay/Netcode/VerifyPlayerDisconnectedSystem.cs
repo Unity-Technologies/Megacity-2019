@@ -5,7 +5,7 @@ using Unity.NetCode.Extensions;
 using Unity.Services.Samples.GameServerHosting;
 using static Unity.Entities.SystemAPI;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// Verify if a player has been disconnected from the game.

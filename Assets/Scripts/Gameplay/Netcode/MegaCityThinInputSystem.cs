@@ -5,16 +5,16 @@ using Unity.Entities;
 using Unity.Mathematics;
 using Unity.NetCode;
 
-namespace Unity.MegaCity.Gameplay
+namespace Unity.Megacity.Gameplay
 {
     /// <summary>
     /// System to handle input for the thin client
     /// </summary>
     [UpdateInGroup(typeof(GhostInputSystemGroup))]
     [WorldSystemFilter(WorldSystemFilterFlags.ThinClientSimulation)]
-    public partial struct MegaCityThinInputSystem : ISystem
+    public partial struct MegacityThinInputSystem : ISystem
     {
-        private NativeReference<Unity.Mathematics.Random> m_Rand;
+        private NativeReference<Random> m_Rand;
 
         public void OnCreate(ref SystemState state)
         {
@@ -45,11 +45,11 @@ namespace Unity.MegaCity.Gameplay
 
                 var connectionId = SystemAPI.GetSingleton<NetworkId>().Value;
 
-                state.EntityManager.SetName(inputEntity, $"{nameof(MegaCityThinInputSystem)}-RandInput");
+                state.EntityManager.SetName(inputEntity, $"{nameof(MegacityThinInputSystem)}-RandInput");
                 state.EntityManager.AddComponent<PlayerVehicleInput>(inputEntity);
                 // NOTE: The buffer type might not be recognized in your IDE but it will be generated and Unity will recognize it.
                 // TODO : verify this buffer
-                //state.EntityManager.AddBuffer<Unity.MegaCity.Gameplay.Generated.PlayerVehicleInputInputBufferData>(inputEntity);
+                //state.EntityManager.AddBuffer<Unity.Megacity.Gameplay.Generated.PlayerVehicleInputInputBufferData>(inputEntity);
 
                 state.EntityManager.AddComponentData(inputEntity, new GhostOwner { NetworkId = connectionId });
 
@@ -72,8 +72,7 @@ namespace Unity.MegaCity.Gameplay
                 input.Brake = rand.NextInt() < 0.1f ? 1 : 0;
 
                 // Roll:
-                input.LeftRoll = rand.NextInt() < 0.1f ? 1 : 0;
-                input.RightRoll = input.LeftRoll <= 0f && rand.NextInt() < 0.1f ? 1 : 0;
+                input.Roll = rand.NextFloat(-1f, 1f);
 
                 // Shooting:
                 input.Shoot = rand.NextInt() < 0.3f;
